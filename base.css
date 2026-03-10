@@ -21,8 +21,8 @@
   --default-font: system-ui, -apple-system, Segoe UI, Roboto, BlinkMacSystemFont, "SF Pro Display", "Inter", "Elza", "Helvetica Neue", Arial, sans-serif;
   --mono-font: "Inconsolata",'Courier New', Courier, monospace;
 
-  --navsize: clamp(14.5px, calc(13.5px + 0.22vw), 17.5px);
-  --smalltext: clamp(11px, calc(10.5px + 0.12vw), 12.5px);
+  --navsize: clamp(14.5px, calc(13.5px + 0.22vw), 18px);
+  --smalltext: clamp(11px, calc(10.5px + 0.12vw), 13px);
 
   --h1: clamp(27.5px, calc(25.5px + 0.5vw), 33.5px);
   --h2: clamp(22.5px, calc(20.5px + 0.36vw), 27.5px);
@@ -419,7 +419,7 @@ img, video { width: 100%; border-radius: 6px;}
   position: relative;
 
   font-size: var(--navsize);
-  color: var(--grey);
+  color: #8888886a;
   text-decoration: none;
   
   padding: 3px 0;
@@ -551,6 +551,13 @@ footer {
 
 
 
+
+@media (max-width: 1920px) { 
+  :root {
+    --navsize: 17px;
+
+  }
+}
 
 @media (max-width: 1800px) { 
   :root {
