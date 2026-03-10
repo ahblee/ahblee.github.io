@@ -359,24 +359,24 @@ img, video { width: 100%; border-radius: 6px;}
 /* ====== Side-Navigation ====== */
 
 .sidebar-logo { 
-  max-width: 18px; 
-  max-height: 18px; 
+  max-width: 20px; 
+  max-height: 20px; 
   border-radius: 0;
   transition: 200ms ease-in;
 }
 .sidebar a.logo {
   max-width: none;
   max-height: none;
-  width: 42px;
-  height: 42px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-self: flex-start;
-  margin-left: -10px;
-  margin-top: -10px;
+  margin-left: -12px;
+  margin-top: -6px;
   padding-left: 0;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 6px;
   transition: background-color 200ms ease, transform 200ms ease;
   transition: border-color 0.4s ease;
 }
@@ -426,7 +426,7 @@ img, video { width: 100%; border-radius: 6px;}
   border-radius: 6px;
 } 
 .sidebar nav {
-  padding-top: 84px;
+  padding-top: 24px;
 }
 .sidebar .links a::after {
   content: '↗';
@@ -515,8 +515,11 @@ hr {
 .gap72 { gap: calc(var(--gutter)*3); }
 
 
-
-/* ====== Footer ====== */
+/* ====== Marquee (Archive / Footer) ====== */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
 
 footer {
   position: relative;
@@ -532,7 +535,7 @@ footer {
 .footer-marquee-track {
   display: inline-flex;
   gap: 12px;
-  animation: footerMarquee 30s linear infinite;
+  animation:marquee 30s linear infinite;
   animation-play-state: paused;
   font-family: var(--mono-font);
   font-size: var(--fs-11);
@@ -541,10 +544,6 @@ footer {
 }
 .footer-marquee.is-active .footer-marquee-track {
   animation-play-state: running;
-}
-@keyframes footerMarquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
 }
 
 
@@ -558,6 +557,7 @@ footer {
 }
 
 @media (max-width: 1800px) { 
+
   :root {
 
       --navsize: clamp(12px, calc(11.5px + 0.14vw), 14px);
@@ -580,19 +580,28 @@ footer {
       --content-width: 712px;
       --sidebar:144px;
   }
+
+  .sidebar nav {
+    padding-top: 84px;
+  }
+  .sidebar-logo { 
+    max-width: 18px; 
+    max-height: 18px; 
+    border-radius: 0;
+    transition: 200ms ease-in;
+  }
   .sidebar a.logo { 
-    width: 30px;
-    width: 30px;
+    width: 27px;
+    height: 27px;
   }
   .sidebar nav a, .sidebar .links a {
-    
-    padding: 3px 0;
-    margin-bottom: 3px;
-  } 
+
+  padding: 3px 0;
+  margin-bottom:3px;
+} 
   .sidebar nav a:hover, .sidebar nav a:focus,
-  .sidebar .links a:hover, .sidebar .links a:focus{ 
-    padding: 3px 12px;
-  }
+  .sidebar .links a:hover, .sidebar .links a:focus { padding: 3px 12px; }
+  
 }
 @media (max-width: 1440px) { 
   :root {
