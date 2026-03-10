@@ -4,13 +4,20 @@
 
   --handwritten: "Caveat", "Inconsolata", cursive;
 
-  --h1: clamp(24px, calc(22px + 0.9vw), 30px);
-  --h2: clamp(20px, calc(18px + 0.7vw), 25px);
+  --h1: clamp(28.5px, calc(25.5px + 1vw), 36.5px);
+  --h2: clamp(23.5px, calc(20.5px + 0.8vw), 30.5px);
 
   --mx: 50%;
   --my: 35%;
   --light-on: 0; /* 0..1 */
 
+}
+
+@media (max-width: 1800px) {
+  :root {
+    --h1: clamp(24px, calc(22px + 0.9vw), 30px);
+    --h2: clamp(20px, calc(18px + 0.7vw), 25px);
+  }
 }
 
 
@@ -300,7 +307,7 @@ h1 {
   overflow: hidden;
   margin: 18px 0;
   max-width: 100%;
-  height: 462px;
+  height: 620px;
   border-radius: 6px;
   background-color: var(--light-grey);
   display: flex;
@@ -332,6 +339,15 @@ h1 {
   transition: transform 250ms ease;
 }
 
+
+
+
+
+/* ── Tablet ── */
+@media (max-width: 1024px) {
+  .view-toggle { display: none;}
+}
+
 /* After toggle: GRID */
 #work.is-grid .work-list {
   display: grid;
@@ -349,7 +365,7 @@ h1 {
   letter-spacing: -.015rem;
 }
 #work.is-grid .work-cover { 
-  height: 360px; 
+  max-height: 406px; 
   margin: 12px 0 12px;
 }
 #work.is-grid .work-cover.is-animated img { 
@@ -1081,4 +1097,33 @@ body.lb-open { overflow: hidden; }
 .lb-hint span {
   opacity: .35;
   padding: 2.5px 12px;
+}
+
+
+
+/* MEDIA QUERIES */ 
+@media (max-width: 1800px) { 
+
+  .work-cover { height: 462px; }
+  #work.is-grid .work-cover { max-height: 320px; }
+  
+}
+@media (max-width: 1440px) { 
+
+  #work {  grid-column: 1 / -1;  }
+  
+}
+
+@media (max-width: 1200px) { 
+
+  .work-cover {
+    height: 340px;
+  }
+}
+
+@media (max-width: 768px) { 
+
+  .lead { max-width: 100%;}
+  .work-cover { height: 280px; }
+  
 }

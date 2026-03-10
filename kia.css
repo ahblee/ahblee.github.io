@@ -155,3 +155,46 @@ body.finals-only #test .tag {
   border: 1px solid #34C759;
 }
 
+
+
+/* ── Tablet ── */
+@media (max-width: 1200px) {
+  .cover {
+    height: 520px;
+    max-width: calc(100% + var(--outer-margin));
+    object-fit: cover;
+  }
+  .final-mockups { margin-top: -162px; }
+  .body.finals-only .iteration-row .card.final, body.finals-only .final-only { max-height: min-content;}
+
+}
+
+@media (max-width: 820px) { 
+
+  .iteration-row { flex-direction: column; gap: 6px;}
+  .arrow {rotate: 90deg;}
+  .final-only .flex { 
+    margin:0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .final-only {
+    padding-bottom: 24px;
+  }
+  .final-only .card-body {
+    margin-top: 0;
+  }
+  .final-only .card-img { 
+    transform:none;
+    max-width: 100%;
+  }
+  .stats{
+    flex-direction: column;
+    gap: 18px;
+  } .stats .card{ padding: 24px; }
+
+  
+}
+@media (max-width: 768px) { 
+}

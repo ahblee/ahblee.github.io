@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Angela Lee's Portfolio</title>
-  
+
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="index.css">
     <link rel="icon" href="img/favicon.png">
@@ -34,7 +34,6 @@
             <a href="mailto:angela001201@gmail.com" target="_blank">Email</a>
             <a href="https://www.linkedin.com/in/angela-hyebin-lee/" target="_blank">LinkedIn</a>
             <!-- <a href="https://drive.google.com/file/d/1RY5dkSZOFD-zNm8TcOfrkFaRviS67GVi/view?usp=sharing" target="_blank">Resume</a> -->
-            <a href="https://www.instagram.com/byhyebin/" target="_blank">Instagram</a>
           </div>
             <p class="caption"> &#169; Angela Lee, 2025 </p>
         </div> 
@@ -107,7 +106,7 @@
                   <span class="tag">Experience Design</span>
                 </div>
 
-                <p class="caption">Lead Designer / 2024</p>
+                <p class="caption">Product Designer / 2024</p>
 
               </div>
 
@@ -135,7 +134,7 @@
                   <span class="tag">Content Strategy</span>
                 </div>
 
-                <p class="caption">Lead Designer / 2024</p>
+                <p class="caption">Product Designer / 2024</p>
 
               </div>
 
@@ -203,7 +202,7 @@
                 <span class="tag">Freelance</span>
                 <span class="tag">Graphic Design</span>
               </div>
-              <p class="caption">Visual Designer / ~ 2025</p>
+              <p class="caption">Graphic Designer / ~ 2025</p>
             </div>
 
             </div>
@@ -334,10 +333,7 @@
           <p class="eyebrow">PLAYGROUND</p>
 
           <p class="caption flex">
-            <!-- A little organized chaos 🎡 -->
-            A board of little things about me 🎡
-            <!-- An organized chaos of my Life 🎡 -->
-            <!-- Pieces of my life, loosely organized 🎡 -->
+            A peek into the organized chaos of my life 🎡
             <span class="hover-pill">Drag to explore</span>
           </p>
 
@@ -432,6 +428,8 @@
                 </ul>
               </div> -->
 
+            </div>
+          
           </div>
       
         </section>
@@ -1117,6 +1115,8 @@
           let boardStartY = 0;
           let boardVarX = 0;
           let boardVarY = 0;
+          let boardMaxX = 350;
+          let boardMaxY = 350;
 
           const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
           const setScale = (value) => {
@@ -1131,6 +1131,40 @@
             return parseFloat(value) || 0;
           };
 
+          const centerBoard = () => {
+            if (!items.length) return;
+            const boardRect = board.getBoundingClientRect();
+            let minX = Infinity;
+            let minY = Infinity;
+            let maxX = -Infinity;
+            let maxY = -Infinity;
+
+            items.forEach((item) => {
+              const rect = item.getBoundingClientRect();
+              const relLeft = rect.left - boardRect.left;
+              const relTop = rect.top - boardRect.top;
+              const relRight = rect.right - boardRect.left;
+              const relBottom = rect.bottom - boardRect.top;
+              minX = Math.min(minX, relLeft);
+              minY = Math.min(minY, relTop);
+              maxX = Math.max(maxX, relRight);
+              maxY = Math.max(maxY, relBottom);
+            });
+
+            if (!Number.isFinite(minX) || !Number.isFinite(minY)) return;
+
+            const contentCenterX = (minX + maxX) / 2;
+            const contentCenterY = (minY + maxY) / 2;
+            const targetCenterX = boardRect.width / 2;
+            const targetCenterY = boardRect.height / 2;
+            const deltaX = targetCenterX - contentCenterX;
+            const deltaY = targetCenterY - contentCenterY;
+            const currentX = getBoardVar('--board-x');
+            const currentY = getBoardVar('--board-y');
+            board.style.setProperty('--board-x', `${currentX + deltaX}px`);
+            board.style.setProperty('--board-y', `${currentY + deltaY}px`);
+          };
+
           const onBoardPointerDown = (event) => {
             if (event.button !== 0 && event.pointerType !== 'touch') return;
             if (event.target.closest('.board-item, .board-controls')) return;
@@ -1141,6 +1175,8 @@
             boardStartY = event.clientY;
             boardVarX = getBoardVar('--board-x');
             boardVarY = getBoardVar('--board-y');
+            boardMaxX = Math.max(350, Math.abs(boardVarX) + 350);
+            boardMaxY = Math.max(350, Math.abs(boardVarY) + 350);
           };
 
           const onBoardPointerMove = (event) => {
@@ -1148,11 +1184,8 @@
             const dx = (event.clientX - boardStartX) / boardScale;
             const dy = (event.clientY - boardStartY) / boardScale;
 
-            const maxX = 350;
-            const maxY = 350;
-
-            const newX = Math.max(-maxX, Math.min(maxX, boardVarX + dx));
-            const newY = Math.max(-maxY, Math.min(maxY, boardVarY + dy));
+            const newX = Math.max(-boardMaxX, Math.min(boardMaxX, boardVarX + dx));
+            const newY = Math.max(-boardMaxY, Math.min(boardMaxY, boardVarY + dy));
 
             board.style.setProperty('--board-x', `${newX}px`);
             board.style.setProperty('--board-y', `${newY}px`);
@@ -1183,6 +1216,16 @@
             const delta = event.deltaY > 0 ? -0.05 : 0.05;
             setScale(boardScale + delta);
           }, { passive: false });
+
+          const scheduleCenter = () => {
+            requestAnimationFrame(() => {
+              requestAnimationFrame(centerBoard);
+            });
+          };
+
+          scheduleCenter();
+          window.addEventListener('resize', scheduleCenter);
+          window.addEventListener('load', scheduleCenter);
 
           board.addEventListener('pointerdown', onBoardPointerDown);
           board.addEventListener('pointermove', onBoardPointerMove);

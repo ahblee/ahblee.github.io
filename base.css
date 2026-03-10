@@ -21,29 +21,29 @@
   --default-font: system-ui, -apple-system, Segoe UI, Roboto, BlinkMacSystemFont, "SF Pro Display", "Inter", "Elza", "Helvetica Neue", Arial, sans-serif;
   --mono-font: "Inconsolata",'Courier New', Courier, monospace;
 
-  --navsize: clamp(12px, calc(11.5px + 0.14vw), 14px);
-  --smalltext: clamp(9px, calc(8.75px + 0.07vw), 10px);
+  --navsize: clamp(14.5px, calc(13.5px + 0.22vw), 17.5px);
+  --smalltext: clamp(11px, calc(10.5px + 0.12vw), 12.5px);
 
-  --h1: clamp(23px, calc(22px + 0.28vw), 27px);
-  --h2: clamp(19px, calc(18.25px + 0.21vw), 22px);
-  --h3: clamp(10px, calc(9.5px + 0.14vw), 12px);
+  --h1: clamp(27.5px, calc(25.5px + 0.5vw), 33.5px);
+  --h2: clamp(22.5px, calc(20.5px + 0.36vw), 27.5px);
+  --h3: clamp(12.5px, calc(11.5px + 0.2vw), 14.5px);
 
-  --fs-11: clamp(10px, calc(9.75px + 0.07vw), 11px);
-  --fs-115: clamp(11px, calc(9.75px + 0.07vw), 11.5px);
-  --fs-12: clamp(11px, calc(10.75px + 0.07vw), 12px);    
-  --fs-13: clamp(12px, calc(11.75px + 0.07vw), 13px);
-  --fs-135: clamp(12.5px, calc(12.25px + 0.07vw), 13.5px);
-  --fs-14: clamp(12px, calc(11.5px + 0.14vw), 14px);
-  --fs-145: clamp(12.5px, calc(12px + 0.14vw), 14.5px);
-  --fs-15: clamp(13px, calc(12.5px + 0.14vw), 15px);
-  --fs-18: clamp(16px, calc(15.5px + 0.14vw), 18px);
+  --fs-11: clamp(11.5px, calc(11px + 0.12vw), 13.5px);
+  --fs-115: clamp(12.5px, calc(11.5px + 0.12vw), 14.5px);
+  --fs-12: clamp(12.5px, calc(12px + 0.12vw), 15px);    
+  --fs-13: clamp(13.5px, calc(13px + 0.12vw), 15.5px);
+  --fs-135: clamp(14px, calc(13.5px + 0.12vw), 16px);
+  --fs-14: clamp(13.5px, calc(12.75px + 0.2vw), 16.5px);
+  --fs-145: clamp(14px, calc(13.25px + 0.2vw), 17px);
+  --fs-15: clamp(14.5px, calc(13.5px + 0.2vw), 19px);
+  --fs-18: clamp(17.5px, calc(16.5px + 0.24vw), 21px);
 
   /* Spacing */
   --cols:8;
   --outer-margin:30px;
   --gutter: 24px;
-  --sidebar: 144px;
-  --content-width: 706px;
+  --sidebar: 200px;
+  --content-width: 920px;
 
 }
 
@@ -473,7 +473,7 @@ img, video { width: 100%; border-radius: 6px;}
 .app {
   display: grid;
   grid-template-columns: var(--sidebar) 1fr;
-  padding: 0 var(--outer-margin) 264px;
+  padding: 0 var(--outer-margin) 264px !important;
   min-height: 100vh;
   animation: fadeIn 0.8s ease-out;
 } main {  grid-column: 2;  }
@@ -481,7 +481,7 @@ img, video { width: 100%; border-radius: 6px;}
 .grid {
   display: grid; 
   grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
-  margin: 0 var(--outer-margin) 144px;
+  margin: 0 0 144px var(--outer-margin);
   column-gap: var(--gutter);
   row-gap: 168px;
 }
@@ -550,3 +550,69 @@ footer {
 }
 
 
+
+
+@media (max-width: 1800px) { 
+  :root {
+
+      --navsize: clamp(12px, calc(11.5px + 0.14vw), 14px);
+      --smalltext: clamp(9px, calc(8.75px + 0.07vw), 10px);
+
+      --h1: clamp(23px, calc(22px + 0.28vw), 27px);
+      --h2: clamp(19px, calc(18.25px + 0.21vw), 22px);
+      --h3: clamp(10px, calc(9.5px + 0.14vw), 12px);
+
+      --fs-11: clamp(10px, calc(9.75px + 0.07vw), 11px);
+      --fs-115: clamp(11px, calc(9.75px + 0.07vw), 11.5px);
+      --fs-12: clamp(11px, calc(10.75px + 0.07vw), 12px);    
+      --fs-13: clamp(12px, calc(11.75px + 0.07vw), 13px);
+      --fs-135: clamp(12.5px, calc(12.25px + 0.07vw), 13.5px);
+      --fs-14: clamp(12px, calc(11.5px + 0.14vw), 14px);
+      --fs-145: clamp(12.5px, calc(12px + 0.14vw), 14.5px);
+      --fs-15: clamp(13px, calc(12.5px + 0.14vw), 15px);
+      --fs-18: clamp(16px, calc(15.5px + 0.14vw), 18px);
+
+      --content-width: 712px;
+  }
+}
+@media (max-width: 1440px) { 
+  :root {
+    --cols:6;
+  }
+
+  .grid > section, hr{
+    grid-column: 2 / span 4;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+/* ── Tablet ── */
+@media (max-width: 1200px) {
+  :root {
+    --cols:1;
+    --content-width: 100%;
+  }
+
+  .view-toggle { display: none; }
+  
+  .grid > section, hr{
+    grid-column: 1 / -1;
+    gap: 24px;
+  }
+
+
+}
+
+
+/* ── Mobile (< 768px) ── */
+@media (max-width: 768px) {
+
+  
+
+  /* covers full width, shorter height */
+  .work-cover {
+    height: 280px;
+  }
+  
+  
+}

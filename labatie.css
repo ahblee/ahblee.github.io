@@ -174,5 +174,30 @@
 
 
 
+@media (max-width: 1440px) {
+    /* .final-microsite {
+    grid-column: 1 / -1;
+    display: block;
+    padding: 0;
+  }  */
+  .final-microsite {
+    padding: 0;
+  }  
+  .microsite {
+    grid-column: 1 / -1;
+  }
+  .microsite .hover-media {
+    border: 12px solid var(--light-grey);
+  }
+}
+
+@media (max-width: 1200px) {
+  .final-mockups { margin-top: -142px; }
+  .microsite .item {
+    padding: 24px;
+    margin: 0 auto 24px;
+  }
+  .item-title { margin-bottom: 6px; }
+}
 
 
