@@ -9,6 +9,7 @@
   border-radius: 0;
 }
 
+
 /* VIDEO HERO (before scroll)  */
 .video-hero .header,
 .video-hero .sidebar, .video-hero .section-nav-trigger  {
@@ -120,17 +121,13 @@
 #microsite .dotted-hr { flex: 1; }
 
 .final-microsite { 
-
   grid-column: 1 / -1;
-
   margin-top: -112px; 
   padding-right: var(--outer-margin);;
-
   display: grid;
   grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
   column-gap: var(--gutter);
   row-gap: 48px;
-  
 }
 
 .microsite {

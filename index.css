@@ -218,6 +218,7 @@ h1 {
   grid-column: 2 / span 6;
   width: 100%;
   max-width: 100%;
+  gap: 48px;
   transform-origin: center bottom;
   will-change: transform, opacity;
   transition: 
