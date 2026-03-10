@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Angela Lee's Portfolio</title>
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+
+  <div class="app">
+
+    <aside class="sidebar">
+            
+        <a href="index.html" class="logo"><img src="img/favicon.png" alt="Logo" class="sidebar-logo"></a>
+        
+        <nav>
+          <a href="#Home">Home</a>
+          <a href="#Work">Work</a>
+          <a href="#About">About</a>
+          <a href="#Playground">Playground</a>
+        </nav>
+
+        <div>
+          <div class="links">
+            <a href="mailto:angela001201@gmail.com" target="_blank">Email</a>
+            <a href="https://www.linkedin.com/in/angela-hyebin-lee/" target="_blank">LinkedIn</a>
+            <a href="https://drive.google.com/file/d/1RY5dkSZOFD-zNm8TcOfrkFaRviS67GVi/view?usp=sharing" target="_blank">Resume</a>
+            <a href="https://www.instagram.com/byhyebin/" target="_blank">Instagram</a>
+          </div>
+            <p class="caption"> &#169; Angela Lee, 2025 </p>
+        </div> 
+
+    </aside>
+
+    <main>
+
+      <div class="grid">
+
+        <section id="landing">
+
+          <div>
+
+            <p class="eyebrow">
+              Welcome <span class="tag type-tag"><span id="audienceTag">Stranger</span><span class="tag-caret" aria-hidden="true">|</span></span><span class="wave">👋</span>
+            </p>
+
+            <h1> 
+              I'm <span class="signature">Angela</span>
+              <span class="inline-portrait is-overall" aria-hidden="true">
+                <img class="portrait-layer portrait-overall" src="img/me-overall.gif" alt="">
+                <img class="portrait-layer portrait-glasses" src="img/me-glasses.gif" alt="">
+              </span>, a Product Designer.
+            </h1>
+
+            <p id="lead" class="lead lead--light" data-delay="3000"> I create thoughtful, value-driven experiences that help people navigate with ease and joy.</p>
+
+          </div>
+          
+          <div class="landing-meta">
+            <p class="caption">Currently, a Visual Designer for @ Photocrumbs</p>
+            <p class="caption">Prev. Design &amp; Research Assistant @ Simon Fraser University</p>
+          </div>
+          
+        </section>
+
+        <hr>
+
+        <section id="work">
+          
+          <div class="work-header">
+            <p class="eyebrow">WORK</p>
+            <div class="view-toggle" aria-label="Work view">
+              <span class="toggle-pill"></span>
+              <button class="toggle" type="button" data-view="list" aria-pressed="true">List</button>
+              <button class="toggle" type="button" data-view="grid" aria-pressed="false">Grid</button>
+            </div>
+          </div>
+
+          <div class="work-list">
+
+            <a href="kia.html" class="work-card">
+
+              <div>
+                <p class="work-title">Kia Experience Redesign</p>
+                 <p class="work-body">
+                  Redefining the car-buying journey from online research to dealership, building trust and clarity along the way.
+                </p>
+              </div>
+              
+              <div class="work-cover is-animated is-kia" style="--cover-bg: url('img/kia-cover-background.png');">
+                <img src="img/kia-project-cover.png" alt="Kia Project Cover">
+              </div>
+
+              <div class="work-meta flex">
+
+                <div class="tags">
+                  <span class="tag">Case Study</span>
+                  <span class="tag">Experience Design</span>
+                </div>
+
+                <p class="caption">Lead Designer / 2024</p>
+
+              </div>
+
+            </a>
+            
+            <a href="labatie.html" class="work-card">
+              
+              <div>
+                <p class="work-title">La Bâtie Post-Festival Microsite</p>
+                 <p class="work-body">
+                  Weaving artist stories and moments to foster lasting connection beyond the event.
+                </p>
+              </div>
+
+              <div class="work-cover is-labatie">
+                <video src="img/labatie-project-cover.mp4" autoplay loop muted playsinline 
+                  preload="auto" poster="img/labatie-project-cover.png">
+                </video>
+              </div>
+
+              <div class="work-meta flex">
+
+                <div class="tags">
+                  <span class="tag">Visual Design</span>
+                  <span class="tag">Content Strategy</span>
+                </div>
+
+                <p class="caption">Lead Designer / 2024</p>
+
+              </div>
+
+            </a>
+
+            <a href="trackling.html" class="work-card">
+              
+              <div>
+                <p class="work-title">Trackling: Mobile Fitness Application</p>
+                 <p class="work-body">
+                  A fitness app that helps seniors exercise safely within their health limits using live heart-rate tracking.
+                </p>
+              </div>            
+
+              <div class="work-cover is-animated is-trackling" style="--cover-bg: url('img/trackling-cover-background.png');">
+                <img src="img/trackling-project-cover.png" alt="Trackling Project Cover">
+              </div>
+
+              <div class="work-meta flex">
+
+                <div class="tags">
+                  <span class="tag">Case Study</span>
+                  <span class="tag">UX/UI Design</span>
+                </div>
+
+                <p class="caption">UX Designer / 2022</p>
+
+              </div>
+
+            </a>
+            
+            <div class="work-card">
+
+              <div>
+                <p class="work-title">Frame Designs for Photocrumb</p>
+                 <p class="work-body">
+                  <!-- Capturing Moments with Photocrumb -->
+                  Designing custom event frames and stickers that translate branding into playful, memorable visuals.
+                </p>
+              </div>
+
+            <div class="work-cover is-animated is-photocrumb" style="--cover-bg: url('img/photocrumb-cover-background.png');">
+              <img class="trigger-img" src="img/photocrumb-cover-nobackground.png" alt="Project 1"
+                data-slides='[
+
+                  {"src":"img/photocrumb-school.png","title":"Graduation & School Celebration Collection","subtitle":"June 2025","caption":"End-of-year themed frames exploring doodle and scrapbook aesthetics."},
+                  
+                  {"src":"img/photocrumb-bday.png","title":"Birthday Frame","subtitle":" December 2025","caption":"A playful celebratory design built around the brand’s mascots."},
+
+                  {"src":"img/photocrumb-newyear.png","title":"New Year Collection","subtitle":"Janurary 2026","caption":"Festive series experimenting with 3D, illustration, and bold seasonal themes."},
+
+                  {"src":"img/photocrumb-valentines.png","title":"Valentine’s Day Collection","subtitle":"Feburary 2026","caption":"Romantic series featuring playful motifs, vintage illustration, and 3D accents."},
+                  
+                  {"src":"img/photocrumb-pixel.png","title":"Pixel Frame","subtitle":"March 2026","caption":"A retro-inspired frame drawing from pixel graphics and digital nostalgia."},
+
+                  {"src":"img/photocrumb-lunar.png","title":"Lunar New Year Collection","subtitle":"Feburary 2026","caption":"Seasonal pair contrasting traditional red-gold symbolism with storybook illustration."},
+
+                  {"src":"img/photocrumb-spring.png","title":"Spring Collection","subtitle":"March 2026","caption":"Light and airy designs featuring soft palettes and spring botanicals."}
+                ]'
+              />
+            </div>
+
+            <div class="work-meta flex">
+              <div class="tags">
+                <span class="tag">Freelance</span>
+                <span class="tag">Graphic Design</span>
+              </div>
+              <p class="caption">Graphic Designer / ~ 2025</p>
+            </div>
+
+            </div>
+
+          </div>
+
+        </section>
+        
+        <hr>
+
+        <section id="about">
+
+          <p class="eyebrow">ABOUT</p>
+
+          <div class="about-intro">
+            
+            <img src="img/me.png" alt="Angela as a kid">
+            
+            <div class="flex-col">
+
+
+              <div>
+                <video id="signVideo" src="img/sign.mp4" muted playsinline preload="metadata" aria-label="Signature Motion" class="signature"></video>
+
+                <p class="about-role">Product Designer</p>
+                <p class="about-meta">Vancouver, B.C. · <span id="aboutTime">--:--:--</span></p>
+
+              </div>
+
+              <div class="tags">
+                <span class="tag">Photographer</span>
+                <span class="tag">Homebody</span>
+                <span class="tag">Coffee-lover</span>
+                <span class="tag">T1-Fan</span>
+                <span class="tag">ISFP</span>
+                <span class="tag">Anime-watcher</span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div>
+
+            <h3> JOURNEY </h3>
+
+            <div class="flex-col">
+
+              <p>
+                Ever since I was young, I've lost hours on things I started, from mastering a piano song to fishing for that one shark in Animal Crossing under my blankets. That same persistence drives how I design today.
+              </p>
+
+              <p>
+                I'm drawn to the challenge of turning complex problems into meaningful, impactful experiences. Grounded in research and constant refinement, I design solutions that balance user needs with business goals, thoughtfully executed with hopefully a quiet sense of delight and honesty.
+              </p>
+
+              <p>
+                Currently studying Interactive Arts & Technology at SFU. I also design for Photocrumb, turning shared moments into memorable keepsakes.
+              </p>
+
+            </div>
+            
+          </div>
+
+          <div>
+
+            <h3>EXPERIENCE</h3>
+            
+            <div class="about-row">
+              
+              <img class="logo" src="img/photocrumb-logo.png" alt="Photocrumb">
+              <div class="about-data">
+                <div>
+                  <span class="company">Photocrumb</span>
+                  <span class="desc">Visual Designer (Freelance)</span>
+                </div>
+                <span class="about-date">Jan 2025 - Current</span>
+              </div>
+            </div>
+
+            <div class="about-row">
+              <img class="logo" src="img/sfu-logo.png" alt="Photocrumb">
+              <div class="about-data">
+                <div>
+                  <span class="company">Simon Fraser University</span>
+                  <span class="desc">Design and Research Assistant (Co-op)</span>
+                </div>
+                <span class="about-date">Jan - Aug 2023</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div>
+
+            <h3>EDUCATION</h3>
+            
+            <div class="about-row">
+                <img class="logo" src="img/sfu-logo.png" alt="SFU Logo">
+                <div class="about-data">
+                  <div >
+                    <span class="company">Simon Fraser University</span>
+                    <span class="desc">B.A. Interactive Arts and Technology</span>
+                  </div>
+                  <span class="about-date">2018 - Current</span>
+                </div>
+            </div>
+
+            <div class="about-row">
+                <img class="logo" src="img/sfu-logo.png" alt="SFU Logo">
+                <div class="about-data">
+                  <div>
+                    <span class="company">Simon Fraser University</span>
+                    <span class="desc">Minor. Print and Digital Publication</span>
+                  </div>
+                  <span class="about-date">2018 - Current</span>
+                </div>
+            </div>
+
+          </div>
+          
+        </section>
+
+        <hr>
+
+        <section id="playground">
+
+          <p class="eyebrow">PLAYGROUND</p>
+
+          <p class="caption flex">
+            <!-- A little organized chaos 🎡 -->
+            A board of little things about me 🎡
+            <!-- An organized chaos of my Life 🎡 -->
+            <!-- Pieces of my life, loosely organized 🎡 -->
+            <span class="hover-pill">Drag to explore</span>
+          </p>
+
+          <div class="dashboard-board" role="region" aria-label="Drag the cards to explore the board">
+
+            <div class="board-controls" aria-label="Zoom controls">
+              <button class="board-zoom-btn" type="button" data-zoom="out" aria-label="Zoom out">−</button>
+              <input class="board-zoom" type="range" min="0.7" max="1.2" step="0.01" value="1" aria-label="Board zoom">
+              <button class="board-zoom-btn" type="button" data-zoom="in" aria-label="Zoom in">+</button>
+            </div>
+
+            <div class="dashboard-stage">
+
+              <div class="board-item sticky note-pink shadow-peeling" style="--r:4deg; --tx:-62px; --ty:-45px;">
+                <div class="washi-tape washi-clear"></div>  
+                <div class="sticky-content">
+                  <div class="sticky-title">Cravings 🤤</div>
+                  <ul class="sticky-list">
+                    <li>- a hot cup of coffee ☕</li>
+                    <li class="flex"><span style="margin: 6px -18px 0 0; line-height: 1.3;">- apple jam toast from Isaac Toast</span><span><img src="img/toast.png" style="align-self: flex-center; margin-top:10px; width:76px;rotate: 10deg;" alt="Isaac Toast"></span></li>
+                  </ul>
+                </div>
+              </div>
+
+               <div class="board-item polaroid" style="--r:10deg; --tx:560px; --ty:-180px;">
+                <div class="washi-tape washi-zigzag"></div>  
+                  <img src="img/polaroid-sky.png" alt="WIP sketch" class="polaroid-photo">
+              </div>
+              
+              <div class="board-item small-photo is-pinned" style="--r:-4deg; --tx:480px; --ty:-340px;">
+                <div class="tack"></div>  
+                <img src="img/polaroid-summer2.png" alt="WIP sketch" class="polaroid-photo">
+              </div>
+
+              <div class="board-item sticky note-yellow shadow-flat" style="--r:0; --tx:260px; --ty:-360px;">
+                <div class="washi-tape"></div>  
+                <div class="sticky-content">
+                  <div class="sticky-title">Currently... </div>
+                  <ul class="sticky-list">
+                    <li>- Looking for internships <span style="font-size: var(--fs-13);">🔎</span></li>
+                    <li>- Building my portfolio  <span style="font-size: var(--fs-13);">👩🏻‍💻</span></li>
+                    <li>- Designing new frames <span style="font-size: var(--fs-13);">🖋️</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="board-item sticky note-green shadow-flat" style="--r:2deg; --tx:140px; --ty:-260px;">
+                <div class="washi-tape washi-clear"></div>  
+                <div class="sticky-content">
+                  <div class="sticky-title">Listening to 📻</div>
+                  <p class="sticky-list"><span style="font-size: var(--fs-13); font-style: italic;">🎵</span> 404 - KiiiKiii</li>
+                  <p class="sticky-list"><span style="font-size: var(--fs-13); font-style: italic;">🎶</span> Yukon - Justin Bieber</p>
+                  <p class="sticky-list"><span style="font-size: var(--fs-13); font-style: italic;">🎵</span> 0+0 - Hanroro</p>
+                </div>
+              </div> 
+
+              <div class="board-item polaroid is-pinned" style="--r:-5deg; --tx:-20px; --ty:-510px;">
+                <div class="tack"></div>  
+                  <img src="img/polaroid-summer.png" alt="WIP sketch" class="polaroid-photo">
+              </div>
+              
+              <div class="board-item sticky note-blue shadow-peeling" style="--r:-2deg; --tx:580px; --ty:-680px;">
+                <div class="washi-tape washi-dots"></div>  
+                <div class="sticky-content">
+                  <div class="sticky-title">My Digital Toolbox 🔧</div>
+                  <ul class="sticky-list tool">
+                    <li>- Figma + Figjam </li> 
+                    <li>- Photoshop, Illustrator, InDesign </li>
+                    <li>- HTML, CSS, JS </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <!-- <div class="board-item sticky note-green shadow-lifted" 
+              style="--r:12deg; --tx:880px; --ty:0px;">
+                <div class="sticky-curl"></div>
+                <div class="sticky-content">
+                  <div class="sticky-title">Current Persistence in Animal Crossing...</div>
+                  <p class="sticky-list"> Trying to collect all types of furintures and wallpapers (V)
+                  </p>
+                </div>
+              </div>  -->
+
+              <!-- Currently -->
+              <!-- <div class="board-item note" style="--x:60px; --y:260px; --r:-4deg; background:#fde8f0; width:195px;">
+                <div class="note-title">Currently</div>
+                <ul class="note-list">
+                  <li>🎮 Animal Crossing</li>
+                  <li>📺 Solo Leveling</li>
+                  <li>☕ Too much coffee</li>
+                  <li>🎨 This portfolio</li>
+                </ul>
+              </div> -->
+
+          </div>
+      
+        </section>
+        
+      </div>
+
+      <div class="lb-backdrop" id="lb-backdrop" role="dialog" aria-modal="true" aria-label="Image gallery">
+        
+        <div class="lb-modal" id="lb-modal">
+        
+          <div class="lb-buttons">
+              
+            <!-- <button class="lb-btn" id="lb-expand" title="Expand" aria-label="Expand">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"> <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            </button> -->
+            
+            <button class="lb-btn" id="lb-close" title="Close" aria-label="Close">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+          
+          </div>
+
+          <div class="lb-content">
+
+            <div class="lb-header">
+                <p class="lb-title" id="lb-title">Project Title</p>
+                <p class="lb-subtitle" id="lb-subtitle">Subtitle</p>
+              </div>
+
+              <!-- carousel -->
+              <div class="lb-carousel-wrap" id="lb-carousel-wrap">
+                <div class="lb-track" id="lb-track"></div>
+              </div>
+
+              <!-- caption -->
+              <div class="lb-caption-wrap">
+                <p class="lb-caption" id="lb-caption"></p>
+              </div>
+
+              <!-- dots -->
+              <div class="lb-dots" id="lb-dots"></div>
+
+              <!-- hints -->
+              <div class="lb-hint"><span class="hover-pill">Scroll or use arrow keys</span></div>
+
+          </div>
+        
+        </div>
+            
+      </div>
+      
+    </main>
+
+  </div>
+
+  <footer>
+        <div class="footer-marquee">
+            <div class="footer-marquee-track">
+                <span>YOU'VE REACHED THE END · THANK YOU FOR COMING · </span>
+                <span>YOU'VE REACHED THE END · THANK YOU FOR COMING · </span>
+                <span>YOU'VE REACHED THE END · THANK YOU FOR COMING · </span>
+                <span>MADE WITH LOTS OF COFFEE · </span>
+                <span>YOU'VE REACHED THE END · THANK YOU FOR COMING · </span>
+                <span>YOU'VE REACHED THE END · THANK YOU FOR COMING · </span>
+                <span>YOU'VE REACHED THE END · THANK YOU FOR COMING · </span>
+                <span>LET'S CHAT & HAVE COFFEE · </span>
+            </div>
+        </div>
+
+  </footer>
+
+  <div class="cursor-orb" aria-hidden="true"></div>
+    
+  <script>    
+          
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const isFinePointer = window.matchMedia?.("(pointer: fine)").matches ?? true;
+      const root = document.documentElement;
+
+      const orb = document.querySelector(".cursor-orb");
+      if (orb) {
+          if (!isFinePointer) {
+            orb.style.display = "none";
+          } else {
+            let targetX = window.innerWidth / 2;
+            let targetY = window.innerHeight / 2;
+            let currentX = targetX;
+            let currentY = targetY;
+            let rafId = null;
+            const ease = 0.24;
+            const idleDelay = 900;
+            let idleTimer = 0;
+            let scrollTimer = 0;
+
+            const tick = () => {
+              currentX += (targetX - currentX) * ease;
+              currentY += (targetY - currentY) * ease;
+              orb.style.left = `${currentX}px`;
+              orb.style.top = `${currentY}px`;
+
+              if (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) {
+                rafId = requestAnimationFrame(tick);
+              } else {
+                rafId = null;
+              }
+            };
+
+            const handleMove = (evt) => {
+              targetX = evt.clientX;
+              targetY = evt.clientY;
+              orb.classList.add("is-active");
+              orb.classList.remove("is-idle");
+              orb.classList.remove("is-scrolling");
+              if (!rafId) {
+                rafId = requestAnimationFrame(tick);
+              }
+
+              window.clearTimeout(idleTimer);
+              idleTimer = window.setTimeout(() => {
+                orb.classList.add("is-idle");
+              }, idleDelay);
+            };
+
+            window.addEventListener("pointermove", handleMove, { passive: true });
+            window.addEventListener("mouseleave", () => {
+              orb.classList.remove("is-active", "is-idle", "is-scrolling", "is-clickable", "is-message");
+            });
+            const clickableSelector = "a, button, [role='button'], input, textarea, select, .work-card, .lb-backdrop, .lb-slide";
+            const isClickable = (node) => {
+              if (!node || !node.closest) return false;
+              const clickable = node.closest(clickableSelector);
+              if (!clickable) return false;
+              if (clickable.id === "lb-backdrop" && node !== clickable) return false;
+              return true;
+            };
+            window.addEventListener("pointerover", (event) => {
+              if (isClickable(event.target)) {
+                orb.classList.add("is-clickable");
+                return;
+              }
+            });
+            window.addEventListener("pointerout", (event) => {
+              const currentClickable = isClickable(event.target);
+              const nextClickable = event.relatedTarget && isClickable(event.relatedTarget);
+              if (currentClickable && currentClickable !== nextClickable) {
+                orb.classList.remove("is-clickable");
+              }
+            });
+            window.addEventListener("scroll", () => {
+              orb.classList.add("is-scrolling");
+              window.clearTimeout(scrollTimer);
+              scrollTimer = window.setTimeout(() => {
+                orb.classList.remove("is-scrolling");
+              }, 160);
+            }, { passive: true });
+          }
+        }
+
+      const el = document.getElementById("lead");
+      if (el) {
+          // Wrap base + overlay
+          const text = el.textContent;
+          el.textContent = "";
+
+          const wrap = document.createElement("span");
+          wrap.className = "lead__wrap";
+
+          const base = document.createElement("span");
+          base.className = "lead__base";
+          base.textContent = text;
+
+          const overlay = document.createElement("span");
+          overlay.className = "lead__overlay";
+          overlay.textContent = text;
+
+          wrap.appendChild(base);
+          wrap.appendChild(overlay);
+          el.appendChild(wrap);
+
+          if (isFinePointer) {
+            let idleTimer = 0;
+            let rafId = null;
+            let currentX = 50;
+            let currentY = 50;
+            let targetX = 50;
+            let targetY = 50;
+            const ease = 0.3;
+            const idleDelay = 900;
+            const idleOpacity = 0.7;
+
+            const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+            const tick = () => {
+              currentX += (targetX - currentX) * ease;
+              currentY += (targetY - currentY) * ease;
+              root.style.setProperty("--mx", `${currentX.toFixed(2)}%`);
+              root.style.setProperty("--my", `${currentY.toFixed(2)}%`);
+              const t = performance.now() / 1000;
+              const wobbleX = Math.sin(t * 2.0) * 12;
+              const wobbleY = Math.cos(t * 1.8) * 10;
+              const wobbleX2 = Math.cos(t * 1.7) * 11;
+              const wobbleY2 = Math.sin(t * 1.9) * 11;
+
+              const mx2 = clamp(currentX + 8 + wobbleX, 0, 100);
+              const my2 = clamp(currentY + 6 + wobbleY, 0, 100);
+              const mx3 = clamp(currentX - 10 + wobbleX2, 0, 100);
+              const my3 = clamp(currentY - 4 + wobbleY2, 0, 100);
+
+              root.style.setProperty("--mx2", `${mx2.toFixed(2)}%`);
+              root.style.setProperty("--my2", `${my2.toFixed(2)}%`);
+              root.style.setProperty("--mx3", `${mx3.toFixed(2)}%`);
+              root.style.setProperty("--my3", `${my3.toFixed(2)}%`);
+
+              if (Math.abs(targetX - currentX) > 0.02 || Math.abs(targetY - currentY) > 0.02) {
+                rafId = requestAnimationFrame(tick);
+              } else {
+                rafId = null;
+              }
+            };
+
+            const setVars = (evt) => {
+              targetX = (evt.clientX / Math.max(1, window.innerWidth)) * 100;
+              targetY = (evt.clientY / Math.max(1, window.innerHeight)) * 100;
+              root.style.setProperty("--light-on", "1");
+              root.classList.remove("is-idle");
+
+              if (!rafId) {
+                root.style.setProperty("--mx2", `${(currentX + 8).toFixed(2)}%`);
+                root.style.setProperty("--my2", `${(currentY + 6).toFixed(2)}%`);
+                root.style.setProperty("--mx3", `${(currentX - 10).toFixed(2)}%`);
+                root.style.setProperty("--my3", `${(currentY - 4).toFixed(2)}%`);
+                rafId = requestAnimationFrame(tick);
+              }
+
+              window.clearTimeout(idleTimer);
+              idleTimer = window.setTimeout(() => {
+                root.classList.add("is-idle");
+                root.style.setProperty("--light-on", `${idleOpacity}`);
+              }, idleDelay);
+            };
+
+            window.addEventListener("pointermove", setVars, { passive: true });
+          }
+        }
+
+      const portrait = document.querySelector(".inline-portrait");
+      if (portrait) {
+          let clickGlasses = false;
+          let hoverGlasses = false;
+          let hoverTimer = 0;
+          const hoverDelay = 900;
+
+          const updateGlasses = () => {
+            portrait.classList.toggle("is-glasses", clickGlasses || hoverGlasses);
+            portrait.classList.toggle("is-glasses-only", clickGlasses || hoverGlasses);
+          };
+
+          portrait.classList.add("is-overall");
+          updateGlasses();
+
+          portrait.addEventListener("mouseenter", () => {
+            portrait.classList.add("is-pill");
+            hoverGlasses = false;
+            updateGlasses();
+            window.clearTimeout(hoverTimer);
+            hoverTimer = window.setTimeout(() => {
+              hoverGlasses = true;
+              updateGlasses();
+            }, hoverDelay);
+          });
+          portrait.addEventListener("mouseleave", () => {
+            portrait.classList.remove("is-pill");
+            window.clearTimeout(hoverTimer);
+            hoverGlasses = false;
+            updateGlasses();
+          });
+          portrait.addEventListener("click", () => {
+            clickGlasses = !clickGlasses;
+            updateGlasses();
+          });
+        }
+
+      // ── Fade-in sections (except #work) ──
+      const fadeSections = document.querySelectorAll('.grid section:not(#work)');
+      fadeSections.forEach(s => s.classList.add('fade-in-section'));
+      if ('IntersectionObserver' in window) {
+        const fadeObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                fadeObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px -10% 0px', threshold: 0.15 }
+        );
+        fadeSections.forEach(s => fadeObserver.observe(s));
+      } else {
+        fadeSections.forEach(s => s.classList.add('is-visible'));
+      }
+
+      // ── Cursor message on work cards ──
+      const workCards = document.querySelectorAll('.work-card');
+      if (workCards.length) {
+        const cursorMsg = document.createElement('div');
+        cursorMsg.className = 'cursor-message';
+        cursorMsg.textContent = 'View project';
+        document.body.appendChild(cursorMsg);
+
+        let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
+        let isHovering = false, rafId = null;
+
+        const animate = () => {
+          if (!isHovering) { rafId = null; return; }
+          currentX += (targetX - currentX) * 0.2;
+          currentY += (targetY - currentY) * 0.2;
+          cursorMsg.style.left = `${currentX}px`;
+          cursorMsg.style.top  = `${currentY}px`;
+          rafId = requestAnimationFrame(animate);
+        };
+
+        workCards.forEach(card => {
+          card.addEventListener('mousemove', e => {
+            isHovering = true;
+            cursorMsg.classList.add('is-visible');
+            orb?.classList.add('is-message');
+            targetX = e.clientX;
+            targetY = e.clientY - 15;
+            if (!rafId) rafId = requestAnimationFrame(animate);
+          });
+          card.addEventListener('mouseleave', () => {
+            isHovering = false;
+            cursorMsg.classList.remove('is-visible');
+            orb?.classList.remove('is-message');
+            if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+          });
+          card.addEventListener('focus', () => { cursorMsg.classList.add('is-visible'); orb?.classList.add('is-message'); });
+          card.addEventListener('blur',  () => { cursorMsg.classList.remove('is-visible'); orb?.classList.remove('is-message'); });
+        });
+      }
+
+      // ── View toggle + pill ──
+      const workSection = document.getElementById('work');
+
+      function updatePill() {
+        const toggle = document.querySelector('.view-toggle');
+        const pill   = toggle?.querySelector('.toggle-pill');
+        const active = toggle?.querySelector('.toggle[aria-pressed="true"]');
+        if (!pill || !active) return;
+        const tr = toggle.getBoundingClientRect();
+        const ar = active.getBoundingClientRect();
+        pill.style.width     = `${ar.width}px`;
+        pill.style.transform = `translateX(${ar.left - tr.left - 3}px)`;
+      }
+
+      document.querySelectorAll('.toggle[data-view]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (btn.getAttribute('aria-pressed') === 'true') return;
+
+          const view     = btn.dataset.view;
+          const workList = workSection.querySelector('.work-list');
+
+          workList.classList.add('is-switching');
+          document.querySelectorAll('.toggle[data-view]').forEach(b => b.setAttribute('aria-pressed', 'false'));
+          btn.setAttribute('aria-pressed', 'true');
+          updatePill();
+
+          setTimeout(() => {
+            workSection.classList.toggle('is-grid', view === 'grid');
+            workList.classList.remove('is-switching');
+
+            // reset scale when switching back to list
+            if (view === 'list') {
+              workSection.style.transform = 'scale(1)';
+              workSection.style.opacity   = '1';
+            }
+          }, 250);
+        });
+      });
+
+      updatePill();
+
+      window.addEventListener('scroll', () => {
+        const rect = workSection.getBoundingClientRect();
+        const isGrid = workSection.classList.contains('is-grid');
+      
+        if (isGrid) {
+          const cards = workSection.querySelectorAll('.work-card');
+          cards.forEach(c => { c.style.transform = 'scale(1)'; c.style.opacity = '1'; });
+
+          // trigger when section top starts leaving viewport upward
+          const scrolledPast = -rect.top;
+          const totalHeight  = workSection.offsetHeight;
+
+          if (scrolledPast > totalHeight * 0.5) {
+            // only fires in the last 50% of scrolling through the section
+            const progress = Math.min((scrolledPast - totalHeight * 0.5) / (totalHeight * 0.5), 1);
+            workSection.style.transform = `scale(${1 - progress * 0.08})`;
+            workSection.style.opacity   = `${1 - progress * 0.1}`;
+          } else {
+            workSection.style.transform = 'scale(1)';
+            workSection.style.opacity   = '1';
+          }
+        } else {
+          // list view — reset section, only last card shrinks
+          workSection.style.transform = 'scale(1)';
+          workSection.style.opacity   = '1';
+
+          const cards    = workSection.querySelectorAll('.work-card');
+          const lastCard = cards[cards.length - 1];
+          if (!lastCard) return;
+
+          const lastRect = lastCard.getBoundingClientRect();
+          if (lastRect.top < 0) {
+            const progress = Math.min(-lastRect.top / (lastCard.offsetHeight * 0.5), 1);
+            lastCard.style.transform = `scale(${1 - progress * 0.08})`;
+            lastCard.style.opacity   = `${1 - progress * 0.35}`;
+          } else {
+            lastCard.style.transform = 'scale(1)';
+            lastCard.style.opacity   = '1';
+            }
+          }
+      }, { passive: true });
+
+      // Ensure cover videos play (Safari fallback)
+      const coverVideos = document.querySelectorAll(".work-cover video");
+      const primeCoverVideo = (video) => {
+          if (!video) return;
+          video.muted = true;
+          video.playsInline = true;
+          video.setAttribute("playsinline", "");
+          video.setAttribute("webkit-playsinline", "");
+          const playPromise = video.play();
+          if (playPromise && typeof playPromise.catch === "function") {
+            playPromise.catch(() => {});
+          }
+        };
+      coverVideos.forEach((video) => {
+          const card = video.closest(".work-card") || video.parentElement;
+          if (!card) return;
+
+          const seekToStart = () => {
+            try {
+              video.currentTime = 0;
+            } catch (err) {
+            }
+          };
+
+          const prime = () => {
+            if (video.readyState >= 1) {
+              seekToStart();
+            } else {
+              video.addEventListener("loadedmetadata", seekToStart, { once: true });
+              video.load();
+            }
+          };
+          prime();
+
+          const playVideo = () => {
+            if (video.readyState < 2) {
+              const onReady = () => {
+                const playPromise = video.play();
+                if (playPromise && typeof playPromise.catch === "function") {
+                  playPromise.catch(() => {});
+                }
+              };
+              video.addEventListener("canplay", onReady, { once: true });
+              video.load();
+              return;
+            }
+            const playPromise = video.play();
+            if (playPromise && typeof playPromise.catch === "function") {
+              playPromise.catch(() => {});
+            }
+          };
+
+          primeCoverVideo(video);
+          card.addEventListener("mouseenter", playVideo);
+          card.addEventListener("focusin", playVideo);
+        });
+
+      let coverUnlockDone = false;
+      const unlockCoverPlayback = () => {
+          if (coverUnlockDone) return;
+          coverUnlockDone = true;
+          coverVideos.forEach((video) => primeCoverVideo(video));
+        };
+      unlockCoverPlayback();
+      document.addEventListener("pointerdown", unlockCoverPlayback, { once: true, passive: true });
+      document.addEventListener("keydown", unlockCoverPlayback, { once: true });
+
+      const signVideo = document.getElementById("signVideo");
+      const aboutSection = document.getElementById("about");
+      if (signVideo) {
+        const restartDelay = 20000;
+        let restartTimer = 0;
+        let isActive = false;
+
+        const tryPlay = () => {
+          const playPromise = signVideo.play();
+          if (playPromise && typeof playPromise.catch === "function") {
+            playPromise.catch(() => {});
+          }
+        };
+        const clearRestart = () => {
+          if (restartTimer) {
+            window.clearTimeout(restartTimer);
+            restartTimer = 0;
+          }
+        };
+        const scheduleRestart = () => {
+          clearRestart();
+          restartTimer = window.setTimeout(() => {
+            if (!isActive) return;
+            signVideo.currentTime = 0;
+            tryPlay();
+          }, restartDelay);
+        };
+
+        signVideo.loop = false;
+        signVideo.addEventListener("ended", () => {
+          if (!isActive) return;
+          scheduleRestart();
+        });
+
+        const activateVideo = () => {
+          if (isActive) return;
+          isActive = true;
+          clearRestart();
+          if (signVideo.readyState >= 2) {
+            tryPlay();
+          } else {
+            signVideo.addEventListener("canplay", tryPlay, { once: true });
+          }
+        };
+        const restartNow = () => {
+          if (!isActive) return;
+          clearRestart();
+          signVideo.currentTime = 0;
+          tryPlay();
+        };
+        const deactivateVideo = () => {
+          if (!isActive) return;
+          isActive = false;
+          clearRestart();
+          signVideo.pause();
+        };
+
+        if (aboutSection && "IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  activateVideo();
+                } else {
+                  deactivateVideo();
+                }
+              });
+            },
+            { threshold: 0.4 }
+          );
+          observer.observe(aboutSection);
+        } else {
+          activateVideo();
+        }
+
+        signVideo.addEventListener("mouseenter", restartNow);
+        signVideo.addEventListener("focus", restartNow);
+      }
+
+      const audienceTag = document.getElementById("audienceTag");
+      if (audienceTag) {
+          const words = ["Visitors", "Team", "Peers"];
+          const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          if (reduceMotion) {
+            audienceTag.textContent = words[0];
+          } else {
+            let wordIndex = 0;
+            let charIndex = words[0].length;
+            let isDeleting = true;
+            audienceTag.textContent = words[0];
+
+            const typeSpeed = 90;
+            const deleteSpeed = 75;
+            const pause = 1600;
+
+            const tick = () => {
+              const current = words[wordIndex];
+              if (isDeleting) {
+                charIndex -= 1;
+                audienceTag.textContent = current.slice(0, Math.max(charIndex, 0));
+                if (charIndex <= 0) {
+                  isDeleting = false;
+                  wordIndex = (wordIndex + 1) % words.length;
+                  charIndex = 0;
+                  setTimeout(tick, 260);
+                  return;
+                }
+                setTimeout(tick, deleteSpeed);
+              } else {
+                charIndex += 1;
+                audienceTag.textContent = current.slice(0, charIndex);
+                if (charIndex >= current.length) {
+                  isDeleting = true;
+                  setTimeout(tick, pause);
+                  return;
+                }
+                setTimeout(tick, typeSpeed);
+              }
+            };
+
+            setTimeout(tick, pause);
+          }
+        }
+
+      const sidebarLinks = document.querySelectorAll(".sidebar nav a");
+      if (sidebarLinks.length) {
+        const sectionMap = {
+          "#Home": "#landing",
+          "#Work": "#work",
+          "#About": "#about",
+          "#Playground": "#playground"
+        };
+        sidebarLinks.forEach(link => {
+          link.addEventListener("click", (event) => {
+            const href = link.getAttribute("href") || "";
+            if (!href.includes("#")) return;
+            const hash = `#${href.split("#").pop().trim()}`;
+            const targetSelector = sectionMap[hash] || hash;
+            const target = document.querySelector(targetSelector);
+            if (!target) return;
+            event.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+        });
+        }
+
+      const aboutTime = document.getElementById("aboutTime");
+      if (aboutTime) {
+        const updateAboutTime = () => {
+          const now = new Date();
+          const time = now.toLocaleTimeString("en-US", {
+            timeZone: "America/Vancouver",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: true
+          });
+          const [timePart, suffix = ""] = time.split(" ");
+          const [hours, minutes, seconds] = timePart.split(":");
+          aboutTime.setAttribute("aria-label", time);
+          aboutTime.innerHTML = `${hours}<span class="time-colon">:</span>${minutes}<span class="time-colon">:</span>${seconds} <span class="time-ampm">${suffix}</span>`;
+        };
+        updateAboutTime();
+        setInterval(updateAboutTime, 1000);
+      }
+
+      const footerMarquee = document.querySelector('.footer-marquee');
+      if (footerMarquee && 'IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                footerMarquee.classList.add('is-active');
+              }
+            });
+          }, { threshold: 0.4 });
+          observer.observe(footerMarquee);
+        }
+
+      const board = document.querySelector('.dashboard-board');
+      if (board) {
+          const stage = board.querySelector('.dashboard-stage');
+          const items = Array.from(board.querySelectorAll('.board-item'));
+          const zoomInput = board.querySelector('.board-zoom');
+          const zoomButtons = board.querySelectorAll('.board-zoom-btn');
+          let zIndex = 1;
+          let boardScale = 1;
+          let boardDragging = false;
+          let boardStartX = 0;
+          let boardStartY = 0;
+          let boardVarX = 0;
+          let boardVarY = 0;
+
+          const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+          const setScale = (value) => {
+            boardScale = clamp(value, 0.7, 1.2);
+            board.style.setProperty('--board-scale', boardScale);
+            if (zoomInput) zoomInput.value = boardScale.toFixed(2);
+          };
+          setScale(1);
+
+          const getBoardVar = (name) => {
+            const value = getComputedStyle(board).getPropertyValue(name);
+            return parseFloat(value) || 0;
+          };
+
+          const onBoardPointerDown = (event) => {
+            if (event.button !== 0 && event.pointerType !== 'touch') return;
+            if (event.target.closest('.board-item, .board-controls')) return;
+            boardDragging = true;
+            board.setPointerCapture(event.pointerId);
+            board.classList.add('is-dragging');
+            boardStartX = event.clientX;
+            boardStartY = event.clientY;
+            boardVarX = getBoardVar('--board-x');
+            boardVarY = getBoardVar('--board-y');
+          };
+
+          const onBoardPointerMove = (event) => {
+            if (!boardDragging) return;
+            const dx = (event.clientX - boardStartX) / boardScale;
+            const dy = (event.clientY - boardStartY) / boardScale;
+
+            const maxX = 350;
+            const maxY = 350;
+
+            const newX = Math.max(-maxX, Math.min(maxX, boardVarX + dx));
+            const newY = Math.max(-maxY, Math.min(maxY, boardVarY + dy));
+
+            board.style.setProperty('--board-x', `${newX}px`);
+            board.style.setProperty('--board-y', `${newY}px`);
+          };
+
+          const onBoardPointerUp = (event) => {
+            if (!boardDragging) return;
+            boardDragging = false;
+            board.classList.remove('is-dragging');
+            board.releasePointerCapture(event.pointerId);
+          };
+
+          if (zoomInput) {
+            zoomInput.addEventListener('input', (event) => {
+              setScale(parseFloat(event.target.value));
+            });
+          }
+          zoomButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+              const delta = button.dataset.zoom === 'in' ? 0.1 : -0.1;
+              setScale(boardScale + delta);
+            });
+          });
+
+          board.addEventListener('wheel', (event) => {
+            if (!event.ctrlKey) return;
+            event.preventDefault();
+            const delta = event.deltaY > 0 ? -0.05 : 0.05;
+            setScale(boardScale + delta);
+          }, { passive: false });
+
+          board.addEventListener('pointerdown', onBoardPointerDown);
+          board.addEventListener('pointermove', onBoardPointerMove);
+          board.addEventListener('pointerup', onBoardPointerUp);
+          board.addEventListener('pointercancel', onBoardPointerUp);
+
+          items.forEach((item) => {
+            const getVar = (name) => {
+              const value = getComputedStyle(item).getPropertyValue(name);
+              return parseFloat(value) || 0;
+            };
+
+            let startX = 0;
+            let startY = 0;
+            let startVarX = 0;
+            let startVarY = 0;
+            
+            if (item.classList.contains('is-pinned')) return;
+
+            const onPointerDown = (event) => {
+              if (event.button !== 0 && event.pointerType !== 'touch') return;
+              item.classList.add('is-dragging');
+              item.setPointerCapture(event.pointerId);
+              item.style.zIndex = String(++zIndex);
+              startX = event.clientX;
+              startY = event.clientY;
+              startVarX = getVar('--x');
+              startVarY = getVar('--y');
+            };
+
+            const onPointerMove = (event) => {
+              if (!item.classList.contains('is-dragging')) return;
+              const dx = (event.clientX - startX) / boardScale;
+              const dy = (event.clientY - startY) / boardScale;
+              item.style.setProperty('--x', `${startVarX + dx}px`);
+              item.style.setProperty('--y', `${startVarY + dy}px`);
+            };
+
+            const onPointerUp = (event) => {
+              if (!item.classList.contains('is-dragging')) return;
+              item.classList.remove('is-dragging');
+              item.releasePointerCapture(event.pointerId);
+            };
+
+            item.querySelectorAll('img').forEach(img => {
+              img.addEventListener('dragstart', e => e.preventDefault());
+            });
+
+            item.addEventListener('pointerdown', onPointerDown);
+            item.addEventListener('pointermove', onPointerMove);
+            item.addEventListener('pointerup', onPointerUp);
+            item.addEventListener('pointercancel', onPointerUp);
+          });
+        }
+        
+      const backdrop = document.getElementById('lb-backdrop');
+      const track    = document.getElementById('lb-track');
+      const dots     = document.getElementById('lb-dots');
+      const caption  = document.getElementById('lb-caption');
+      let slides = [];
+      let current = 0;
+      
+      function buildCarousel(data) {
+        slides = data;
+        track.innerHTML = '';
+        dots.innerHTML = '';
+        
+        data.forEach((item, i) => {
+          // slide
+          const slide = document.createElement('div');
+          slide.className = 'lb-slide';
+          const img = document.createElement('img');
+          img.src = item.src;
+          img.alt = item.caption || '';
+          slide.appendChild(img);
+          slide.addEventListener('click', () => goTo(i));
+          track.appendChild(slide);
+          // dot
+          const dot = document.createElement('button');
+          dot.className = 'lb-dot';
+          dot.setAttribute('aria-label', `Slide ${i + 1}`);
+          dot.addEventListener('click', () => goTo(i));
+          dots.appendChild(dot);
+        });
+      }
+
+      function goTo(index) {
+        current = Math.max(0, Math.min(index, slides.length - 1));
+        const allSlides = track.querySelectorAll('.lb-slide');
+        const allDots   = dots.querySelectorAll('.lb-dot');
+
+        allSlides.forEach((s, i) => {
+          const diff = i - current;
+          s.classList.remove('active', 'prev', 'next', 'far');
+          if (diff === 0)       s.classList.add('active');
+          else if (diff === -1) s.classList.add('prev');
+          else if (diff === 1)  s.classList.add('next');
+          else                  s.classList.add('far');
+        });
+        allDots.forEach((d, i) => d.classList.toggle('active', i === current));
+
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            const wrap = document.getElementById('lb-carousel-wrap');
+            const wrapW = wrap.offsetWidth;
+            let offsetX = 0;
+            allSlides.forEach((s, i) => {
+              if (i < current) offsetX += s.offsetWidth;
+              else if (i === current) offsetX += s.offsetWidth / 2;
+            });
+            track.style.transform = `translateX(${wrapW / 2 - offsetX}px)`;
+          });
+        });
+
+        // ── update header per slide ──
+        const slide = slides[current];
+        const titleEl    = document.getElementById('lb-title');
+        const subtitleEl = document.getElementById('lb-subtitle');
+
+        if (slide.title) {
+          titleEl.style.opacity = '0';
+          subtitleEl.style.opacity = '0';
+          setTimeout(() => {
+            titleEl.textContent    = slide.title    || '';
+            subtitleEl.textContent = slide.subtitle || '';
+            titleEl.style.opacity = '1';
+            subtitleEl.style.opacity = '1';
+          }, 150);
+        }
+
+        // caption
+        const cap = slide.caption || '';
+        if (cap) {
+          caption.textContent = cap;
+          caption.classList.add('visible');
+        } else {
+          caption.classList.remove('visible');
+        }
+      }
+
+      /* ── OPEN ── */
+      function openLightbox(trigger) {
+        const data = JSON.parse(trigger.dataset.slides);
+        document.getElementById('lb-title').textContent    = trigger.dataset.title    || '';
+        document.getElementById('lb-subtitle').textContent = trigger.dataset.subtitle || '';
+
+        buildCarousel(data);
+        current = 0;
+        goTo(0);
+
+        backdrop.classList.add('open');
+        document.body.classList.add('lb-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      /* ── CLOSE ── */
+      function closeLightbox() {
+        backdrop.classList.remove('open');
+        document.body.classList.remove('lb-open');
+        document.body.style.overflow = '';
+      }
+
+      /* ── EVENTS ── */
+      document.querySelectorAll('.trigger-img').forEach(img => {
+        img.addEventListener('click', () => openLightbox(img));
+       });
+
+      document.getElementById('lb-close').addEventListener('click', closeLightbox);
+      backdrop.addEventListener('click', e => { if (e.target === backdrop) closeLightbox(); });
+
+      // keyboard
+      document.addEventListener('keydown', e => {
+        if (!backdrop.classList.contains('open')) return;
+        if (e.key === 'Escape')      closeLightbox();
+        if (e.key === 'ArrowLeft')   goTo(current - 1);
+        if (e.key === 'ArrowRight')  goTo(current + 1);
+      });
+
+      let scrollCooldown = false;
+      document.getElementById('lb-modal').addEventListener('wheel', e => {
+        e.preventDefault();
+        if (scrollCooldown) return;
+        if (e.deltaY > 2) {
+          goTo(current + 1);
+          scrollCooldown = true;
+          setTimeout(() => { scrollCooldown = false; }, 600);
+        } else if (e.deltaY < -2) {
+          goTo(current - 1);
+          scrollCooldown = true;
+          setTimeout(() => { scrollCooldown = false; }, 600);
+        }
+      }, { passive: false });
+
+    });
+
+  </script>
+
+</body>
+</html>

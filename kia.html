@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Kia Website Redesign</title>
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="kia.css">
+</head>
+
+<body> 
+    
+    <div class="app">
+
+        <aside class="sidebar">
+            
+            <a href="index.html" class="logo"><img src="img/favicon.png" alt="Logo" class="sidebar-logo"></a>
+        
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="index.html#work">Work</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#dashboard">Dashboard</a>
+            </nav>
+
+            <div>
+                <div class="links">
+                    <a href="mailto:angela001201@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
+                    <a href="https://www.linkedin.com/in/angela-hyebin-lee/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://drive.google.com/file/d/1RY5dkSZOFD-zNm8TcOfrkFaRviS67GVi/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
+                    <a href="https://www.instagram.com/byhyebin/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                </div>
+                <p class="caption"> &#169; Angela Lee, 2025 </p>
+            </div> 
+
+        </aside> 
+        
+        <header class="header">
+
+            <p> <span><img src="img/kia-logo.png" alt="Kia Logo" class="logo"></span> Kia Redesign </p>
+                
+            <nav class="section-nav">
+
+                <button class="section-nav-trigger" type="button">
+                    <span class="section-nav-label" aria-live="polite">Index</span>
+                </button>
+
+                <div class="section-nav-list" role="menu" aria-label="Sections">
+                <a role="menuitem" href="#overview">Overview</a>
+                <a role="menuitem" href="#background">Background</a>
+                <a role="menuitem" href="#research">Research</a>
+                <a role="menuitem" href="#problem">Problem</a>
+                <a role="menuitem" href="#ideation">Ideation</a>                    
+                <a role="menuitem" href="#test">Design & Iteration</a>
+                <a role="menuitem" href="#solution">Solution</a>
+                <a role="menuitem" href="#impact">Impact</a>
+                <a role="menuitem" href="#reflection">Reflection</a>
+                </div>
+
+            </nav>
+                        
+        </header>
+
+        <main>
+
+            <img src="img/kia-cover.png" alt="Kia Cover" class="cover">
+
+            <div class="grid">
+                
+                <section id="overview">
+
+                    <div class="intro">
+
+                        <div class="tags">
+                            <span class="tag">Academic Project</span>
+                            <span class="tag">6-minute</span>
+                        </div>
+                        
+                        <h1>From Click to Key: Reimagining Kia’s Buying Experience</h1>
+
+                        <div>
+
+                            <p> A transparent, confidence-driven car buying journey from online research to dealership. </p>
+                        
+                            <p class="caption"> Explore the
+                                <a href="https://www.figma.com/proto/I9Kjn6iOBAaOmxJtO9Hdf7/Personal?node-id=4672-8812&viewport=194%2C236%2C0.06&t=l4PRJJJDY3Ow8R1T-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=4672%3A8812&page-id=4672%3A2012" target="_blank" rel="noopener noreferrer" class="dotted-link">final interactive prototype</a>, and
+                                <a class="dotted-link" href="https://www.figma.com/proto/US3GJbyshGRR831sgG28NC/14---Final-Presentation?node-id=352-1782&viewport=769%2C574%2C0.02&t=TihoraxXgl3H6CIN-1&scaling=contain&content-scaling=fixed&page-id=1%3A7" target="_blank" rel="noopener noreferrer">client presentation</a>.
+                            </p>
+                        </div>
+
+                    </div>  
+
+                    <aside class="project-meta">
+
+                        <div class="meta-col">
+                            <dl class="meta-item">
+                            <dt>ROLE</dt>
+                            <dd>Product &amp; Experience Designer</dd>
+                            </dl>
+
+                            <dl class="meta-item">
+                            <dt>TIMELINE</dt>
+                            <dd>March – April 2024 (5 weeks)</dd>
+                            </dl>
+
+                            <dl class="meta-item">
+                            <dt>TOOLS</dt>
+                            <dd>Figma, Google Forms, Zoom</dd>
+                            </dl>
+                        </div>
+
+                        <div class="meta-col">
+                            <dl class="meta-item">
+                            <dt>Team</dt>
+                            <dd>Min Kang, Raymond Co, Lori Jiang, Christy Fang</dd>
+                            </dl>
+
+                            <dl class="meta-item">
+                            <dt>Key Contributions</dt>
+                            <dd>
+                                <ul>
+                                    <li>Led research synthesis &amp; usability testing</li>
+                                    <li>Designed &amp; prototyped core features and screens</li>
+                                    <li>Informed final UI decisions under real business constraints</li>
+                                </ul>
+                            </dd>
+                            </dl>
+                        </div>
+
+                    </aside>
+        
+                </section> <hr>
+
+                <section id="background">
+
+                    <header>
+                        <p class="eyebrow">BACKGROUND</p>
+                        <h2> Kia ranks #1 in vehicle dependability — so why does it feel <em>broken</em>? </h2>
+                    </header>
+                    
+                    <p> 
+                        Despite building reliable cars, Kia ranked <b>last in dealership satisfaction</b> (<a class="dotted-link" href="https://www.jdpower.com/business/press-releases/2022-us-sales-satisfaction-index-ssi-study" target="_blank" rel="noopener noreferrer">J.D. Power, 2022</a>). Pricing inconsistencies between online research and dealer quotes created uncertainty in the purchase journey.
+                    </p>
+                    <p>
+                        External research revealed a disconnect between Kia’s online and in-person experiences, creating an opportunity to bridge the full buying journey and rebuild buyer confidence. 
+                    </p>
+
+                    <div class="stats">
+
+                        <div class="card card-data">
+                            <div class="card-display">55%</div>
+                            <div class="card-body">lacked info to make confident decisions</div>
+                            <div class="card-meta">(<a class="dotted-link" href="https://www.ipsos.com/en-ca/news-polls/canadians-looking-for-an-easier-vehicle-purchasing-experience#:~:text=Information%20Sharing%20Key%20for%20Drivers&text=car%20buying%20experience.-,Among%20those%20who%20purchased%20a%20vehicle%20at%20a%20dealership%20in,to%20make%20my%20decision%20confidently" target="_blank" rel="noopener noreferrer">Ipsos, 2022</a>)</div>
+                        </div>
+
+                        <div class="card card-data">
+                            <div class="card-display">83%</div>
+                            <div class="card-body">distrust or somewhat trust salespeople</div>
+                            <div class="card-meta">(<a class="dotted-link" href="https://www.jdpower.com/business/press-releases/2022-us-sales-satisfaction-index-ssi-study?srsltid=AfmBOopmUfphSD2xbVU2FBhHLCdHbY9-2-5RuQSJVWetlLh6-9W1u2x4" target="_blank" rel="noopener noreferrer">Ipsos, 2022</a>)</div>
+                        </div>
+
+                        <div class="card card-data">
+                            <div class="card-display">85%</div>
+                            <div class="card-body">still visit dealerships after online research</div>
+                            <div class="card-meta">(<a class="dotted-link" href="https://www.jdpower.com/business/press-releases/2022-us-sales-satisfaction-index-ssi-study?srsltid=AfmBOopmUfphSD2xbVU2FBhHLCdHbY9-2-5RuQSJVWetlLh6-9W1u2x4" target="_blank" rel="noopener noreferrer">J.D. Power, 2022</a>)</div>
+                        </div>
+                    </div>
+
+                </section> <hr>
+
+                <section id="research">
+
+                    <header>
+                        <p class="eyebrow">RESEARCH</p>
+                        <h2> Where the journey breaks down </h2>
+                    </header>
+                    
+                    <p> 
+                        We began by understanding the car-buying landscape through user and competitive research, then audited Kia's platform to identify key friction points. 
+                    </p>
+
+                    <!-- METHODS / INSIGHTS / AUDIT -->
+                    <div class="components flex-col">
+
+                        <div>
+                                    
+                            <h3>METHODS</h3>
+
+                            <div class="flex-col">
+
+                                <div class="item">
+                                    <div class="item-title">Survey (n=16)</div>
+                                    <p class="item-body">
+                                        Gathered insights from Kia and competitor buyers on decision drivers, frustrations, and research behaviours.
+                                    </p>
+                                </div>
+                                
+                                <div class="item">
+                                        <div class="item-title">Competitor Benchmarking (7)</div>
+                                        <p class="item-body">
+                                            Analyzed pricing transparency, research tools, and dealership handoff patterns across competitor platforms.
+                                        </p>
+                                </div> 
+                                
+                                <div class="item">
+                                        <div class="item-title">Semi-structured Interviews (3)</div>
+                                        <p class="item-body">
+                                            Spoke with a Kia mechanic, Tesla sales rep, and used-car dealer to understand real operational constraints.
+                                        </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <h3>KEY INSIGHTS</h3>
+
+                            <div class="flex-col">
+
+                                <div class="card card-data">
+                                    <div class="card-title">Buying decisions hinge on price & appearance</div>
+                                    <div class="card-body"> 
+                                        Price (69%) and vehicle appearance (62%) were the top decision drivers; every non-Kia buyer cited at least one as a dealbreaker.
+                                    </div>
+                                </div>
+                                
+                                <div class="card card-data">
+                                    <div class="card-title">Digital experiences set buyer expectations</div>
+                                    <div class="card-body"> 
+                                        Competitors offer clear pricing, live inventory, and robust research tools. At Tesla, ~80% of buyers pre-fill forms online to reduce dealership time and pressure.
+                                    </div>
+                                </div> 
+
+                                <div class="card card-data">
+                                    <div class="card-title">Independent dealerships create inconsistency</div>
+                                    <div class="card-body"> 
+                                        Kia dealerships set their own pricing and inventory, creating gaps between online research and dealer quotes that erode buyer confidence.
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+                        </div>
+
+                        <div>
+                            
+                            <h3>KIA AUDIT – 3 KEY CUSTOMER PAIN POINTS</h3>
+
+                            <div class="flex-col">
+                                <img src="img/kia-audit1.png" alt="Kia Audit Pain Point #1" class="border">
+                                <img src="img/kia-audit2.png" alt="Kia Audit Pain Point #2" class="border">
+                                <img src="img/kia-audit3.png" alt="Kia Audit Pain Point #3" class="border">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section> <hr>
+                        
+                <section id="problem">
+                    
+                    <header>
+                        <p class="eyebrow">PROBLEM</p>
+                        <h2>Clarity and continuity broke down across the buying journey</h2>
+                    </header>
+                    
+                    <p> How might we help buyers feel <b>informed</b> and <b>confident</b> throughout their online-to-dealership journey?</p>
+
+                </section> <hr>
+                
+                <section id="ideation">
+
+                    <header>
+                        <p class="eyebrow">IDEATION</p>
+                        <h2>Defining direction within real-world constraints </h2>
+                    </header>
+
+                    <p>                        
+                        The challenge wasn't just what to fix, but what was feasible within Kia's independent dealership structure. Through sketching and team voting, we converged on concepts that balanced buyer needs with dealership constraints, narrowing to the directions below:
+                        <!-- The challenge wasn't just what to fix, but what was feasible within Kia's independent dealership structure. To navigate this, we individually sketched concepts across key touchpoints, then used team voting to prioritize ideas that balanced buyer needs with operational realities. We ultimately converged on concepts below: -->
+                    </p>
+
+                    <div class="card card-data">
+
+                        <div class="card-title">SELECTED FOR PROTOTYPE</div>
+                        <img src="img/kia-ideation.png" alt="Kia selected concept sketches" class="margin-img">
+                        
+                        <div class="card-body">Archived sketches with votes (Pink = my sketches)</div>
+
+                        <div class="scrollable">
+                            <img src="img/kia-ideation2.png" alt="Kia archived sketchs">
+                        </div>
+
+                    </div>
+
+                    
+
+                </section> <hr>          
+
+                <section id="test">
+
+                    <header class="test-header">
+                        <div class="test-header-text">
+                            <p class="eyebrow">DESIGN & ITERATION</p>
+                            <h2>Refining toward clarity, guidance, and confidence</h2>
+                        </div>
+                    </header>
+                    
+                    <p> 
+                        Through two rounds of usability testing, we refined prototypes to strengthen clarity, task flow, and buyer confidence at key decision points.
+                    </p>
+
+                    <button class="toggle" type="button" aria-pressed="true">Show Iterations</button>
+
+                    <div>
+
+                        <h3> PART 1: Building Confidence Through Clarity </h3>
+
+                        <div class="components">
+                            
+                            <div>
+
+                                <div class="item">
+                                    <div class="item-title">Build Personalization</div>
+                                    <p class="item-body">
+                                        The build page is the primary exploration touchpoint. We tested two layouts and chose a vertical structure for better scalability, clearer pricing hierarchy, and stronger CTAs.
+                                    </p>
+                                </div>
+
+                                <div class="iteration-row">
+                                
+                                    <div class="card">
+    
+                                        <div class="card-label">ITERATION</div>
+                                        <div class="card-body">Key Findings:</div>
+
+                                        <ul class="card-body">
+                                            <li><img src="img/x-icon.png" alt="X Icon" class="icon"/>Pricing options missing </li>
+                                            <li><img src="img/x-icon.png" alt="X Icon" class="icon"/> Low CTA visibility </li>
+                                            <li><img src="img/x-icon.png" alt="X Icon" class="icon"/>Context scrolled out of view </li>
+                                        </ul>
+                                        
+                                        <img src="img/kia-build-iteration.png" alt="Personalization Iteration Screen" class="card-img"/>
+        
+                                    </div>
+                                                    
+                                    <img src="img/right-arrow-icon.png" alt="right-arrow-icon" class="arrow"/>
+
+                                    <div class="card final">
+                                        
+                                        <div class="card-label"><img src="img/check-icon.png" alt="Check Mark Icon" class="icon"/>FINAL DESIGN <span class="hover-pill">Hover to preview</span></div>
+                                            
+                                        <div class="card-body">
+                                            Outcome: <span>Users can now build with costs and options upfront.</span>
+                                        </div>
+                                                
+                                        <video class="card-img video-hover" src="img/kia-build-final.mp4" muted loop playsinline webkit-playsinline preload="metadata" aria-label="Personalization Final Design"></video>
+
+                                    </div>
+
+                                </div> 
+
+                            </div>
+
+                            <div>
+
+                                <div class="item">
+                                    <div class="item-title">In-context Trim Explanations</div>
+                                    <p class="item-body">
+                                        Trim drives the largest price differences in a vehicle build. Using plain language and interactive visuals, we clarified what each trim includes and the value behind its pricing.
+                                        <!-- Trim drives the largest price differences in a vehicle build. Using plain language and dynamic visuals, we clarified what each trim includes and the value behind its pricing to support confident, informed decisions. -->
+                                    </p>
+                                </div>
+
+                                <div class="iteration-row">
+                                
+                                    <div class="card">
+    
+                                        <div class="card-label">EXISTING TRIM CHART</div>
+
+                                        <div class="card-body">Key Pain Points:</div>
+
+                                        <ul class="card-body">
+                                            <li><img src="img/x-icon.png" alt="X Icon" class="icon"/>Static dropdown list</li>
+                                            <li><img src="img/x-icon.png" alt="X Icon" class="icon"/>Industry-heavy terminology</li>
+                                            <li><img src="img/x-icon.png" alt="X Icon" class="icon"/>No visual explanation </li>
+                                        </ul>
+                                        
+                                        <img src="img/kia-trim.png" alt="Kia's Existing Trim Chart" class="card-img"/>
+
+                                        <p class="caption">
+                                            Screenshot of Kia's Trim Chart
+                                        </p>
+        
+                                    </div>
+                                                    
+                                    <img src="img/right-arrow-icon.png" alt="right-arrow-icon" class="arrow"/>
+
+                                    <div class="card final">
+                                        
+                                        <div class="card-label"><img src="img/check-icon.png" alt="Check Mark Icon" class="icon"/>FINAL DESIGN</div>
+                                            
+                                        <div class="card-body">
+                                            Outcome: <span> 
+                                                Users can make informed trim decisions.
+                                            </span>
+                                        </div>
+                                                
+                                        <img src="img/kia-trim-final.png" alt="Comparison Chart Final Design" class="card-img"/>
+
+                                    </div>
+
+                                </div> 
+
+                            </div>
+
+                            <div>
+
+                                <div class="item">
+                                    <div class="item-title">Pricing Summary</div>
+                                    <p class="item-body"> 
+                                        Restructured into clear sections with inline edits and transparent fee breakdowns, surfacing all costs upfront.
+                                    </p>
+                                </div>  
+                                
+                                <div class="card final-only">
+
+                                    <div class="card-label"><img src="img/check-icon.png" alt="Check Mark Icon" class="icon"/>FINAL DESIGN </div>
+
+                                    <div class="flex"> 
+                                        <div class="card-body"> 
+                                            Outcome: <span class="inline-block">        
+                                                Users can review and adjust selections with full pricing clarity.
+                                            </span>
+                                        </div>
+                                        <img src="img/kia-summary-final.png" alt="Summary Final Design" class="card-img"/>
+                                    </div>
+                                    
+                                </div> 
+
+                            </div>
+
+                            <div>
+
+                                <div class="item">
+                                    <div class="item-title">Comparison Chart</div>
+                                    <p class="item-body"> 
+                                        Consolidated personalized build differences into a side-by-side comparison for faster, clearer decisions.
+                                    </p>
+                                </div>
+                                
+                                <div class="card final-only">
+                                    <div class="card-label"><img src="img/check-icon.png" alt="Check Mark Icon" class="icon"/>FINAL DESIGN </div>
+                                    <div class="flex"> 
+
+                                        <div class="card-body"> Outcome:
+                                            <span class="inline-block">
+                                                Users can compare builds and costs at a glance.
+                                            </span> 
+                                        </div>
+                                                
+                                        <img src="img/kia-compare-final.png" alt="Comparison Chart Final Design" class="card-img"/>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                    <div>
+
+                        <h3>PART 2: From Build to Visit </h3>
+
+                        <div class="components">
+
+                            <div>
+
+                                <div class="item">
+                                    <div class="item-title">User Profile (Owner Portal)</div>
+                                    <p class="item-body"> 
+                                        Extended the post-build journey by integrating the portal into the main experience, enabling saved builds, quote tracking, and booking.
+                                        <!-- Integrated the portal into the main site to extend the journey beyond the build, enabling saved builds, quote tracking, and booking. -->
+                                    </p>
+                                </div>
+                                        
+                                <div class="iteration-row">
+                                            
+                                    <div class="card">
+                                                
+                                        <div class="card-label">ITERATION</div>
+                                        <div class="card-body">Key Findings:</div>
+
+                                        <ul class="card-body">
+                                            <li><img src="img/x-icon.png" alt="X Icon" class="icon"/>New features lacked visibility</li>
+                                            <li><img src="img/x-icon.png" alt="X Icon" class="icon"/>Inconsistent UI patterns</li>
+                                        </ul>
+                                        
+                                        <img src="img/kia-profile-iteration.png" alt="Profile Iteration Screen" class="card-img"/>
+                                    
+                                    </div>
+                                                                                    
+                                    <img src="img/right-arrow-icon.png" alt="right-arrow-icon" class="arrow"/>
+
+                                    <div class="card final">
+                                        
+                                        <div class="card-label"><img src="img/check-icon.png" alt="Check Mark Icon" class="icon"/>FINAL DESIGN</div>
+                                        
+                                        <div class="card-body">
+                                            Outcome: 
+                                            <span>
+                                                Users can manage their journey in one place.
+                                            </span>
+                                        </div>
+                                        
+                                        <img src="img/kia-profile-final.png" alt="Profile Final Design" class="card-img"/>
+
+                                    </div>
+                                </div> 
+
+                            </div>
+
+                            <div>
+
+                                <div class="item"> 
+                                    <div class="item-title">Status Tracker</div>
+                                    <p class="item-body"> 
+                                        Testing revealed low discoverability on a separate page. We redesigned it as a unified homepage tracker for quotes, deliveries, and services—serving both buyers and owners.
+                                        <!-- Surfaced quote status and activity updates on the homepage, making progress visible without follow up. -->
+                                        <!-- Originally scoped as quote tracking, the feature evolved into a unified homepage activity tracker—covering quotes, deliveries, and services—to create a continuous experience for both prospective buyers and owners. -->
+                                    </p>
+                                    
+                                </div>
+                                        
+                                <div class="iteration-row">
+                                            
+                                    <div class="card">
+                                                
+                                        <div class="card-label">ITERATION</div>
+                                        <div class="card-body">Key Findings:</div>
+
+                                        <ul class="card-body">
+                                            <li> <img src="img/x-icon.png" alt="X Icon" class="icon"/>Low discoverability </li>
+                                            <li> <img src="img/x-icon.png" alt="X Icon" class="icon"/>Weak visual hierarchy</li>
+                                            <li> <img src="img/x-icon.png" alt="X Icon" class="icon"/>Buyer-only; no owner benefit</li>
+
+                                        </ul>
+                                        
+                                        <img src="img/kia-quote-iteration.png" alt="Status Tracker Iteration" class="card-img"/>
+
+                                        <p class="caption">
+                                            Originally static — motion added post-project for status clarity.
+                                        </p>
+                                    
+                                    </div>
+                                                                                    
+                                    <img src="img/right-arrow-icon.png" alt="right-arrow-icon" class="arrow"/>
+
+                                    <div class="card final">
+
+                                        <div class="card-label"><img src="img/check-icon.png" alt="Check Mark Icon" class="icon"/>FINAL DESIGN <span class="hover-pill">Hover to preview</span></div>
+                                        
+                                        <div class="card-body">
+                                            Outcome:
+                                            <span class="inline-block">
+                                            Users track progress and access detailed quote.
+                                            </span> 
+                                        </div>
+                                        
+                                        <video class="card-img video-hover" src="img/kia-quote-final.mp4" muted loop playsinline webkit-playsinline preload="metadata" aria-label="Status Tracker Final Design"></video>
+
+                                        <p class="caption">
+                                            Originally static — motion added post-project for status clarity.
+                                        </p>
+                                        
+
+                                    </div>
+                                </div> 
+
+                            </div>
+
+                            <div>
+
+                                <div class="item">
+                                    <div class="item-title">Booking System</div>
+                                    <p class="item-body">
+
+                                        Added appointment booking and document upload to smooth the transition from online research to dealership.
+
+                                    </p>
+                                </div>
+                                        
+                                <div class="iteration-row">
+                                            
+                                    <div class="card">
+                                                
+                                        <div class="card-label">ITERATION</div>
+                                        <div class="card-body">Key Findings:</div>
+                                        
+                                        <ul class="card-body">
+                                            <li><img src="img/x-icon.png" alt="X Icon" class="icon"/>Upload alone felt incomplete</li>
+                                            <li><img src="img/x-icon.png" alt="X Icon" class="icon"/>No clear confirmation</li>
+                                        </ul>
+                                        
+                                        <img src="img/kia-booking-iteration.png" alt="Booking Iteration Screen" class="card-img"/>
+
+                                    </div>
+                                                                                
+                                    <img src="img/right-arrow-icon.png" alt="right-arrow-icon" class="arrow"/>
+
+                                    <div class="card final">
+                                        
+                                        <div class="card-label"><img src="img/check-icon.png" alt="Check Mark Icon" class="icon"/>FINAL DESIGN </div>
+                                        
+                                        <div class="card-body">
+                                            Outcome: <span>
+                                                <!-- Users can visit the dealership informed and prepared. -->
+                                                Users can arrive informed and prepared. 
+                                            </span>
+                                        </div>
+                                        
+                                        <img src="img/kia-booking-final.png" alt="Booking Final Design" class="card-img gif-hover"/>
+
+                                    </div>
+                                </div> 
+
+                            </div>
+
+                            <div>
+
+                                <div class="item">
+                                    <div class="item-title">Dealer CRM (Activix)</div>
+                                    <p class="item-body"> 
+                                        To maintain continuity into the in-store experience, we integrated buyer context (quote details and uploaded documents) into dealer tools, enabling more informed, personalized conversations.
+                                    </p>
+                                </div>
+                                
+                                <div class="card final-only">
+                                    <div class="card-label"><img src="img/check-icon.png" alt="Check Mark Icon" class="icon"/>FINAL DESIGN <span class="hover-pill">Hover to preview</span></div>
+                                    <div class="flex"> 
+
+                                        <div class="card-body">
+                                            Outcome:
+                                            <span class="inline-block">
+                                                Dealers can access buyer context for more informed conversations.
+                                            </span> 
+                                        </div>
+                                                
+                                        <video class="card-img video-hover" src="img/kia-crm-final.mp4" muted loop playsinline webkit-playsinline preload="metadata" aria-label="Dealer CRM Final Design"></video>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            
+                        </div>
+
+                    </div>   
+                
+                </section> <hr>     
+
+                <section id="solution">
+
+                    <header>
+                        <p class="eyebrow">SOLUTION</p>
+                        <h2>From broken to a unified, confident car-shopping experience</h2>
+                    </header>
+
+                    <p>   
+                        A continuous journey from online research to dealership visit, replacing uncertainty with clarity, guidance, and confidence.
+
+                        <!-- What was once fragmented is now a continuous journey from online research to dealership visit—replacing uncertainty with clarity, guidance, and confidence. -->
+                        <!-- A seamless journey from online research to dealership with clarity, transparency, and confident decisions.          -->
+                        <!-- A continuous experience from first click to dealership visit, where buyers explore, decide, and arrive with confidence. -->
+                        <!-- Bridging online research and dealership visits through transparent pricing, clearer vehicle information, and seamless transitions for confident, informed decisions. -->
+                    </p>
+                    
+                    <p class="caption"> Explore the
+                        <a href="https://www.figma.com/proto/I9Kjn6iOBAaOmxJtO9Hdf7/Personal?node-id=4672-8812&viewport=194%2C236%2C0.06&t=l4PRJJJDY3Ow8R1T-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=4672%3A8812&page-id=4672%3A2012" target="_blank" rel="noopener noreferrer" class="dotted-link">final interactive prototype</a>, and
+                        <a class="dotted-link" href="https://www.figma.com/proto/US3GJbyshGRR831sgG28NC/14---Final-Presentation?node-id=352-1782&viewport=769%2C574%2C0.02&t=TihoraxXgl3H6CIN-1&scaling=contain&content-scaling=fixed&page-id=1%3A7" target="_blank" rel="noopener noreferrer">client presentation</a>.
+                    </p>
+                    <!-- <p class="caption"> Explore the
+                        <a href="https://www.figma.com/proto/I9Kjn6iOBAaOmxJtO9Hdf7/Personal?page-id=4672%3A2012&amp;node-id=4672-8812&amp;viewport=-3694%2C-865%2C0.14&amp;t=M0tgEA2V7tfETTrj-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=4672%3A8812" target="_blank" class="dotted-link">final interactive prototype</a>, 
+
+                        <a href="https://youtu.be/8tYR796ZO48?si=zgrlTHk6JO-x5NgJ" target="_blank" class="link">user-scenario video</a>
+
+                        <a class="dotted-link" href="#https://youtu.be/8tYR796ZO48?si=zgrlTHk6JO-x5NgJ" target="_blank" rel="noopener noreferrer">user-scenario video</a>, and 
+                        <a class="dotted-link" href="https://www.figma.com/proto/jGALDksCGzjl2ipekGYIl3/07---Designing-Interactions-for-a-Client?page-id=1%3A4&node-id=1003-627&m=dev&scaling=scale-down&content-scaling=fixed&t=iC27AZjeQvTZhNLd-1" target="_blank" rel="noopener noreferrer">client presentation</a>.
+                    </p> -->
+
+                </section>        
+
+                <div class="final-mockups">
+
+                    <img src="img/kia-final.png" alt="Kia Final Mockup #1">
+                    <img src="img/kia-final2.png" alt="Kia Final Mockup #2">
+                    <img src="img/kia-designsystem.png" alt="Kia Final Design System">
+
+                </div> <hr>
+
+                <section id="impact">
+
+                    <header>
+                        <p class="eyebrow">IMPACT</p>
+                         <h2> Creating value for the business </h2>
+                    </header>
+
+                    <p> Though not launched, this reimagined concept demonstrates potential impact in: </p>
+
+                     <!-- Though not launched, this concept shows how the redesign could create value across: -->
+                    <!-- Though not launched, this concept demonstrates how a reimagined journey could deliver value: -->
+
+                    <div class="flex-col">
+                            
+                        <div class="item">
+                            <div class="item-title"> Stronger buyer intent and conversion </div>
+                            <p class="item-body">Minimizes pricing gaps by surfacing itemized fees and detailed breakdowns online.</p>
+                        </div>
+
+                        <div class="item">
+                            <div class="item-title"> Increased dealership satisfaction </div>
+                            <p class="item-body">
+                                Streamlines handoffs with status tracking and pre-uploads, enabling shorter visits and informed conversations.
+                            </p>
+                        </div>
+
+                        <div class="item">
+                            <div class="item-title"> Restored brand trust </div>
+                            <p class="item-body">
+                                Positions Kia as a customer-first brand through a transparent, guided journey.
+                            </p>
+                        </div>
+
+                        <div class="item">
+                            <div class="item-title"> Scalable, unified design system </div>
+                            <p class="item-body">
+                                Maintains consistent brand experiences across dealerships and future digital products.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </section> <hr>
+
+                <section id="reflection">
+
+                    <header>
+                        <p class="eyebrow">REFLECTION</p>
+                        <h2> Learning to design within constraints, not around them </h2>
+                    </header>
+
+                    <p>
+                        Entering the automotive domain without prior experience pushed me to ground decisions in research. In high-stakes journeys, I learned design isn’t about efficiency — it’s about certainty. Helping buyers understand what to expect matters more than making things faster.
+                    </p>
+                    <p>
+                        The real challenge, however, was navigating constraints we couldn’t change. Kia’s dealership structure meant pricing inconsistencies were beyond our control. Rather than pursuing perfect solutions, I focused on identifying the highest-impact opportunities within real-world limits.
+                    </p>
+                    <p>
+                        This shifted me from optimizing individual screens to designing systems that balance user needs with business goals, and made me realize that I enjoy solving complex, real-world problems where strategy matters as much as visual execution.
+                    </p>
+
+                    <img src="img/kia-team.png" alt="Team Picture">
+                    <p class="caption">
+                        Special thanks to my amazing teammates and teaching staff for an incredibly valuable experience!
+                    </p>
+
+                </section> <hr>
+
+            </div>
+                
+        </main>
+
+        <section class="related-work flex-col gap24">
+                    
+            <p class="eyebrow">BEFORE YOU GO</p>
+                
+            <div class="project-grid">
+                
+                <a class="project-card" href="labatie.html">
+                            
+                    <div class="tags">
+                        <span class="tag">Brand Design</span>
+                        <span class="tag">Content Strategy</span>
+                    </div>
+                    
+                    <div class="item-title">La Bâtie Post‑Festival Microsite</div>
+                    
+                    <img src="img/labatie-project-cover-small.png"
+                        data-hover-gif="img/labatie-project-cover-small.gif"
+                        alt="La Bâtie Post-Festival Microsite cover"
+                        class="project-cover">
+                
+                </a>
+                
+                <a class="project-card trackling-card" href="trackling.html">
+                            
+                    <div class="tags">
+                        <span class="tag">Case Study</span>
+                        <span class="tag">UX/UI</span>
+                    </div>
+                    
+                    <div class="item-title">Fitness App for Seniors</div>
+                            
+                    <div class="img-wrapper">
+                        <img src="img/trackling-project-cover-small.png" alt="Trackling fitness app for seniors cover" class="project-cover">   
+                    </div>
+                
+                </a>
+            
+            </div>
+                    
+        </section>
+
+    </div>
+
+    <footer>
+        
+        <div class="footer-marquee">
+            <div class="footer-marquee-track">
+                <span>YOU'VE REACHED THE END · THANK YOU FOR COMING · </span>
+                <span>YOU'VE REACHED THE END · THANK YOU FOR COMING · </span>
+                <span>YOU'VE REACHED THE END · THANK YOU FOR COMING · </span>
+                <span>MADE WITH LOTS OF COFFEE · </span>
+                <span>YOU'VE REACHED THE END · THANK YOU FOR COMING · </span>
+                <span>YOU'VE REACHED THE END · THANK YOU FOR COMING · </span>
+                <span>YOU'VE REACHED THE END · THANK YOU FOR COMING · </span>
+                <span>LET'S CHAT & HAVE COFFEE · </span>
+            </div>
+        </div>
+
+    </footer>
+    
+    <div class="cursor-orb" aria-hidden="true"></div>
+    
+    <script>    
+
+        // Pointer + cursor message (single rAF loop)
+        const isFinePointer = window.matchMedia?.("(pointer: fine)").matches ?? true;
+        const orb = document.querySelector(".cursor-orb");
+        const projectCards = document.querySelectorAll('.project-card');
+        const cursorMsg = document.createElement('div');
+        cursorMsg.className = 'cursor-message';
+        cursorMsg.innerText = "View project";
+        document.body.appendChild(cursorMsg);
+
+        let pointerX = window.innerWidth / 2;
+        let pointerY = window.innerHeight / 2;
+
+        let orbTargetX = pointerX;
+        let orbTargetY = pointerY;
+        let orbCurrentX = pointerX;
+        let orbCurrentY = pointerY;
+        const orbEase = 1;
+        const orbIdleDelay = 900;
+        let orbIdleTimer = 0;
+        let orbScrollTimer = 0;
+
+        let msgTargetX = pointerX;
+        let msgTargetY = pointerY;
+        let msgCurrentX = pointerX;
+        let msgCurrentY = pointerY;
+        const msgEase = 1;
+        let isHoveringProject = false;
+
+        let rafId = null;
+        const tick = () => {
+            let keepRunning = false;
+
+            if (orb && isFinePointer) {
+                orbCurrentX += (orbTargetX - orbCurrentX) * orbEase;
+                orbCurrentY += (orbTargetY - orbCurrentY) * orbEase;
+                orb.style.left = `${orbCurrentX}px`;
+                orb.style.top = `${orbCurrentY}px`;
+                if (Math.abs(orbTargetX - orbCurrentX) > 0.1 || Math.abs(orbTargetY - orbCurrentY) > 0.1) {
+                    keepRunning = true;
+                }
+            }
+
+            if (isHoveringProject) {
+                msgCurrentX += (msgTargetX - msgCurrentX) * msgEase;
+                msgCurrentY += (msgTargetY - msgCurrentY) * msgEase;
+                cursorMsg.style.left = `${msgCurrentX}px`;
+                cursorMsg.style.top = `${msgCurrentY}px`;
+                if (Math.abs(msgTargetX - msgCurrentX) > 0.1 || Math.abs(msgTargetY - msgCurrentY) > 0.1) {
+                    keepRunning = true;
+                }
+            }
+
+            if (keepRunning) {
+                rafId = requestAnimationFrame(tick);
+            } else {
+                rafId = null;
+            }
+        };
+
+        const requestTick = () => {
+            if (!rafId) {
+                rafId = requestAnimationFrame(tick);
+            }
+        };
+
+        const setProjectHover = (active) => {
+            isHoveringProject = active;
+            cursorMsg.classList.toggle("is-visible", active);
+            if (orb) {
+                orb.classList.toggle("is-message", active);
+            }
+            if (active) {
+                msgTargetX = pointerX;
+                msgTargetY = pointerY - 15;
+                requestTick();
+            }
+        };
+
+        if (!isFinePointer) {
+            if (orb) {
+                orb.style.display = "none";
+            }
+            cursorMsg.style.display = "none";
+        } else {
+            const handlePointerMove = (evt) => {
+                pointerX = evt.clientX;
+                pointerY = evt.clientY;
+                orbTargetX = pointerX;
+                orbTargetY = pointerY;
+                if (isHoveringProject) {
+                    msgTargetX = pointerX;
+                    msgTargetY = pointerY - 15;
+                }
+                if (orb) {
+                    orb.classList.add("is-active");
+                    orb.classList.remove("is-idle");
+                    orb.classList.remove("is-scrolling");
+                }
+                requestTick();
+
+                window.clearTimeout(orbIdleTimer);
+                orbIdleTimer = window.setTimeout(() => {
+                    if (orb) {
+                        orb.classList.add("is-idle");
+                    }
+                }, orbIdleDelay);
+            };
+
+            window.addEventListener("pointermove", handlePointerMove, { passive: true });
+            window.addEventListener("mouseleave", () => {
+                if (orb) {
+                    orb.classList.remove("is-active", "is-idle", "is-scrolling", "is-clickable", "is-message");
+                }
+                setProjectHover(false);
+            });
+
+            const clickableSelector = "a, button, [role='button'], input, textarea, select, .project-card";
+            const isClickable = (node) => node && node.closest && node.closest(clickableSelector);
+            window.addEventListener("pointerover", (event) => {
+                if (orb && isClickable(event.target)) {
+                    orb.classList.add("is-clickable");
+                }
+            });
+            window.addEventListener("pointerout", (event) => {
+                if (!orb) return;
+                const currentClickable = isClickable(event.target);
+                const nextClickable = event.relatedTarget && isClickable(event.relatedTarget);
+                if (currentClickable && currentClickable !== nextClickable) {
+                    orb.classList.remove("is-clickable");
+                }
+            });
+
+            window.addEventListener("scroll", () => {
+                if (!orb) return;
+                orb.classList.add("is-scrolling");
+                window.clearTimeout(orbScrollTimer);
+                orbScrollTimer = window.setTimeout(() => {
+                    orb.classList.remove("is-scrolling");
+                }, 160);
+            }, { passive: true });
+
+            if (projectCards.length) {
+                projectCards.forEach((card) => {
+                    card.addEventListener('pointerenter', () => setProjectHover(true));
+                    card.addEventListener('pointerleave', () => setProjectHover(false));
+                });
+            }
+        }
+
+
+        // Scroll-spy for section menu label + active link
+        const sectionLabel = document.querySelector('.section-nav-label');
+        const sectionTrigger = document.querySelector('.section-nav-trigger');
+        const sectionLinks = Array.from(document.querySelectorAll('.section-nav-list a[href^="#"]'));
+        const sectionTargets = sectionLinks
+          .map((link) => document.querySelector(link.getAttribute('href')))
+          .filter(Boolean);
+
+        function setActiveSection(id) {
+            const activeLink = sectionLinks.find((link) => link.getAttribute('href') === `#${id}`);
+            sectionLinks.forEach((link) => link.classList.toggle('is-active', link === activeLink));
+            if (sectionLabel && activeLink) {
+                sectionLabel.textContent = activeLink.textContent;
+            }
+            if (sectionTrigger) {
+                sectionTrigger.classList.toggle('is-active', !!activeLink);
+            }
+        }
+
+        if (sectionTargets.length) {
+            const visibility = new Map();
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            visibility.set(entry.target.id, entry.intersectionRatio);
+                        } else {
+                            visibility.delete(entry.target.id);
+                        }
+                    });
+
+                    if (visibility.size) {
+                        const [mostVisible] = [...visibility.entries()].sort((a, b) => b[1] - a[1])[0];
+                        setActiveSection(mostVisible);
+                    }
+                },
+                {
+                    rootMargin: '-30% 0px -50% 0px',
+                    threshold: [0, 0.25, 0.5, 0.75, 1],
+                }
+            );
+
+            sectionTargets.forEach((section) => observer.observe(section));
+
+            if (location.hash) {
+                setActiveSection(location.hash.replace('#', ''));
+            }
+        }
+
+        // Fade-in sections on scroll
+        const fadeSections = document.querySelectorAll('.grid section');
+        fadeSections.forEach((section) => section.classList.add('fade-in-section'));
+        if ('IntersectionObserver' in window) {
+            const fadeObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            fadeObserver.unobserve(entry.target);
+                        }
+                    });
+                },
+                { rootMargin: '0px 0px -5% 0px', threshold: 0.1 }
+            );
+            fadeSections.forEach((section) => fadeObserver.observe(section));
+        } else {
+            fadeSections.forEach((section) => section.classList.add('is-visible'));
+        }
+    
+        const finalsToggle = document.querySelector('.toggle');
+        if (finalsToggle) {
+            const setToggleState = (showIterations) => {
+                finalsToggle.setAttribute('aria-pressed', String(showIterations));
+                finalsToggle.textContent = showIterations ? 'Hide Iterations' : 'Show Iterations';
+            };
+            const hideIterations = () => {
+                document.body.classList.add('finals-hiding');
+                window.setTimeout(() => {
+                    document.body.classList.add('finals-only');
+                }, 220);
+                setToggleState(false);
+            };
+            const showIterations = () => {
+                document.body.classList.remove('finals-only');
+                requestAnimationFrame(() => {
+                    document.body.classList.remove('finals-hiding');
+                });
+                setToggleState(true);
+            };
+
+            document.body.classList.add('finals-only');
+            document.body.classList.remove('finals-hiding');
+            setToggleState(false);
+
+            finalsToggle.addEventListener('click', () => {
+                const isShowingIterations = finalsToggle.getAttribute('aria-pressed') === 'true';
+                if (isShowingIterations) {
+                    hideIterations();
+                } else {
+                    showIterations();
+                }
+            });
+        }
+
+        // Lazy-load GIFs on first hover/focus to avoid eager downloads
+        const setupLazyHoverGif = (triggerEl, img, hoverSrc, staticSrc, includeFocus = false) => {
+            if (!triggerEl || !img || !hoverSrc || !staticSrc) return;
+            let isHovering = false;
+            let isLoaded = false;
+            let isLoading = false;
+
+            const loadGif = () => {
+                if (isLoaded || isLoading) return;
+                isLoading = true;
+                const loader = new Image();
+                loader.src = hoverSrc;
+                loader.onload = () => {
+                    isLoaded = true;
+                    isLoading = false;
+                    if (isHovering) {
+                        img.src = hoverSrc;
+                    }
+                };
+                loader.onerror = () => {
+                    isLoading = false;
+                };
+            };
+
+            const play = () => {
+                isHovering = true;
+                if (isLoaded) {
+                    img.src = hoverSrc;
+                } else {
+                    loadGif();
+                }
+            };
+            const stop = () => {
+                isHovering = false;
+                img.src = staticSrc;
+            };
+
+            triggerEl.addEventListener('mouseenter', play);
+            triggerEl.addEventListener('mouseleave', stop);
+            if (includeFocus) {
+                triggerEl.addEventListener('focusin', play);
+                triggerEl.addEventListener('focusout', stop);
+            }
+        };
+
+        // Play GIFs only on hover/focus (lazy load on first hover)
+        const hoverGifs = document.querySelectorAll('.project-cover[data-hover-gif]');
+        hoverGifs.forEach((img) => {
+            const card = img.closest('.project-card') || img.parentElement;
+            if (!card) return;
+            const staticSrc = img.getAttribute('src');
+            const hoverSrc = img.getAttribute('data-hover-gif');
+            setupLazyHoverGif(card, img, hoverSrc, staticSrc, true);
+        });
+
+        // Play MP4 on hover (Safari-friendly)
+        const hoverVideos = document.querySelectorAll('video.video-hover');
+        hoverVideos.forEach((video) => {
+            const hoverTarget = video.closest('.card') || video.parentElement;
+            if (!hoverTarget) return;
+
+            video.muted = true;
+            video.playsInline = true;
+            video.setAttribute('playsinline', '');
+            video.setAttribute('webkit-playsinline', '');
+
+            const seekToStart = () => {
+                try {
+                    video.currentTime = 0;
+                } catch (err) {
+                }
+            };
+
+            const primeFirstFrame = () => {
+                if (video.readyState >= 1) {
+                    seekToStart();
+                } else {
+                    video.addEventListener('loadedmetadata', seekToStart, { once: true });
+                    video.load();
+                }
+            };
+            primeFirstFrame();
+
+            const playVideo = () => {
+                if (video.readyState < 2) {
+                    const onReady = () => {
+                        const playPromise = video.play();
+                        if (playPromise && typeof playPromise.catch === 'function') {
+                            playPromise.catch(() => {});
+                        }
+                    };
+                    video.addEventListener('canplay', onReady, { once: true });
+                    video.load();
+                    return;
+                }
+                const playPromise = video.play();
+                if (playPromise && typeof playPromise.catch === 'function') {
+                    playPromise.catch(() => {});
+                }
+            };
+
+            const stopVideo = () => {
+                video.pause();
+                seekToStart();
+            };
+
+            hoverTarget.addEventListener('pointerenter', playVideo);
+            hoverTarget.addEventListener('pointerleave', stopVideo);
+            hoverTarget.addEventListener('focusin', playVideo);
+            hoverTarget.addEventListener('focusout', stopVideo);
+            hoverTarget.addEventListener('pointerdown', (event) => {
+                if (event.pointerType === 'touch') {
+                    playVideo();
+                }
+            });
+        });
+
+        // Unlock playback after first user gesture (Safari policy)
+        let playbackUnlocked = false;
+        const unlockPlayback = () => {
+            if (playbackUnlocked) return;
+            playbackUnlocked = true;
+            const warmup = (vid) => {
+                if (!vid) return;
+                vid.muted = true;
+                vid.playsInline = true;
+                vid.setAttribute('playsinline', '');
+                vid.setAttribute('webkit-playsinline', '');
+                const playPromise = vid.play();
+                if (playPromise && typeof playPromise.then === 'function') {
+                    playPromise.then(() => {
+                        vid.pause();
+                        try { vid.currentTime = 0; } catch (err) {}
+                    }).catch(() => {});
+                }
+            };
+            hoverVideos.forEach((vid) => warmup(vid));
+        };
+        unlockPlayback();
+        document.addEventListener('pointerdown', unlockPlayback, { once: true, passive: true });
+        document.addEventListener('keydown', unlockPlayback, { once: true });
+
+        //Footer
+        const footerMarquee = document.querySelector('.footer-marquee');
+        if (footerMarquee && 'IntersectionObserver' in window) {
+          const footerObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                footerMarquee.classList.add('is-active');
+              }
+            });
+          }, { threshold: 0.4 });
+          footerObserver.observe(footerMarquee);
+        }
+          
+    </script>
+
+    </body>
+    
+</html>

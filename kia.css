@@ -1,0 +1,157 @@
+/* Kia project-specific overrides */
+
+.stats .card { padding: 24px 28px; }
+.stats .card-body { padding: 6px 0 3px; }
+
+#ideation .card { padding: 30px 24px 18px; }
+#ideation img { margin: 9px 0 18px; }
+#ideation .scrollable img { margin: 6px 0 3px; opacity: .7;}
+#ideation .card-body { font-size: var(--fs-12); }
+
+.stats,
+ #ideation .card,
+ #test .toggle,
+ #impact .flex-col { margin-top: 12px; }
+
+.final .video-hover,
+.final-only .video-hover {
+  border-radius: 7px 7px 3px 3px;
+}
+.video-hover {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+.video-hover::-webkit-media-controls,
+.video-hover::-webkit-media-controls-overlay-play-button,
+.video-hover::-webkit-media-controls-start-playback-button,
+.video-hover::-webkit-media-controls-play-button,
+.video-hover::-webkit-media-controls-enclosure {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+ /* ===== Design + Iteration ===== */
+
+#test .tag { 
+  margin-top: 12px; 
+  background-color: #92c8a024; 
+}
+#test h3 {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 2px dotted rgba(217, 217, 217, 0.65);
+}
+.iteration-row { display: flex; }
+
+.arrow { width: 18px; height: 10px; align-self: center;}
+
+ #test .caption, #reflection .caption{ 
+  font-style: italic; 
+  line-height: 165%;
+}
+ #test .caption, #reflection img{ 
+  margin-top: 9px; 
+}
+
+
+.final .card-img { margin-top: 12px; }
+.final .card-label {margin-bottom: 6px;}
+.final .caption { display: none;}
+
+.final-only { 
+  padding-bottom: 0px; 
+}
+.final-only .flex {
+  gap: 30px;
+  margin: -36px 0 0 18px;
+}
+.final-only .flex { 
+  align-items: center; 
+}
+.final-only .card-body { margin-top: 9px; }
+.final-only .card-img {  max-width: 61%; transform: translateY(24px); }
+.final-only:hover .card-img,
+.final-only:focus .card-img { transform: translateY(0px); }
+
+
+
+
+/* Transition targets */
+#test .iteration-row .card:not(.final),
+#test .iteration-row .arrow {
+  transition: opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+#test .iteration-row .card:not(.final) {
+  max-width: 100%;
+  overflow: hidden;
+}
+#test .iteration-row .card.final {
+  transition: flex-basis 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), max-width 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: flex-basis, max-width;
+}
+
+/* Test section: finals-only collapsed layout */
+body.finals-only .iteration-row { gap: 0; }
+body.finals-only .iteration-row .card:not(.final) {
+  flex: 0 0 0;
+  max-width: 0;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+  pointer-events: none;
+}
+body.finals-only .iteration-row .arrow {
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+body.finals-only .iteration-row .card.final,
+body.finals-only .final-only {
+  flex: 1 1 100%;
+  max-width: 100%;
+  padding: 24px;
+  border-color:var(--grey);
+  background-color:var(--light-grey);
+  /* background-color:unset; */
+}
+
+body.finals-only .final .caption {
+  display: block;
+}
+body.finals-only .final-only .flex {
+  margin: 0;
+  gap: 12px;
+  flex-direction: column;
+  align-items: stretch;
+}
+body.finals-only .final-only .flex > div {
+  width: 100%;
+}
+body.finals-only .final-only .card-body,
+body.finals-only .final-only .inline-block {
+  margin: 0;
+}
+body.finals-only .final-only .card-img {
+  max-width: 100%;
+  max-height: 460px;
+  transform: none;
+  object-fit: cover;
+  object-position: top;
+}
+body.finals-only #test .tag {
+  margin-top: 0;
+  justify-self: end;
+}
+
+/* Test section: final card styling */
+.final, .final-only { overflow: hidden; }
+.card.final, .final-only {
+  flex: 1.95;
+  background-color: #92c8a024; 
+  border: 1px solid #34C759;
+}
+

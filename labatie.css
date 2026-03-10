@@ -1,0 +1,178 @@
+/* La Batie project-specific overrides */
+
+.cover {
+  display: block;
+  width: 100vw;
+  margin-top: 0;
+  margin-left: calc(-1 * (var(--outer-margin) + var(--sidebar)));
+  margin-right: 0;
+  border-radius: 0;
+}
+
+/* VIDEO HERO (before scroll)  */
+.video-hero .header,
+.video-hero .sidebar, .video-hero .section-nav-trigger  {
+  background-color: transparent;
+  border-color: transparent;
+  transition: background-color 0.5s ease, border-bottom-color 0.5s ease;
+}
+.video-hero .header .logo {
+  filter: brightness(0) invert(1); /* dark logo → white */
+  transition: filter 0.5s ease;
+}
+.video-hero .header p,
+.video-hero .header span { color: var(--bg); }
+
+.video-hero .sidebar-logo {
+  border-radius: 333px;
+  border: 1px solid  var(--light-grey);
+}
+
+/* VIDEO HERO (after scroll) */
+.video-hero .sidebar nav,
+.video-hero .sidebar .links,
+.video-hero .sidebar .caption {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+.video-hero.scrolled .sidebar {
+  border-right-color: var(--light-grey);
+}
+.video-hero.scrolled .sidebar nav,
+.video-hero.scrolled .sidebar .links,
+.video-hero.scrolled .sidebar .caption {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.video-hero.scrolled .sidebar-logo {
+  border-color: transparent;
+}
+
+.video-hero.scrolled .header {
+  background-color: var(--bg);
+  border-bottom-color: var(--light-grey);
+}
+.video-hero.scrolled .header p,
+.video-hero.scrolled .header span {
+  color: var(--black);
+}
+.video-hero.scrolled .header .logo {
+  filter: none;
+}
+.video-hero.scrolled .section-nav-trigger {
+  background-color: var(--bg);
+}
+
+
+
+/* ===== Overview-Visual Sections Overwrite ===== */
+.mockup-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gutter);
+  margin: 0;
+} 
+.mockup-grid img { width: 100%; margin: 0; }
+
+.mockup-grid .button {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+#background img { margin-top: 6px;}
+#pivot .border {padding: 30px;}
+#research h3 { margin-top: 9px; margin-bottom: 18px;}
+
+#research .item-title, #research .item-body,
+#research .stats .card-title { 
+  font-size: var(--fs-14); 
+}
+
+#research .item-body { margin-left: 3px; }
+#research .item-title:last-child { margin-bottom: 0; }
+
+#research .stats .card { padding: 0; }
+#research .stats .card-title { margin: 3px 0; }
+
+#research .stats .card-body {
+  font-size: var(--fs-12);
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: 0;
+  margin-bottom: 9px;
+}
+
+
+
+/* ===== Microsite Section ===== */
+#microsite .flex { 
+  align-items: center;
+  margin: 72px 0 12px;
+}
+#microsite .hover-pill {
+  margin: 0;
+  max-width: fit-content;
+  border: 1px dashed #77777765;
+} 
+#microsite .dotted-hr { flex: 1; }
+
+.final-microsite { 
+
+  grid-column: 1 / -1;
+
+  margin-top: -112px; 
+  padding-right: var(--outer-margin);;
+
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 48px;
+  
+}
+
+.microsite {
+  grid-column: 2 / span 6;
+  max-width: 100%;
+} 
+.microsite .item {
+  border:none;
+  max-width: var(--content-width);
+  align-self: center;
+  margin: 48px auto 72px; 
+}
+.microsite .hover-media {
+  position: relative;
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+  border: 20px solid var(--light-grey);
+}
+.microsite .hover-media video,
+.video-hover {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+.microsite .hover-media video::-webkit-media-controls,
+.microsite .hover-media video::-webkit-media-controls-overlay-play-button,
+.microsite .hover-media video::-webkit-media-controls-start-playback-button,
+.microsite .hover-media video::-webkit-media-controls-play-button,
+.microsite .hover-media video::-webkit-media-controls-enclosure,
+.video-hover::-webkit-media-controls,
+.video-hover::-webkit-media-controls-overlay-play-button,
+.video-hover::-webkit-media-controls-start-playback-button,
+.video-hover::-webkit-media-controls-play-button,
+.video-hover::-webkit-media-controls-enclosure {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+
+
+
+
+
