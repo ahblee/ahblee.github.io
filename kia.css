@@ -179,7 +179,6 @@ body.finals-only #test .tag {
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
   }
-    .grid, .related-work { padding-right:0;}
 
   .iteration-row { flex-direction: column; gap: 6px;}
   .arrow {rotate: 90deg;}
