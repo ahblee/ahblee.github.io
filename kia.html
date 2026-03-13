@@ -14,15 +14,25 @@
 
 </head>
 
-<body> 
+<body id="top"> 
     
     <div class="app">
 
+        <a href="index.html" class="brand-logo"><img src="img/favicon.svg" alt="Logo" class="sidebar-logo"></a>
+
+        <div class="mobile-bar">
+            <a href="index.html" class="brand-logo"><img src="img/favicon.svg" alt="Logo" class="sidebar-logo"></a>
+            <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
         <aside class="sidebar">
             
-            <a href="index.html" class="logo"><img src="img/favicon.svg" alt="Logo" class="sidebar-logo"></a>
-        
             <nav>
+                <p class="sidebar-eyebrow">Menu</p>
                 <a href="index.html">Home</a>
                 <a href="index.html#work">Work</a>
                 <a href="index.html#about">About</a>
@@ -39,6 +49,8 @@
             </div> 
 
         </aside> 
+
+        <div class="menu-overlay" aria-hidden="true"></div>
         
         <header class="header">
 
@@ -63,6 +75,12 @@
                 </div>
 
             </nav>
+
+            <a class="to-top" href="#top" aria-label="Back to top">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+                    <path d="M12 19V5M5 12l7-7 7 7"/>
+                </svg>
+            </a>
                         
         </header>
 
@@ -846,6 +864,42 @@
     
     <script>    
 
+        const menuToggle = document.querySelector(".menu-toggle");
+        const menuOverlay = document.querySelector(".menu-overlay");
+        const body = document.body;
+
+        if (menuToggle) {
+            const closeMenu = () => {
+                body.classList.remove("nav-open");
+                menuToggle.setAttribute("aria-expanded", "false");
+                if (menuOverlay) menuOverlay.setAttribute("aria-hidden", "true");
+            };
+            const openMenu = () => {
+                body.classList.add("nav-open");
+                menuToggle.setAttribute("aria-expanded", "true");
+                if (menuOverlay) menuOverlay.setAttribute("aria-hidden", "false");
+            };
+            const toggleMenu = () => {
+                if (body.classList.contains("nav-open")) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            };
+
+            menuToggle.addEventListener("click", toggleMenu);
+            if (menuOverlay) menuOverlay.addEventListener("click", closeMenu);
+            document.querySelectorAll(".sidebar a").forEach((link) => {
+                link.addEventListener("click", closeMenu);
+            });
+            window.addEventListener("keydown", (event) => {
+                if (event.key === "Escape") closeMenu();
+            });
+            window.addEventListener("resize", () => {
+                if (window.innerWidth > 820) closeMenu();
+            });
+        }
+
         // Pointer + cursor message (single rAF loop)
         const isFinePointer = window.matchMedia?.("(pointer: fine)").matches ?? true;
         const orb = document.querySelector(".cursor-orb");
@@ -878,7 +932,7 @@
         const tick = () => {
             let keepRunning = false;
 
-            if (orb && isFinePointer) {
+            if (orb) {
                 orbCurrentX += (orbTargetX - orbCurrentX) * orbEase;
                 orbCurrentY += (orbTargetY - orbCurrentY) * orbEase;
                 orb.style.left = `${orbCurrentX}px`;
@@ -925,74 +979,76 @@
         };
 
         if (!isFinePointer) {
-            if (orb) {
-                orb.style.display = "none";
-            }
             cursorMsg.style.display = "none";
-        } else {
-            const handlePointerMove = (evt) => {
-                pointerX = evt.clientX;
-                pointerY = evt.clientY;
-                orbTargetX = pointerX;
-                orbTargetY = pointerY;
-                if (isHoveringProject) {
-                    msgTargetX = pointerX;
-                    msgTargetY = pointerY - 15;
-                }
-                if (orb) {
-                    orb.classList.add("is-active");
-                    orb.classList.remove("is-idle");
-                    orb.classList.remove("is-scrolling");
-                }
-                requestTick();
+        }
 
-                window.clearTimeout(orbIdleTimer);
-                orbIdleTimer = window.setTimeout(() => {
-                    if (orb) {
-                        orb.classList.add("is-idle");
-                    }
-                }, orbIdleDelay);
-            };
-
-            window.addEventListener("pointermove", handlePointerMove, { passive: true });
-            window.addEventListener("mouseleave", () => {
-                if (orb) {
-                    orb.classList.remove("is-active", "is-idle", "is-scrolling", "is-clickable", "is-message");
-                }
-                setProjectHover(false);
-            });
-
-            const clickableSelector = "a, button, [role='button'], input, textarea, select, .project-card";
-            const isClickable = (node) => node && node.closest && node.closest(clickableSelector);
-            window.addEventListener("pointerover", (event) => {
-                if (orb && isClickable(event.target)) {
-                    orb.classList.add("is-clickable");
-                }
-            });
-            window.addEventListener("pointerout", (event) => {
-                if (!orb) return;
-                const currentClickable = isClickable(event.target);
-                const nextClickable = event.relatedTarget && isClickable(event.relatedTarget);
-                if (currentClickable && currentClickable !== nextClickable) {
-                    orb.classList.remove("is-clickable");
-                }
-            });
-
-            window.addEventListener("scroll", () => {
-                if (!orb) return;
-                orb.classList.add("is-scrolling");
-                window.clearTimeout(orbScrollTimer);
-                orbScrollTimer = window.setTimeout(() => {
-                    orb.classList.remove("is-scrolling");
-                }, 160);
-            }, { passive: true });
-
-            if (projectCards.length) {
-                projectCards.forEach((card) => {
-                    card.addEventListener('pointerenter', () => setProjectHover(true));
-                    card.addEventListener('pointerleave', () => setProjectHover(false));
-                });
+        const handlePointerMove = (evt) => {
+            pointerX = evt.clientX;
+            pointerY = evt.clientY;
+            orbTargetX = pointerX;
+            orbTargetY = pointerY;
+            if (isHoveringProject) {
+                msgTargetX = pointerX;
+                msgTargetY = pointerY - 15;
             }
+            if (orb) {
+                orb.classList.add("is-active");
+                orb.classList.remove("is-idle");
+                orb.classList.remove("is-scrolling");
+            }
+            requestTick();
+
+            window.clearTimeout(orbIdleTimer);
+            orbIdleTimer = window.setTimeout(() => {
+                if (orb) {
+                    orb.classList.add("is-idle");
+                }
+            }, orbIdleDelay);
+        };
+
+        window.addEventListener("pointermove", handlePointerMove, { passive: true });
+        window.addEventListener("mouseleave", () => {
+            if (orb) {
+                orb.classList.remove("is-active", "is-idle", "is-scrolling", "is-clickable", "is-message");
+            }
+            setProjectHover(false);
+        });
+
+        const clickableSelector = "a, button, [role='button'], input, textarea, select, .project-card";
+        const isClickable = (node) => node && node.closest && node.closest(clickableSelector);
+        window.addEventListener("pointerover", (event) => {
+            if (orb && isClickable(event.target)) {
+                orb.classList.add("is-clickable");
+            }
+        });
+        window.addEventListener("pointerout", (event) => {
+            if (!orb) return;
+            const currentClickable = isClickable(event.target);
+            const nextClickable = event.relatedTarget && isClickable(event.relatedTarget);
+            if (currentClickable && currentClickable !== nextClickable) {
+                orb.classList.remove("is-clickable");
+            }
+        });
+
+        window.addEventListener("scroll", () => {
+            if (!orb) return;
+            orb.classList.add("is-scrolling");
+            window.clearTimeout(orbScrollTimer);
+            orbScrollTimer = window.setTimeout(() => {
+                orb.classList.remove("is-scrolling");
+            }, 160);
+        }, { passive: true });
+
+        if (projectCards.length) {
+            projectCards.forEach((card) => {
+                card.addEventListener('pointerenter', () => setProjectHover(true));
+                card.addEventListener('pointerleave', () => setProjectHover(false));
+            });
+        }
+
+        if (orb) {
+            orb.classList.add("is-active");
+            requestTick();
         }
 
 

@@ -18,11 +18,21 @@
 
   <div class="app">
 
+    <a href="index.html" class="sidebar-logo"><img src="img/favicon.svg" alt="Logo"></a>
+
+    <div class="mobile-bar">
+      <a href="index.html" class="sidebar-logo"><img src="img/favicon.svg" alt="Logo"></a>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
     <aside class="sidebar">
-            
-        <a href="index.html" class="logo"><img src="img/favicon.svg" alt="Logo" class="sidebar-logo"></a>
         
         <nav>
+          <p class="eyebrow">MENU</p>
           <a href="#Home">Home</a>
           <a href="#Work">Work</a>
           <a href="#About">About</a>
@@ -31,14 +41,17 @@
 
         <div>
           <div class="links">
+            <p class="eyebrow">CONTACT</p>
             <a href="mailto:angela001201@gmail.com" target="_blank">Email</a>
             <a href="https://www.linkedin.com/in/angela-hyebin-lee/" target="_blank">LinkedIn</a>
-            <!-- <a href="https://drive.google.com/file/d/1RY5dkSZOFD-zNm8TcOfrkFaRviS67GVi/view?usp=sharing" target="_blank">Resume</a> -->
+            <a href="https://drive.google.com/file/d/1hNoo03RUkR-C4okVerZBsGLokpAkua3m/view?usp=sharing" target="_blank">Resume</a>
           </div>
             <p class="caption"> &#169; Angela Lee, 2025 </p>
         </div> 
 
     </aside>
+
+    <div class="menu-overlay" aria-hidden="true"></div>
 
     <main>
 
@@ -65,12 +78,11 @@
           </div>
           
           <div class="landing-meta">
-            <p class="caption">Currently, a Visual Designer for @ Photocrumbs</p>
-            <p class="caption">Prev. Design &amp; Research Assistant @ Simon Fraser University</p>
+            <p class="caption">Currently, a Graphic Designer for @Photocrumbs</p>
+            <p class="caption">Prev. Design &amp; Research Assistant @Simon Fraser University</p>
           </div>
           
-        </section>
-
+        </section> 
         <hr>
 
         <section id="work">
@@ -157,10 +169,10 @@
 
                 <div class="tags">
                   <span class="tag">Case Study</span>
-                  <span class="tag">UX/UI Design</span>
+                  <span class="tag">Product Design</span>
                 </div>
 
-                <p class="caption">UX Designer / 2022</p>
+                <p class="caption">UX/UI Designer / 2022</p>
 
               </div>
 
@@ -176,8 +188,11 @@
                 </p>
               </div>
 
-              <div class="work-cover is-animated is-photocrumb" style="--cover-bg: url('img/photocrumb-cover-background.png');">
-                <img class="trigger-img" src="img/photocrumb-cover-nobackground.png" alt="Project 1"
+              <div class="work-cover is-animated is-photocrumb">
+                <div class="photocrumb-marquee" aria-hidden="true">
+                  <img src="img/photocrumb-cover1.png" alt="" class="photocrumb-row--top"><img src="img/photocrumb-cover2.png" alt="" class="photocrumb-row--bottom">
+                </div>
+                <img class="trigger-img photocrumb-trigger" src="img/photocrumb-cover-nobackground.png" alt="Open Photocrumb gallery"
                   data-slides='[
 
                     {"src":"img/photocrumb-school.png","title":"Graduation & School Celebration Collection","subtitle":"June 2025","caption":"End-of-year themed frames exploring doodle and scrapbook aesthetics."},
@@ -202,15 +217,14 @@
                 <span class="tag">Freelance</span>
                 <span class="tag">Graphic Design</span>
               </div>
-              <p class="caption">Visual Designer / ~ 2025</p>
+              <p class="caption">Graphic Designer / ~ 2025</p>
             </div>
 
             </div>
 
           </div>
 
-        </section>
-        
+        </section> 
         <hr>
 
         <section id="about">
@@ -270,28 +284,32 @@
           <div>
 
             <h3>EXPERIENCE</h3>
-            
-            <div class="about-row">
-              
-              <img class="logo" src="img/photocrumb-logo.png" alt="Photocrumb">
-              <div class="about-data">
-                <div>
-                  <span class="company">Photocrumb</span>
-                  <span class="desc">Visual Designer (Freelance)</span>
-                </div>
-                <span class="about-date">Jan 2025 - Current</span>
+
+            <div class="about-data">
+
+              <div class="flex">
+                
+                <div class="flex"> <img class="logo" src="img/photocrumb-logo.png" alt="Photocrumb Logo"> <p class="company">Photocrumb</p></div>
+
+                <p class="desc">Graphic Designer (Freelance)</p>
+
               </div>
+              
+              <p class="desc date">Jan 2025 - Present</p>
+
             </div>
 
-            <div class="about-row">
-              <img class="logo" src="img/sfu-logo.png" alt="Photocrumb">
-              <div class="about-data">
-                <div>
-                  <span class="company">Simon Fraser University</span>
-                  <span class="desc">Design and Research Assistant (Co-op)</span>
-                </div>
-                <span class="about-date">Jan - Aug 2023</span>
+            <div class="about-data">
+
+              <div class="flex">
+                
+                <div class="flex"> <img class="logo" src="img/sfu-logo.png" alt="SFU Logo"> <p class="company">Simon Fraser University</p></div>
+                
+                <p class="desc">Design and Research Assistant (Co-op)</p>
               </div>
+              
+              <p class="desc date">Jan - Aug 2023</p>
+
             </div>
 
           </div>
@@ -300,30 +318,25 @@
 
             <h3>EDUCATION</h3>
             
-            <div class="about-row">
-                <img class="logo" src="img/sfu-logo.png" alt="SFU Logo">
-                <div class="about-data">
-                  <div >
-                    <span class="company">Simon Fraser University</span>
-                    <span class="desc">B.A. Interactive Arts and Technology</span>
-                  </div>
-                  <span class="about-date">2018 - Current</span>
-                </div>
-            </div>
+            <div class="about-data">
 
-            <div class="about-row">
-                <img class="logo" src="img/sfu-logo.png" alt="SFU Logo">
-                <div class="about-data">
-                  <div>
-                    <span class="company">Simon Fraser University</span>
-                    <span class="desc">Minor. Print and Digital Publication</span>
-                  </div>
-                  <span class="about-date">2018 - Current</span>
-                </div>
+              <div class="flex">
+                
+                <div class="flex"> <img class="logo" src="img/sfu-logo.png" alt="SFU Logo"> <p class="company">Simon Fraser University</p></div>
+
+                <ul>
+                  <li class="desc"> – B.A. Interactive Arts and Technology</li>
+                  <li class="desc"> – Minor. Print and Digital Publication </li>
+                </ul>
+
+              </div>
+              
+              <p class="desc date">2018 - Present</p>
+
             </div>
 
           </div>
-          
+         
         </section>
 
         <hr>
@@ -348,8 +361,12 @@
               <div class="marquee-track">
 
                 <div class="archive-item">
-                  <div class="item-thumb"><img src="img/archive1.png" alt="Magazine Design" class="thumb-misc"></div>
-                  <div class="item-text"><span class="item-title">WEardrobe</span><div class="item-bottom"><span class="item-meta">2020</span><span class="item-tag">Editoral Design</span></div></div>
+                  <div class="item-thumb">
+                    <img src="img/archive1.png" alt="Magazine Design" class="thumb-misc">
+                  </div>
+                  <p class="eyebrow">WEardrobe</p>
+                  <span class="caption">2020</span>
+                  <span class="editoral tag">EDITORAL</span>
                 </div>
 
                 <div class="archive-item">
@@ -493,22 +510,22 @@
                   <div class="sticky-title">Cravings 🤤</div>
                   <ul class="sticky-list">
                     <li>- a hot cup of coffee ☕</li>
-                    <li class="flex"><span style="margin: 6px -18px 0 0; line-height: 1.3;">- apple jam toast from Isaac Toast</span><span><img src="img/toast.png" style="align-self: flex-center; margin-top:10px; width:76px;rotate: 10deg;" alt="Isaac Toast"></span></li>
+                    <li style="display: flex; gap: 18px;"><span style="margin: 6px -18px 0 0; line-height: 1.3;">- apple jam toast from Isaac Toast</span><span><img src="img/toast.png" style="align-self: flex-center; margin-top:10px; width:76px;rotate: 10deg;" alt="Isaac Toast"></span></li>
                   </ul>
                 </div>
               </div>
 
-               <div class="board-item polaroid" style="--r:10deg; --tx:560px; --ty:-180px;">
+               <div class="board-item polaroid" style="--r:9deg; --tx:650px; --ty:-180px;">
                 <div class="washi-tape washi-zigzag"></div>  
                   <img src="img/polaroid-sky.png" alt="WIP sketch" class="polaroid-photo">
               </div>
               
-              <div class="board-item small-photo is-pinned" style="--r:-4deg; --tx:480px; --ty:-340px;">
+              <div class="board-item small-photo is-pinned" style="--r:-4deg; --tx:550px; --ty:-340px;">
                 <div class="tack"></div>  
                 <img src="img/polaroid-summer2.png" alt="WIP sketch" class="polaroid-photo">
               </div>
 
-              <div class="board-item sticky note-yellow shadow-flat" style="--r:0; --tx:260px; --ty:-360px;">
+              <div class="board-item sticky note-yellow shadow-flat" style="--r:0; --tx:290px; --ty:-340px;">
                 <div class="washi-tape"></div>  
                 <div class="sticky-content">
                   <div class="sticky-title">Currently... </div>
@@ -684,7 +701,7 @@
           if (event.key === "Escape") closeMenu();
         });
         window.addEventListener("resize", () => {
-          if (window.innerWidth > 1200) closeMenu();
+          if (window.innerWidth > 820) closeMenu();
         });
       }
 
@@ -693,82 +710,81 @@
 
       const orb = document.querySelector(".cursor-orb");
       if (orb) {
-          if (!isFinePointer) {
-            orb.style.display = "none";
+        let targetX = window.innerWidth / 2;
+        let targetY = window.innerHeight / 2;
+        let currentX = targetX;
+        let currentY = targetY;
+        let rafId = null;
+        const ease = 0.24;
+        const idleDelay = 900;
+        let idleTimer = 0;
+        let scrollTimer = 0;
+
+        const tick = () => {
+          currentX += (targetX - currentX) * ease;
+          currentY += (targetY - currentY) * ease;
+          orb.style.left = `${currentX}px`;
+          orb.style.top = `${currentY}px`;
+
+          if (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) {
+            rafId = requestAnimationFrame(tick);
           } else {
-            let targetX = window.innerWidth / 2;
-            let targetY = window.innerHeight / 2;
-            let currentX = targetX;
-            let currentY = targetY;
-            let rafId = null;
-            const ease = 0.24;
-            const idleDelay = 900;
-            let idleTimer = 0;
-            let scrollTimer = 0;
-
-            const tick = () => {
-              currentX += (targetX - currentX) * ease;
-              currentY += (targetY - currentY) * ease;
-              orb.style.left = `${currentX}px`;
-              orb.style.top = `${currentY}px`;
-
-              if (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) {
-                rafId = requestAnimationFrame(tick);
-              } else {
-                rafId = null;
-              }
-            };
-
-            const handleMove = (evt) => {
-              targetX = evt.clientX;
-              targetY = evt.clientY;
-              orb.classList.add("is-active");
-              orb.classList.remove("is-idle");
-              orb.classList.remove("is-scrolling");
-              if (!rafId) {
-                rafId = requestAnimationFrame(tick);
-              }
-
-              window.clearTimeout(idleTimer);
-              idleTimer = window.setTimeout(() => {
-                orb.classList.add("is-idle");
-              }, idleDelay);
-            };
-
-            window.addEventListener("pointermove", handleMove, { passive: true });
-            window.addEventListener("mouseleave", () => {
-              orb.classList.remove("is-active", "is-idle", "is-scrolling", "is-clickable", "is-message");
-            });
-            const clickableSelector = "a, button, [role='button'], input, textarea, select, .work-card, .lb-backdrop, .lb-slide";
-            const isClickable = (node) => {
-              if (!node || !node.closest) return false;
-              const clickable = node.closest(clickableSelector);
-              if (!clickable) return false;
-              if (clickable.id === "lb-backdrop" && node !== clickable) return false;
-              return true;
-            };
-            window.addEventListener("pointerover", (event) => {
-              if (isClickable(event.target)) {
-                orb.classList.add("is-clickable");
-                return;
-              }
-            });
-            window.addEventListener("pointerout", (event) => {
-              const currentClickable = isClickable(event.target);
-              const nextClickable = event.relatedTarget && isClickable(event.relatedTarget);
-              if (currentClickable && currentClickable !== nextClickable) {
-                orb.classList.remove("is-clickable");
-              }
-            });
-            window.addEventListener("scroll", () => {
-              orb.classList.add("is-scrolling");
-              window.clearTimeout(scrollTimer);
-              scrollTimer = window.setTimeout(() => {
-                orb.classList.remove("is-scrolling");
-              }, 160);
-            }, { passive: true });
+            rafId = null;
           }
-        }
+        };
+
+        const handleMove = (evt) => {
+          targetX = evt.clientX;
+          targetY = evt.clientY;
+          orb.classList.add("is-active");
+          orb.classList.remove("is-idle");
+          orb.classList.remove("is-scrolling");
+          if (!rafId) {
+            rafId = requestAnimationFrame(tick);
+          }
+
+          window.clearTimeout(idleTimer);
+          idleTimer = window.setTimeout(() => {
+            orb.classList.add("is-idle");
+          }, idleDelay);
+        };
+
+        window.addEventListener("pointermove", handleMove, { passive: true });
+        window.addEventListener("mouseleave", () => {
+          orb.classList.remove("is-active", "is-idle", "is-scrolling", "is-clickable", "is-message");
+        });
+        const clickableSelector = "a, button, [role='button'], input, textarea, select, .work-card, .lb-backdrop, .lb-slide";
+        const isClickable = (node) => {
+          if (!node || !node.closest) return false;
+          const clickable = node.closest(clickableSelector);
+          if (!clickable) return false;
+          if (clickable.id === "lb-backdrop" && node !== clickable) return false;
+          return true;
+        };
+        window.addEventListener("pointerover", (event) => {
+          if (isClickable(event.target)) {
+            orb.classList.add("is-clickable");
+            return;
+          }
+        });
+        window.addEventListener("pointerout", (event) => {
+          const currentClickable = isClickable(event.target);
+          const nextClickable = event.relatedTarget && isClickable(event.relatedTarget);
+          if (currentClickable && currentClickable !== nextClickable) {
+            orb.classList.remove("is-clickable");
+          }
+        });
+        window.addEventListener("scroll", () => {
+          orb.classList.add("is-scrolling");
+          window.clearTimeout(scrollTimer);
+          scrollTimer = window.setTimeout(() => {
+            orb.classList.remove("is-scrolling");
+          }, 160);
+        }, { passive: true });
+
+        orb.classList.add("is-active");
+        tick();
+      }
 
       const el = document.getElementById("lead");
       if (el) {
@@ -791,7 +807,41 @@
           wrap.appendChild(overlay);
           el.appendChild(wrap);
 
-          if (isFinePointer) {
+          const leadAutoMedia = window.matchMedia("(min-width: 821px) and (max-width: 1200px)");
+          const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+          if (leadAutoMedia.matches) {
+            let rafId = null;
+            const autoTick = () => {
+              const t = performance.now() / 1000;
+              const baseX = 50 + Math.sin(t * 0.55) * 18;
+              const baseY = 45 + Math.cos(t * 0.5) * 14;
+              const wobbleX = Math.sin(t * 1.2) * 10;
+              const wobbleY = Math.cos(t * 1.1) * 8;
+              const wobbleX2 = Math.cos(t * 0.9) * 11;
+              const wobbleY2 = Math.sin(t * 1.0) * 9;
+
+              const mx = clamp(baseX, 0, 100);
+              const my = clamp(baseY, 0, 100);
+              const mx2 = clamp(baseX + 8 + wobbleX, 0, 100);
+              const my2 = clamp(baseY + 6 + wobbleY, 0, 100);
+              const mx3 = clamp(baseX - 10 + wobbleX2, 0, 100);
+              const my3 = clamp(baseY - 4 + wobbleY2, 0, 100);
+
+              root.style.setProperty("--mx", `${mx.toFixed(2)}%`);
+              root.style.setProperty("--my", `${my.toFixed(2)}%`);
+              root.style.setProperty("--mx2", `${mx2.toFixed(2)}%`);
+              root.style.setProperty("--my2", `${my2.toFixed(2)}%`);
+              root.style.setProperty("--mx3", `${mx3.toFixed(2)}%`);
+              root.style.setProperty("--my3", `${my3.toFixed(2)}%`);
+
+              rafId = requestAnimationFrame(autoTick);
+            };
+
+            root.style.setProperty("--light-on", "0.85");
+            root.classList.remove("is-idle");
+            rafId = requestAnimationFrame(autoTick);
+          } else if (isFinePointer) {
             let idleTimer = 0;
             let rafId = null;
             let currentX = 50;
@@ -801,8 +851,6 @@
             const ease = 0.3;
             const idleDelay = 900;
             const idleOpacity = 0.7;
-
-            const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
             const tick = () => {
               currentX += (targetX - currentX) * ease;
@@ -1462,11 +1510,16 @@
         }
         
       const backdrop = document.getElementById('lb-backdrop');
+      const modal    = document.getElementById('lb-modal');
       const track    = document.getElementById('lb-track');
       const dots     = document.getElementById('lb-dots');
       const caption  = document.getElementById('lb-caption');
       let slides = [];
       let current = 0;
+      const swipeMedia = window.matchMedia("(max-width: 1024px)");
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchActive = false;
       
       function buildCarousel(data) {
         slides = data;
@@ -1560,7 +1613,6 @@
         document.body.classList.add('lb-open');
         document.body.style.overflow = 'hidden';
       }
-
       /* ── CLOSE ── */
       function closeLightbox() {
         backdrop.classList.remove('open');
@@ -1572,6 +1624,7 @@
       document.querySelectorAll('.trigger-img').forEach(img => {
         img.addEventListener('click', () => openLightbox(img));
        });
+
 
       document.getElementById('lb-close').addEventListener('click', closeLightbox);
       backdrop.addEventListener('click', e => { if (e.target === backdrop) closeLightbox(); });
@@ -1598,6 +1651,39 @@
           setTimeout(() => { scrollCooldown = false; }, 600);
         }
       }, { passive: false });
+
+      modal.addEventListener('touchstart', e => {
+        if (!backdrop.classList.contains('open') || !swipeMedia.matches) return;
+        if (e.touches.length !== 1) return;
+        touchActive = true;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      modal.addEventListener('touchmove', e => {
+        if (!touchActive || !swipeMedia.matches) return;
+        const dx = e.touches[0].clientX - touchStartX;
+        const dy = e.touches[0].clientY - touchStartY;
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 8) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+
+      modal.addEventListener('touchend', e => {
+        if (!touchActive || !swipeMedia.matches) return;
+        touchActive = false;
+        const touch = e.changedTouches[0];
+        const dx = touch.clientX - touchStartX;
+        const dy = touch.clientY - touchStartY;
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+          if (dx < 0) goTo(current + 1);
+          else goTo(current - 1);
+        }
+      });
+
+      modal.addEventListener('touchcancel', () => {
+        touchActive = false;
+      });
 
     });
 
