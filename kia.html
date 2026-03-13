@@ -104,7 +104,11 @@
 
                         <div>
 
-                            <p> A transparent, confidence-driven car buying journey from online research to dealership. </p>
+                            <p>
+                                Designing a transparent, confidence-driven car-buying journey from online research to dealership.
+                            </p>
+
+                            <!-- <p> A transparent, confidence-driven car buying journey from online research to dealership. </p> -->
                         
                             <p class="caption"> Explore the
                                 <a href="https://www.figma.com/proto/I9Kjn6iOBAaOmxJtO9Hdf7/Personal?node-id=4672-8812&viewport=194%2C236%2C0.06&t=l4PRJJJDY3Ow8R1T-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=4672%3A8812&page-id=4672%3A2012" target="_blank" rel="noopener noreferrer" class="dotted-link">final interactive prototype</a>, and
@@ -337,7 +341,7 @@
                         Through two rounds of usability testing, we refined prototypes to strengthen clarity, task flow, and buyer confidence at key decision points.
                     </p>
 
-                    <button class="toggle" type="button" aria-pressed="true">Show Iterations</button>
+                    <button class="toggle" type="button" aria-pressed="false">Show Final Version</button>
 
                     <div>
 
@@ -1125,10 +1129,10 @@
         const finalsToggle = document.querySelector('.toggle');
         if (finalsToggle) {
             const setToggleState = (showIterations) => {
-                finalsToggle.setAttribute('aria-pressed', String(showIterations));
-                finalsToggle.textContent = showIterations ? 'Hide Iterations' : 'Show Iterations';
+                finalsToggle.setAttribute('aria-pressed', String(!showIterations));
+                finalsToggle.textContent = showIterations ? 'Show Final Version' : 'Show Iterations';
             };
-            const hideIterations = () => {
+            const showFinalsOnly = () => {
                 document.body.classList.add('finals-hiding');
                 window.setTimeout(() => {
                     document.body.classList.add('finals-only');
@@ -1143,17 +1147,14 @@
                 setToggleState(true);
             };
 
-            document.body.classList.add('finals-only');
+            document.body.classList.remove('finals-only');
             document.body.classList.remove('finals-hiding');
-            setToggleState(false);
+            setToggleState(true);
 
             finalsToggle.addEventListener('click', () => {
-                const isShowingIterations = finalsToggle.getAttribute('aria-pressed') === 'true';
-                if (isShowingIterations) {
-                    hideIterations();
-                } else {
-                    showIterations();
-                }
+                const isFinalsOnly = document.body.classList.contains('finals-only');
+                if (isFinalsOnly) showIterations();
+                else showFinalsOnly();
             });
         }
 

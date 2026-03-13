@@ -407,7 +407,7 @@ img, video { width: 100%; border-radius: 6px;}
 .sidebar nav { 
   margin-top: auto;
   margin-bottom: auto; 
-  transform: translateY(48px); 
+  transform: translateY(35px); 
 }
 .sidebar nav a, .sidebar .links a {
   position: relative;
@@ -659,52 +659,38 @@ footer {
 }
 /* ── Tablet ── */
 @media (max-width: 1200px) {
+
   :root {
     --cols:1;
     --content-width: 100%;
   }
-
-  
   .grid > section, hr{
     grid-column: 1 / -1;
     gap: 24px;
   }
 
-  
-
 }
-
 @media (max-width: 1024px) {
-  * {
-    cursor: auto !important;
-  }
-  .cursor-orb {
+
+  * { cursor: auto !important; }
+
+  .cursor-orb,  .cursor-message, .hover-pill {
     display: none !important;
     opacity: 0 !important;
   }
-  .cursor-message,
-  .hover-pill {
-    display: none !important;
-  }
-}
 
+}
 @media (max-width: 820px) {
   :root {
     --sidebar: 0px;
     --navsize: 18px;
-
   }
 
-  .app {
-    grid-template-columns: 1fr;
-  }
-  .grid {
-    margin-left: 0;
-    /* gap: 96px; */
-  }
+  .app { grid-template-columns: 1fr; }
+  .grid { margin-left: 0; }
 
+  /* Hamburger */
   .mobile-bar { display: flex; z-index: 230;}
-  .app > .sidebar-logo { display: none; }
 
   .sidebar {
     position: fixed;
@@ -721,7 +707,6 @@ footer {
     justify-content: flex-start;
     gap: 30px;
   }
-
   .sidebar nav {
     padding-top: 0;
     transform: none; 
@@ -729,18 +714,19 @@ footer {
   .menu-toggle { display: inline-flex; }
   .menu-overlay { display: block; }
 
+  .app > .sidebar-logo,
   .sidebar a.logo,
   .sidebar .eyebrow,
   .sidebar .sidebar-eyebrow,
   .sidebar nav,
   .sidebar .links,
-  .sidebar .caption {
-    display: none;
-  }
+  .sidebar .caption { display: none; }
 
+  .sidebar nav a,
+  .sidebar .links a { width: 100%; }
+  
   .sidebar .links a::after {
-    right: 0;
-    top: 5px;
+    right: 0; top: 5px;
     transform: translateX(0);
     font-size: smaller;
     opacity: 0.4;
@@ -761,8 +747,7 @@ footer {
     overflow-y: auto;
   }
   body.nav-open .app .sidebar nav,
-  body.nav-open .app .sidebar > div {
-    align-self: stretch;
+  body.nav-open .app .sidebar > div { align-self: stretch; 
   }
   body.nav-open .app .sidebar a.logo,
   body.nav-open .app .sidebar .eyebrow,
@@ -772,23 +757,15 @@ footer {
   body.nav-open .app .sidebar .caption {
     display: block;
   }
-  body.nav-open .menu-toggle span:nth-child(1) {
-    transform: translateY(4.5px) rotate(45deg);
-  }
+  body.nav-open .menu-toggle span:nth-child(1) { transform: translateY(4.5px) rotate(45deg); }
   body.nav-open .menu-toggle span:nth-child(2) { opacity: 0; }
-  body.nav-open .menu-toggle span:nth-child(3) {
-    transform: translateY(-4.5px) rotate(-45deg);
-  }
-  .sidebar nav a,
-  .sidebar .links a {
-    width: 100%;
-  }
-
+  body.nav-open .menu-toggle span:nth-child(3) { transform: translateY(-4.5px) rotate(-45deg); }
+  
 }
 
-/* ── Mobile (< 768px) ── */
+/* ── Mobile ── */
 @media (max-width: 768px) {
-
+  
   .tags { gap: 9px; }
 
 }
@@ -798,4 +775,5 @@ footer {
     --outer-margin:24px;
     --row-gap: 72px;
   }
+
 }

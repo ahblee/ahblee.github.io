@@ -233,7 +233,12 @@
 
           <div class="about-intro">
             
-            <img src="img/me.png" alt="Angela as a kid">
+            <div class="about-portrait-wrap">
+              <div class="about-portrait" id="aboutPortrait">
+                <img src="img/me.png" alt="Angela as a kid" class="about-portrait__img is-childhood">
+                <img src="img/me2.png" alt="Angela now" class="about-portrait__img is-now">
+              </div>
+            </div>
             
             <div class="flex-col">
 
@@ -266,15 +271,15 @@
             <div class="flex-col">
 
               <p>
-                Ever since I was young, I've lost hours on things I started, from mastering a piano song to fishing for that one shark in Animal Crossing under my blankets. That same persistence drives how I design today.
+                Ever since I was young, I've lost hours on things I started, from mastering a piano song to fishing for that one shark in Animal Crossing under my blankets. That same persistence shapes how I design today.
               </p>
 
               <p>
-                I'm drawn to the challenge of turning complex problems into meaningful, impactful experiences. Grounded in research and constant refinement, I design solutions that balance user needs with business goals, thoughtfully executed with hopefully a quiet sense of delight and honesty.
+                I'm drawn to the challenge of turning complex problems into meaningful experiences. Whether through research, iteration, or refining the smallest details, I design solutions that balance user needs with business goals, and hopefully with a quiet sense of delight and honesty.
               </p>
 
               <p>
-                Currently studying Interactive Arts & Technology at SFU. I also design for Photocrumb, turning shared moments into memorable keepsakes.
+                Currently studying Interactive Arts & Technology at Simon Fraser University and designing fun stuff at Photocrumb.
               </p>
 
             </div>
@@ -1039,8 +1044,6 @@
           };
 
           primeCoverVideo(video);
-          card.addEventListener("mouseenter", playVideo);
-          card.addEventListener("focusin", playVideo);
         });
 
       let coverUnlockDone = false;
@@ -1080,10 +1083,20 @@
             tryPlay();
           }, restartDelay);
         };
+        const holdFinalFrame = () => {
+          if (!Number.isFinite(signVideo.duration) || signVideo.duration <= 0) return;
+          const holdTime = Math.max(0, signVideo.duration - 0.05);
+          try {
+            signVideo.currentTime = holdTime;
+            signVideo.pause();
+          } catch (err) {
+          }
+        };
 
         signVideo.loop = false;
         signVideo.addEventListener("ended", () => {
           if (!isActive) return;
+          holdFinalFrame();
           scheduleRestart();
         });
 
@@ -1130,6 +1143,20 @@
 
         signVideo.addEventListener("mouseenter", restartNow);
         signVideo.addEventListener("focus", restartNow);
+      }
+
+      const aboutPortrait = document.getElementById("aboutPortrait");
+      if (aboutPortrait && "matchMedia" in window) {
+        const touchOnly = window.matchMedia("(hover: none) and (pointer: coarse)");
+        const togglePortrait = () => {
+          aboutPortrait.classList.toggle("is-swapped");
+        };
+        const handleTap = (event) => {
+          if (!touchOnly.matches) return;
+          event.preventDefault();
+          togglePortrait();
+        };
+        aboutPortrait.addEventListener("click", handleTap);
       }
 
       const audienceTag = document.getElementById("audienceTag");
@@ -1194,7 +1221,7 @@
             const target = document.querySelector(targetSelector);
             if (!target) return;
             event.preventDefault();
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            target.scrollIntoView({ behavior: "auto", block: "start" });
             });
         });
         }
@@ -1317,6 +1344,7 @@
 
           const onBoardPointerMove = (event) => {
             if (!boardDragging) return;
+            if (event.cancelable) event.preventDefault();
             const dx = (event.clientX - boardStartX) / boardScale;
             const dy = (event.clientY - boardStartY) / boardScale;
 
@@ -1386,7 +1414,7 @@
           }
 
           board.addEventListener('pointerdown', onBoardPointerDown);
-          board.addEventListener('pointermove', onBoardPointerMove);
+          board.addEventListener('pointermove', onBoardPointerMove, { passive: false });
           board.addEventListener('pointerup', onBoardPointerUp);
           board.addEventListener('pointercancel', onBoardPointerUp);
 
