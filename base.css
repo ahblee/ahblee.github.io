@@ -674,6 +674,20 @@ footer {
 
 }
 
+@media (max-width: 1024px) {
+  * {
+    cursor: auto !important;
+  }
+  .cursor-orb {
+    display: none !important;
+    opacity: 0 !important;
+  }
+  .cursor-message,
+  .hover-pill {
+    display: none !important;
+  }
+}
+
 @media (max-width: 820px) {
   :root {
     --sidebar: 0px;
