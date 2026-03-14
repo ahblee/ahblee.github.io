@@ -314,11 +314,18 @@ h3 { margin-bottom: 18px;}
   max-height: 120%; 
 }
 /*-KIA-*/
-.work-cover.is-kia img { }
+.work-cover.is-kia img { 
+  animation: kiaFloat 3.25s ease-in-out infinite paused; 
+}
 @keyframes kiaFloat {
   0%   { transform: translateY(0px); }
   50%  { transform: translateY(-8px); }
   100% { transform: translateY(0px); }
+}
+.work-card:hover .work-cover.is-kia img,
+.work-card:focus .work-cover.is-kia img {
+  animation-play-state: running;
+  opacity: 1;
 }
 /*-BATIE-*/
 .work-cover.is-labatie {
@@ -335,13 +342,23 @@ h3 { margin-bottom: 18px;}
   -webkit-appearance: none;
 }
 /*-TRACKLING-*/
-.work-cover.is-trackling::before { }
+.work-cover.is-trackling::before {
+  animation: tracklingPulse 8s ease-in-out infinite paused;
+}
 .work-cover.is-trackling img {
   max-height: 160%;
-  transform: translateY(var(--trackling-animate));
+  animation: tracklingBob 5.5s ease-in-out infinite paused;
 }
 #work.is-grid .work-cover.is-trackling img {
   max-height: 235%;
+}
+.work-card:hover .work-cover.is-trackling::before,
+.work-card:focus .work-cover.is-trackling::before {
+  animation-play-state: running;
+}
+.work-card:hover .work-cover.is-trackling img,
+.work-card:focus .work-cover.is-trackling img {
+  animation-play-state: running;
 }
 @keyframes tracklingBob {
   0%   { transform: translateY(var(--trackling-animate)); }
@@ -361,7 +378,7 @@ h3 { margin-bottom: 18px;}
   margin-top: 200px;
   max-height: 500px;
   rotate: 12deg;
-  transform: translateX(0) scale(1.12);
+  animation: photocrumbRow 18s linear infinite paused;
   will-change: transform;
 }
 #work.is-grid .work-cover.is-photocrumb img {
@@ -386,6 +403,10 @@ h3 { margin-bottom: 18px;}
   opacity: 0;
   z-index: 2;
 }
+.work-card:hover .work-cover.is-photocrumb img,
+.work-card:hover .work-cover.is-photocrumb img {
+  animation-play-state: running;
+}
 @keyframes photocrumbRow {
   0%   { transform: translateX(0) scale(1.12); }
   100% { transform: translateX(-25%) scale(1.12); }
@@ -396,6 +417,14 @@ h3 { margin-bottom: 18px;}
   .work-cover.is-animated img,
   .work-cover.is-photocrumb  { animation: none !important; }
   .about-portrait__img { transition: none !important; animation: none !important; }
+}
+@media (hover: none) and (pointer: coarse) {
+  .work-cover.is-kia img,
+  .work-cover.is-trackling::before,
+  .work-cover.is-trackling img,
+  .work-cover.is-photocrumb img {
+    animation: none !important;
+  }
 }
 
 

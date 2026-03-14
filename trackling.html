@@ -14,7 +14,7 @@
 
 </head>
 
-<body id="top">
+<body>
 
     <div class="app">
 
@@ -85,33 +85,6 @@
 
         <main>
 
-            <section id="trackling-hero">
-
-                <div class="hook-inner">
-                    <div class="stat-quote">
-                        <q>43% of older adults perceived a decline in physical fitness during the pandemic.</q>
-                        <cite>
-                            – <a class="dotted-link caption" href="https://www.sciencedirect.com/science/article/pii/S0531556521003624#bb0190" target="_blank" rel="noopener noreferrer">Makizako et al., 2021</a>
-                        </cite>
-                    </div>
-
-                    <div class="illustration-block flex-col">
-                        <img src="img/trackling-storyboard.png" alt="Gillian thinking about going for a walk alone">
-                        <span class="caption">[ Meet Gillian. Isolated and worried to exercise alone. ]
-                        </span>
-                    </div>
-
-                    <div class="hmw">
-                        <p>
-                            How might we help seniors like Gillian <strong>exercise confidently and independently?</strong>
-                        </p>
-                    </div>
-                </div>
-
-                
-
-            </section>
-
             <div class="grid">
 
                 <section id="overview">
@@ -123,14 +96,13 @@
                             <span class="tag">Mobile Design</span>
                         </div>
 
-                        <h1>Helping Seniors Exercise with Confidence</h1>
+                        <h1>Trackling: Staying Confident and Healthy </h1>
 
                         <div>
-                            <p> 
-                                A mobile fitness app that helps older adults exercise safely and independently through personalized, real-time health tracking.
-                                
-                            </p>
-                            <img src="img/trackling-mockup.png" alt="Project Mockup">
+                            <!-- <p> 
+                                Creating a mobile fitness app that helps seniors exercise safely and independently.
+                            </p> -->
+                            <img src="img/trackling-mockup.png" class="trackling-cover" alt="Project Mockup">
 
                             <p class="caption"> Explore the
                                 <a href="https://www.figma.com/proto/6gCDSPGg67pdQEgwXygwNv/334?node-id=61-18027&p=f&viewport=697%2C583%2C0.03&t=FNgdOV8jF3vO0LKD-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A119" target="_blank" rel="noopener noreferrer" class="dotted-link">final interactive prototype</a>, and
@@ -181,15 +153,116 @@
         
                 </section> <hr>
 
+                <section id="background">
+
+                    <header>
+                        <p class="eyebrow">PROBLEM</p>
+                        <q><b>43% of older adults perceived declining physical fitness during the pandemic.</b></q>
+                    </header>
+                    
+                    <p>
+                        During COVID-19, our team began exploring how technology could support people living in restricted environments. As we examined different user groups, one stood out: seniors, many of whom suddenly lost access to the routines and support systems they relied on. 
+                    <p>
+                        This led us to ask: how might we support seniors in maintaining <b>healthy routines independently</b> during times of isolation?
+                    </p>
+
+                </section> <hr>
+
+                <section id="solution">
+
+                    <header>
+                        <p class="eyebrow">SOLUTION</p>
+                        <h2>A fitness app that helps seniors exercise safely and independently through real-time health tracking.</h2>
+                    </header>
+
+                    <div class="intro">
+
+                                                <img src="img/trackling.svg" alt="Trackling Logo" class="trackling-logo">
+
+                        <h2 style="font-size: larger;">Introducing Trackling</h2>
+
+                        
+                    </div>
+
+                    <div class="feature-row">
+
+                        <div class="feature-visual">
+                            <video src="img/trackling-onboard.mp4" 
+                            autoplay muted loop playsinline preload="metadata" 
+                            aria-label="Onboarding demo">
+                            </video>
+                        </div>
+
+                        <div class="feature-text">
+                            <p class="item-title">Onboarding</p>
+                            <p class="item-body">Creates a personalized start by importing existing health data or guiding users through a simple manual setup.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="feature-row reverse">
+
+                        <div class="feature-text">
+                            <p class="item-title">Home & Navigation</p>
+                            <p class="item-body">The home page highlights daily steps and personalized activity insights, with bottom navigation to workouts, routes, tracking, and progress.</p>
+                        </div>
+
+                        <div class="feature-visual">
+                            <video src="img/trackling-nav.mp4" 
+                            autoplay muted loop playsinline preload="metadata" 
+                            aria-label="Navigation demo">
+                            </video>
+                        </div>
+
+                    </div>
+
+                    <div class="feature-row">
+
+                        <div class="feature-visual">
+                            <video src="img/trackling-walk.mp4" 
+                            autoplay muted loop playsinline preload="metadata" 
+                            aria-label="Route demo">
+                            </video>
+                        </div>
+
+                        <div class="feature-text">
+                            <p class="item-title">Live Tracking & Routes</p>
+                            <p class="item-body">Heart-rate tracking alerts users when exertion becomes unsafe, while nearby routes tailored to their abilities help plan safer walks.</p>
+                            <p class="caption"> 
+                                Heart-rate zones based on <a href="https://www.heart.org/en/healthy-living/fitness/fitness-basics/target-heart-rates" target="_blank" rel="noopener noreferrer" class="dotted-link">American Heart Association</a>: green (safe), yellow (caution), red (recover).
+                            </p>
+                        </div>
+ 
+                    </div>
+
+                    <div class="feature-row reverse">
+
+                        <div class="feature-text">
+                            <p class="item-title">Post-Activity Check-In</p>
+                            <p class="item-body">                                A brief check-in helps Trackling adapt future routes and workouts to each user’s needs.
+                            </p>
+                        </div>
+
+                        <div class="feature-visual">
+                            <video src="img/trackling-survey.mp4" 
+                            autoplay muted loop playsinline preload="metadata" 
+                            aria-label="Survey demo">
+                            </video>
+                        </div>
+
+                    </div>
+
+                </section>  <hr>
+
                 <section id="research">
 
                     <header>
                         <p class="eyebrow">RESEARCH</p>
-                        <h2>Understanding who we were designing for</h2>
+                        <h2>How our process started</h2>
                     </header>
 
                     <p> 
-                        To design for Gillian, we first had to understand her and thousands of seniors like her. Our team focused on adults aged 72+ whose daily routines and social exercise habits were heavily disrupted during COVID-19.
+                        To design, we first had to understand our audience, older adults aged 72+ whose daily routines and social exercise habits were heavily disrupted during COVID-19.
                     </p>
 
                     <div class="components">
@@ -462,76 +535,6 @@
 
                 </section><hr>
 
-                <section id="solution">
-
-                    <header>
-                        <p class="eyebrow">FINAL PROUDCT</p>
-                        <h2>Introducing Trackling,</h2>
-                    </header>
-
-                    <!-- <p>  
-                        Building strength and confidence for seniors to stay active during a time of isolation.
-                    </p> -->
-                    <div class="flex">
-                        <p class="caption"> Explore the
-                        <a href="https://www.figma.com/proto/I9Kjn6iOBAaOmxJtO9Hdf7/Personal?node-id=4672-8812&viewport=194%2C236%2C0.06&t=l4PRJJJDY3Ow8R1T-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=4672%3A8812&page-id=4672%3A2012" target="_blank" rel="noopener noreferrer" class="dotted-link">final interactive prototype</a>, and
-                        <a class="dotted-link" href="https://www.figma.com/proto/US3GJbyshGRR831sgG28NC/14---Final-Presentation?node-id=352-1782&viewport=769%2C574%2C0.02&t=TihoraxXgl3H6CIN-1&scaling=contain&content-scaling=fixed&page-id=1%3A7" target="_blank" rel="noopener noreferrer">client presentation</a>.
-                        </p>   
-                        <span class="hover-pill">Hover to preview</span>
-                    </div>
-
-                </section>  
-
-                <div class="final-mockups item-grid">
-
-                    <div>
-                        <video class="video-hover" src="img/trackling-onboard.mp4" muted loop playsinline playsinline webkit-playsinline preload="metadata" aria-label="Onboarding demo"></video>
-                        
-                        <div class="item">
-                            <div class="item-title">Onboarding</div>
-                            <div class="item-body">Creates a personalized start by importing existing health data or guiding users through a simple manual setup.</div>
-                        </div>
-                    
-                    </div>
-
-                    <div>
-                        <video class="video-hover" src="img/trackling-nav.mp4" muted loop playsinline playsinline webkit-playsinline preload="metadata" aria-label="Navigation demo"></video>
-
-
-                        <div class="item">
-                            <p class="item-title">Home & Navigation</p>
-                            <p class="item-body">The home page highlights daily steps and personalized activity insights, with bottom navigation to workouts, routes, tracking, and progress.</p>
-                        </div> 
-
-                    </div>
-
-                    <div>
-                        <video class="video-hover" src="img/trackling-walk.mp4" muted loop playsinline webkit-playsinline preload="metadata" aria-label="Route demo"></video>
-
-
-                        <div class="item">
-                            <p class="item-title">Live Tracking & Routes</p>
-                            <p class="item-body">Heart-rate tracking alerts users when exertion becomes unsafe, while nearby routes tailored to their abilities help plan safer walks.</p>
-                            <p class="caption"> 
-                                Heart-rate zones based on <a href="https://www.heart.org/en/healthy-living/fitness/fitness-basics/target-heart-rates" target="_blank" rel="noopener noreferrer" class="dotted-link">American Heart Association</a>: green (safe), yellow (caution), red (recover).
-                            </p>
-                        </div> 
-                    </div>                        
-                        
-                    <div>
-                        <video class="video-hover" src="img/trackling-survey.mp4" muted loop playsinline webkit-playsinline preload="metadata" aria-label="Survey Demo"></video>
-
-                        <div class="item">
-                            <p class="item-title">Post-Activity Check-In</p>
-                            <p class="item-body">
-                                A brief check-in helps Trackling adapt future routes and workouts to each user’s needs.
-                            </p>
-                        </div> 
-
-                    </div>
-
-                </div> <hr>  
-
                 <section id="reflection">
 
                     <header>
@@ -548,11 +551,6 @@
 
                 </section> <hr>
                 
-                 <!--
-                
-                 During the COVID-19 pandemic, our team was to identify new opportunities within a specific user domain to develop a high-fidelity mobile prototype. The team chose to assist seniors in addressing physical limitations, aiming to help them build confidence and maintain healthier lifestyles. While the course focuses on UI design, we prioritized UX to create a viable and practical solution, then using UI to enhance the overall user experience.
-                   
-          -->
         
             </div>
 
@@ -807,24 +805,7 @@
         if (orb) {
             orb.classList.add("is-active");
             requestTick();
-        }
-
-        const hero = document.getElementById('trackling-hero');
-        const app = document.querySelector('.app');
-
-        function checkScroll() {
-            const rect = hero.getBoundingClientRect();
-            const heroBottom = rect.bottom;
-            const heroMid = rect.top + rect.height / 2;
-
-            // sidebar — changes at halfway
-            app.classList.toggle('hook-hero', heroMid > 0);
-
-            // header — changes at very end
-            app.classList.toggle('hook-header', heroBottom > 0);
-        }
-        window.addEventListener('scroll', checkScroll, { passive: true });
-        checkScroll();
+        }    
 
         // Scroll-spy for section menu label + active link
         const sectionLabel = document.querySelector('.section-nav-label');
@@ -875,9 +856,10 @@
             }
         }
 
-        // Fade-in sections on scroll
+
         const fadeSections = document.querySelectorAll('.grid section');
         fadeSections.forEach((section) => section.classList.add('fade-in-section'));
+
         if ('IntersectionObserver' in window) {
             const fadeObserver = new IntersectionObserver(
                 (entries) => {
@@ -891,45 +873,12 @@
                 { rootMargin: '0px 0px -5% 0px', threshold: 0.1 }
             );
             fadeSections.forEach((section) => fadeObserver.observe(section));
+            // ADD HERE:
+            document.querySelectorAll('#solution .intro').forEach(el => fadeObserver.observe(el));
         } else {
             fadeSections.forEach((section) => section.classList.add('is-visible'));
         }
-    
-        const finalsToggle = document.querySelector('.toggle');
-        if (finalsToggle) {
-            const setToggleState = (showIterations) => {
-                finalsToggle.setAttribute('aria-pressed', String(showIterations));
-                finalsToggle.textContent = showIterations ? 'Hide Iterations' : 'Show Iterations';
-            };
-            const hideIterations = () => {
-                document.body.classList.add('finals-hiding');
-                window.setTimeout(() => {
-                    document.body.classList.add('finals-only');
-                }, 220);
-                setToggleState(false);
-            };
-            const showIterations = () => {
-                document.body.classList.remove('finals-only');
-                requestAnimationFrame(() => {
-                    document.body.classList.remove('finals-hiding');
-                });
-                setToggleState(true);
-            };
-
-            document.body.classList.add('finals-only');
-            document.body.classList.remove('finals-hiding');
-            setToggleState(false);
-
-            finalsToggle.addEventListener('click', () => {
-                const isShowingIterations = finalsToggle.getAttribute('aria-pressed') === 'true';
-                if (isShowingIterations) {
-                    hideIterations();
-                } else {
-                    showIterations();
-                }
-            });
-        }
-
+        
         // Lazy-load GIFs on first hover/focus to avoid eager downloads
         const setupLazyHoverGif = (triggerEl, img, hoverSrc, staticSrc, includeFocus = false) => {
             if (!triggerEl || !img || !hoverSrc || !staticSrc) return;
@@ -974,16 +923,6 @@
                 triggerEl.addEventListener('focusout', stop);
             }
         };
-
-        // Play GIFs only on hover/focus (lazy load on first hover)
-        const hoverGifs = document.querySelectorAll('.project-cover[data-hover-gif]');
-        hoverGifs.forEach((img) => {
-            const card = img.closest('.project-card') || img.parentElement;
-            if (!card) return;
-            const staticSrc = img.getAttribute('src');
-            const hoverSrc = img.getAttribute('data-hover-gif');
-            setupLazyHoverGif(card, img, hoverSrc, staticSrc, true);
-        });
 
         // Play MP4 on hover (Safari-friendly)
         const hoverVideos = document.querySelectorAll('video.video-hover');
@@ -1072,7 +1011,6 @@
         document.addEventListener('pointerdown', unlockPlayback, { once: true, passive: true });
         document.addEventListener('keydown', unlockPlayback, { once: true });
 
-
         //Footer
         const footerMarquee = document.querySelector('.footer-marquee');
         if (footerMarquee && 'IntersectionObserver' in window) {
@@ -1084,7 +1022,8 @@
             });
           }, { threshold: 0.4 });
           footerObserver.observe(footerMarquee);
-        }
+        }   
+
           
     </script>
 
