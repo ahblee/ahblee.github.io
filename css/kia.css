@@ -4,7 +4,7 @@
     /* margin-bottom: var(--grid-gap); */
   background:
     linear-gradient(rgba(45, 52, 73, .05), rgba(45, 52, 73, .1)),
-    url("../assets/img/kia/hmw.png") center / cover;
+    url("../assets/kia/hmw.png") center / cover;
 }
 
 

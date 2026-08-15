@@ -1,3 +1,10 @@
+
+.three-col {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+
+
 .trackling-hero > img {
   display: block;
   width: 100%;
