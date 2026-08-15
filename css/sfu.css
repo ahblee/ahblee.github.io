@@ -13,6 +13,9 @@
   background: white;
 }
 
+#overview .two-col {
+  gap: 18px;
+}
 .sfu-hero .summary h1 {
   max-width: 560px;
 }
