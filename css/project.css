@@ -125,6 +125,7 @@ figcaption {
   gap: 0;
   padding: 9px;
   align-items: center;
+  background: white;
 }
 .media-grid img, .media-grid video {
   display: block;
@@ -137,7 +138,6 @@ figcaption {
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  background: var(--grey-bg);
 }
 
 .media-wrap { position: relative; }

@@ -9,13 +9,25 @@
   object-position: center;
 }
 
-#overview .media-grid figure {
-  background: white;
-}
 
 #overview .two-col {
   gap: 18px;
+  margin-top: 0;
 }
+
+
+#scope .metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  border: 1px solid rgba(45, 52, 73, .08);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(45, 52, 73, .018);
+}
+
+
+
 .sfu-hero .summary h1 {
   max-width: 560px;
 }
