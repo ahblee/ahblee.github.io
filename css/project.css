@@ -124,8 +124,9 @@ figcaption {
   display: grid;
   gap: 0;
   padding: 9px;
+  align-items: center;
 }
-.media-grid img {
+.media-grid img, .media-grid video {
   display: block;
   width: 100%;
   border-radius: 10px;
