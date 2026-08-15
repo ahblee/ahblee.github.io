@@ -1,0 +1,215 @@
+/* KIA-specific case study overrides. Shared case-study layout lives in project2.css. */
+
+.hmw-card {
+    /* margin-bottom: var(--grid-gap); */
+  background:
+    linear-gradient(rgba(45, 52, 73, .05), rgba(45, 52, 73, .1)),
+    url("../assets/img/kia/hmw.png") center / cover;
+}
+
+
+main .container {
+  width: min(var(--case-content-max), calc(100% - (var(--page-padding) * 2)));
+}
+
+#insights .process-block:first-of-type {
+  margin-top: 9px;
+}
+#solution .process-block h3 {
+  margin-top: 9px
+} 
+
+#validation .card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+}
+#validation .card img {
+max-width: 30%;
+}
+#validation .black {
+  margin-bottom: var(--space-xs);
+}
+
+
+.chart-shell {
+  display: grid;
+  gap: 14px;
+  margin-top: 6px;
+  padding: 22px;
+  border: 1px solid rgba(45, 52, 73, .09);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .7);
+  box-shadow: 0 1px 0 rgba(45, 52, 73, .025);
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.chart-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 20px;
+  min-height: 238px;
+  border: 1px solid rgba(45, 52, 73, .075);
+  border-radius: 14px;
+  padding: 22px;
+  background: #F3F5F7;
+  overflow: visible;
+}
+
+.chart-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.chart-head span,
+.chart-shell .source {
+  color: rgba(45, 52, 73, .42);
+  font-size: var(--text-xs);
+  line-height: 1.25;
+}
+
+.chart-head h3 {
+  margin: 6px 0 7px;
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.15px;
+}
+
+.chart-head p {
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  line-height: 1.35;
+}
+
+.chart-head strong {
+  color: var(--text-primary);
+}
+
+.rank-badge {
+  display: grid;
+  place-items: center;
+  align-self: start;
+  min-width: 62px;
+  border: 1px solid rgba(45, 52, 73, .09);
+  border-radius: var(--radius-pill);
+  padding: 7px 10px;
+  background: rgba(45, 52, 73, .045);
+  color: var(--text-primary);
+  font-size: var(--text-xs);
+  line-height: 1;
+}
+
+.rank-badge.is-good {
+  background: rgba(229, 168, 39, .14);
+  border-color: rgba(229, 168, 39, .24);
+}
+
+.chart-area {
+  align-self: end;
+  height: 136px;
+  padding-top: 8px;
+  border-bottom: 1px solid rgba(45, 52, 73, .11);
+  overflow: visible;
+}
+
+.bar-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 100%;
+}
+
+.bar-column {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: end;
+  height: 100%;
+  overflow: visible;
+}
+
+.chart-bar {
+  width: 100%;
+  min-height: 3px;
+  border-radius: var(--radius-pill);
+  background: rgba(45, 52, 73, .34);
+  transform: scaleY(.45);
+  transform-origin: bottom;
+  opacity: 0;
+  animation: chartRise 560ms cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.chart-bar.is-kia {
+  background: var(--accent);
+}
+
+.bar-tip {
+  position: absolute;
+  left: 50%;
+  bottom: min(calc(var(--bar-height, 0%) + 8px), calc(100% - 30px));
+  z-index: 2;
+  transform: translate(-50%, 4px);
+  border-radius: 8px;
+  padding: 6px 8px;
+  border: 1px solid rgba(45, 52, 73, .09);
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 10px 24px rgba(31, 37, 53, .1);
+  color: var(--text-primary);
+  font-size: 10px;
+  line-height: 1.35;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.bar-column:hover .bar-tip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.chart-shell .source {
+  margin: 0;
+  text-align: center;
+}
+
+@keyframes chartRise {
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@media (max-width: 900px) {
+  .charts {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-shell {
+    padding: 16px;
+  }
+
+  .chart-card {
+    min-height: 214px;
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chart-bar {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
