@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>About Angela</title>
+
+  <link rel="icon" href="assets/logo.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/about.css">
+</head>
+
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="index.html#work">Work</a>
+    <a href="about.html">About</a>
+
+    <a class="nav-logo site-logo" href="index.html" aria-label="Angela home">
+      <svg class="flower-logo" viewBox="0 0 34 34" aria-hidden="true" focusable="false">
+        <circle class="petal p1" cx="17" cy="17" r="6" />
+        <circle class="petal p2" cx="17" cy="17" r="6" />
+        <circle class="petal p3" cx="17" cy="17" r="6" />
+        <circle class="petal p4" cx="17" cy="17" r="6" />
+        <circle class="petal p5" cx="17" cy="17" r="6" />
+        <circle class="petal p6" cx="17" cy="17" r="6" />
+        <circle class="logo-center" cx="17" cy="17" r="3.4" />
+      </svg>
+    </a>
+
+    <a href="craft.html">Craft</a>
+    <a href="https://drive.google.com/file/d/1ITYUYfYwU2_ngWHM9-fl03x5f3og8KuS/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
+  </div>
+</nav>
+
+<main class="about-page">
+  <section class="about-hero container">
+    <div class="about-portrait opening-item opening-portrait" id="aboutPortrait">
+      <img src="assets/img/about/me.png" alt="Angela as a kid" class="about-portrait-img is-childhood">
+      <img src="assets/img/about/me2.png" alt="Angela now" class="about-portrait-img is-now">
+    </div>
+
+    <div class="about-copy opening-item opening-copy">
+      <p class="about-kicker">About Angela</p>
+
+      <h1>
+        Hello, I’m Angela. A Korean-Canadian designer based in Vancouver, making thoughtful digital experiences with a bit of honesty and joy.
+      </h1>
+
+      <div class="about-story">
+        <p>
+          South Korea, where I was born and raised, will always be part of who I am.
+        </p>
+        <p>
+          My path into design started in Computing Science, but working on a project, I found myself spending more time tweaking the code behind the angle of the ice cream sprinkles than the actual assignment. That small detail quickly led me to Interactive Arts and Technology, where I continued growing my love for design.
+        </p>
+        <p>
+          I’m drawn to solving problems, but more importantly, I care about turning ideas into meaningful and helpful experiences for people.
+        </p>
+      </div>
+
+      <div class="about-actions">
+        <a href="mailto:angela001201@gmail.com">Contact</a>
+        <a href="https://drive.google.com/file/d/1ITYUYfYwU2_ngWHM9-fl03x5f3og8KuS/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-meta container opening-item opening-meta" aria-label="Angela's background">
+    <div class="meta-panel">
+      <h2>Experience</h2>
+
+      <div class="meta-list">
+        <article class="meta-item">
+          <div>
+            <h3>AGCF</h3>
+            <p>Brand and web experiences</p>
+          </div>
+          <span>07/2026 - Present</span>
+        </article>
+
+        <article class="meta-item">
+          <div>
+            <h3>Photocrumb</h3>
+            <p>UX/UI & Graphic Designer, Freelance</p>
+          </div>
+          <span>01/2025 - Present</span>
+        </article>
+
+        <article class="meta-item">
+          <div>
+            <h3>Simon Fraser University</h3>
+            <p>Design and Research Assistant, Co-op</p>
+          </div>
+          <span>01/2023 - 08/2023</span>
+        </article>
+      </div>
+    </div>
+
+    <div class="meta-panel">
+      <h2>Education</h2>
+
+      <div class="meta-list">
+        <article class="meta-item">
+          <div>
+            <h3>Simon Fraser University</h3>
+            <p>BA. Interactive Arts + Technology, Minor. Print + Digital Publication</p>
+          </div>
+          <span>09/2018 - Present</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="photo-marquee opening-item opening-marquee" aria-label="Angela's photo roll">
+    <div class="photo-marquee-track" id="photoMarqueeTrack"></div>
+  </section>
+
+  <section class="about-extras container opening-item opening-extras">
+    <div class="extras-intro">
+      <p class="about-kicker">The extras</p>
+      <h2>Off the record</h2>
+
+      <button class="current-status" id="currentStatus" type="button" aria-label="Shuffle current status">
+        <span>I’m not the most active, but</span>
+        <strong id="statusText">loading...</strong>
+      </button>
+
+      <div class="tags" aria-label="Angela's extra interests">
+        <span>Photographer</span>
+        <span>Homebody</span>
+        <span>Coffeeholic</span>
+        <span>T1-fan</span>
+        <span>ISFP</span>
+        <span>Digimon-stan</span>
+      </div>
+    </div>
+
+    <div class="photo-board-shell">
+      <button class="board-toggle" id="tidyBtn" type="button">Let Angela Clean It</button>
+      <div class="photo-board" id="photoBoard" aria-label="Interactive photo board"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-credit">
+      <span>© 2026 by</span>
+      <a href="about.html" target="_blank" rel="noopener noreferrer">Angela</a>
+      <span>·</span>
+      <span>Vancouver</span>
+      <span id="footerClock">--:--</span>
+    </p>
+  </div>
+</footer>
+
+<script src="js/about.js"></script>
+<script src="js/global.js"></script>
+
+</body>
+</html>

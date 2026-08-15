@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Angela</title>
+
+  <link rel="icon" href="assets/logo.svg">
+
+  <!-- Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-container">
+
+      <a href="#work">Work</a>
+
+      <a href="about.html">About</a>
+
+      <a class="nav-logo site-logo" href="index.html" aria-label="Angela home">
+        <svg
+            class="flower-logo"
+            viewBox="0 0 34 34"
+            aria-hidden="true"
+            focusable="false"
+        >
+            <circle class="petal p1" cx="17" cy="17" r="6" />
+            <circle class="petal p2" cx="17" cy="17" r="6" />
+            <circle class="petal p3" cx="17" cy="17" r="6" />
+            <circle class="petal p4" cx="17" cy="17" r="6" />
+            <circle class="petal p5" cx="17" cy="17" r="6" />
+            <circle class="petal p6" cx="17" cy="17" r="6" />
+
+            <circle
+            class="logo-center"
+            cx="17"
+            cy="17"
+            r="3.4"
+            />
+        </svg>
+      </a>
+
+      <a href="craft.html">Craft</a>
+
+      <a href="#" target="_blank" rel="noopener noreferrer">
+        Resume
+      </a>
+
+    </div>
+</nav>
+
+<main>
+
+    <section class="intro container">
+
+        <div class="hello-greeting opening-intro opening-intro-hello">
+        <span class="hello-wave" aria-hidden="true">👋</span>
+        <span class="hello-hover-text">Hi there!</span>
+        </div>
+
+        <h1 class="intro-title">
+        I’m Angela, a designer making everyday life and decisions
+        <span class="intro-emphasis">simpler</span>
+        for people in real contexts.
+        </h1>
+
+        <div class="intro-bottom">
+            
+            <p class="opening-intro opening-intro-current"> Currently shaping brand and web experiences at AGCF. </p>
+
+            <div class="intro-actions opening-intro opening-intro-actions">
+            <a href="mailto:your@email.com">Say hi</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">Resume</a>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="projects container" id="work">
+        
+        <!-- ROW 1 -->
+        <div class="bento-row bento-row-small-large">
+            <!-- GRASS -->
+            <div class="grass-column opening-piece opening-left opening-grass">
+
+                <div class="grass-card">
+
+                <video class="grass-video" src="assets/img/index/grass.mov" autoplay loop muted playsinline></video>
+
+                <canvas
+                    class="grass-particles"
+                    id="grassParticles"
+                    aria-hidden="true"
+                ></canvas>
+
+                <button
+                class="grass-status"
+                id="grassStatus"
+                type="button"
+                aria-label="Change status message"
+                >
+                <span class="grass-status-text" id="grassStatusText"> Based in Vancouver, B.C. </span>
+                </button>
+
+                </div>
+
+
+                <!-- GRASS CONTROLLER -->
+                <div
+                class="grass-controls"
+                role="group"
+                aria-label="Grass scene controls"
+                >
+
+                <div class="grass-control-modes">
+
+                    <button
+                    class="grass-mode is-active"
+                    type="button"
+                    data-mode="wind"
+                    aria-pressed="true"
+                    >
+                    Wind
+                    </button>
+
+                    <button
+                    class="grass-mode"
+                    type="button"
+                    data-mode="shine"
+                    aria-pressed="false"
+                    >
+                    Shine
+                    </button>
+
+                </div>
+
+
+                <input
+                    class="grass-range"
+                    id="grassRange"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="38"
+                    aria-label="Wind strength"
+                >
+
+                </div>
+
+            </div>
+
+            <!-- KIA -->
+            <a href="kia.html" class="project-card kia-card opening-piece opening-right opening-kia" >
+                <div class="project-media">
+                    <video
+                    src="assets/img/index/kia-cover.mov"
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    ></video>
+                </div>
+                <div class="project-hover-ui">
+                    <div class="project-hover-pill">
+                    <span class="project-hover-title">Bringing clarity and continuity to car buying</span>
+                    <span class="project-hover-meta">KIA / Concept / 2024</span>
+                    </div>
+
+                    <div class="project-hover-arrow">
+                    ↗
+                    </div>
+                </div>
+            </a>
+
+        </div>
+        
+        <!-- Row 2 -->
+        <div class="bento-row bento-row-large-small">
+
+            <div class="project-card agcf-card project-card-disabled opening-piece opening-left opening-agcf" aria-label="AGCF project coming soon">
+
+                <div class="project-media">
+                    <img src="assets/img/index/agcf-cover.png" alt="AGCF website redesign">
+                    <span class="project-status-badge">Coming soon</span>
+                </div>
+                <div class="project-hover-ui">
+                    <div class="project-hover-pill">
+                        <span class="project-hover-title">Building a cohesive brand + digital experience</span>
+                    <!-- <span class="project-hover-title">Solo-designed + built a new web experience from research to launch</span> -->
+                    <!-- shipped an end-to-end website redesign + rebrand -->
+                    <span class="project-hover-meta">AGCF / Coming soon</span>
+                    </div>
+
+                    <div class="project-hover-arrow project-hover-status">
+                    Soon
+                    </div>
+                </div>
+            </div>
+
+            <a href="trackling.html" class="project-card trackling-card opening-piece opening-right opening-trackling">
+
+                <div class="project-media">
+                    <video
+                    src="assets/img/index/trackling-cover.mp4"
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    ></video>
+                </div>
+                
+                <div class="project-hover-ui">
+
+                    <div class="project-hover-pill">
+
+                        <span class="project-hover-title">
+                        Senior-first fitness app
+                        </span>
+
+                        <span class="project-hover-meta">
+                        Concept / 2021
+                        </span>
+
+                    </div>
+
+                    <div class="project-hover-arrow">↗</div>
+
+                </div>
+            </a>
+
+        </div>
+
+        <!-- ROW 3 -->
+        <div class="bento-row bento-row-small-large bento-row-about">
+
+            <a href="about.html" class="project-card about-card">
+
+                <div class="about-content">
+
+                    <div class="about-profile">
+                        <img class="about-photo" src="assets/img/index/me.png" alt="Angela" >
+                        <img class="about-signature" src="assets/img/index/signature.webp" alt="Angela's signature">
+                    </div>
+
+                    <div class="experience-list">
+
+                    <div class="experience-item">
+                        <p class="experience-company">AGCF</p>
+                        <p class="experience-date">
+                        07/2026 — Present
+                        </p>
+                    </div>
+
+                    <div class="experience-item">
+                        <p class="experience-company">Photocrumb</p>
+                        <p class="experience-date">
+                        01/2025 — Present
+                        </p>
+                    </div>
+
+                    <div class="experience-item">
+                        <p class="experience-company">
+                        Simon Fraser University
+                        </p>
+                        <p class="experience-date">
+                        01/2023 — 08/2023
+                        </p>
+                    </div>
+
+                    </div>
+
+                </div>
+
+                <img class="about-hover-photo" src="assets/img/index/me2.png" alt="" aria-hidden="true" >
+
+                <div class="project-hover-ui">
+                    <div class="project-hover-pill">
+                    <span class="project-hover-title">
+                        About Angela
+                    </span>
+                    <span class="project-hover-meta">
+                        Designer / Builder / 2000
+                    </span>
+                    </div>
+
+                    <span class="project-hover-arrow">
+                    ↗
+                    </span>
+                </div>
+            
+            </a>
+
+            <!-- RIGHT SIDE -->
+            <div class="bento-stack about-right-stack">
+
+                <a href="sfu.html" class="project-card sfu-card">
+                    <div class="project-media">
+                        <img src="assets/img/index/sfu-cover.png" alt="SFU design work">
+                    </div>
+                    <div class="project-hover-ui">
+                        <div class="project-hover-pill">
+                            <span class="project-hover-title">Scaling design across an entire co-op program</span>
+                        <span class="project-hover-meta">SFU / Co-op / 2023</span>
+                        </div>
+
+                        <div class="project-hover-arrow">
+                        ↗
+                        </div>
+                    </div>
+                </a>
+
+                <div class="interaction-card contact-bar" id="contactBar">
+                    <div class="contact-links">
+                        <a href="mailto:YOUR@email.com">Email</a>
+
+                        <a
+                        href="YOUR-LINKEDIN"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                        LinkedIn
+                        </a>
+
+                        <a
+                        href="YOUR-RESUME-LINK"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                        Resume
+                        </a>
+                    </div>
+
+                    <button
+                        class="contact-front"
+                        id="contactFront"
+                        type="button"
+                        aria-expanded="false"
+                    >
+                        <span class="contact-label">Say hello</span>
+
+                        <svg
+                        class="contact-plane"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                        >
+                        <path
+                            d="M3.7 11.1 20.2 4.2l-5.6 15.5-3.1-6.1-7.8-2.5Z"
+                            stroke="currentColor"
+                            stroke-width="1.35"
+                            stroke-linejoin="round"
+                        />
+
+                        <path
+                            d="m11.5 13.6 8.7-9.4"
+                            stroke="currentColor"
+                            stroke-width="1.35"
+                            stroke-linecap="round"
+                        />
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ROW 4 — PLAYFUL -->
+        <div class="bento-row bento-row-small-large playful-row">
+
+        <!-- Objects -->
+        <div class="playful-card object-card" id="objectStage" data-motion="sway">
+        <span class="object-shadow" id="objectShadow" aria-hidden="true"></span>
+
+        <button
+            class="object-switcher"
+            id="objectSwitcher"
+            type="button"
+            aria-label="Click to switch object. Drag object to play."
+        >
+            <span
+            class="object-idle"
+            id="objectIdle"
+            >
+            <span
+                class="object-position"
+                id="objectPosition"
+            >
+                <span
+                class="object-look"
+                id="objectLook"
+                >
+                <img
+                    class="object-img"
+                    id="objectImg"
+                    src="assets/img/index/camera.png"
+                    alt=""
+                    draggable="false"
+                >
+                </span>
+            </span>
+            </span>
+        </button>
+
+        <span class="object-hint interaction-hint" aria-hidden="true">Click or drag to play </span>
+        </div> 
+
+        <!-- Skills -->
+        <div class="playful-card skills-orbit-card" id="skillsOrbitCard" >
+        <div class="skills-orbit-stage" id="skillsOrbitStage">
+            <div class="orbit-me" id="orbitMe">
+            <img src="assets/img/index/orbit.png" alt="Angela" draggable="false">
+            </div>
+
+            <span class="orbit-skill">
+            Product Design
+            </span>
+
+            <span class="orbit-skill">
+            Design System
+            </span>
+
+            <span class="orbit-skill">
+            UX Research
+            </span>
+
+            <span class="orbit-skill">
+            Front-end
+            </span>
+
+            <span class="orbit-skill">
+            Visual Design
+            </span>
+
+            <span class="orbit-skill">
+            Prototyping
+            </span>
+
+            <span class="orbit-skill">
+            Interaction Design
+            </span>
+
+            <span class="orbit-skill">
+            Accessibility
+            </span>
+        </div>
+
+        <p
+            class="skills-orbit-hint interaction-hint"
+            id="skillsOrbitHint"
+        >
+            Click me to play around
+        </p>
+        </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <p class="footer-credit">
+      <span>© 2026 by</span>
+      
+      <a href="about.html" target="_blank" rel="noopener noreferrer">Angela</a>
+
+
+      <span>·</span>
+
+      <span>Vancouver</span>
+
+      <span id="footerClock">--:--</span>
+    </p>
+
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
+<script src="js/index.js"></script>
+<script src="js/global.js"></script>
+
+
+</body>
+
+</html>
