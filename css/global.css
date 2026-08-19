@@ -17,13 +17,13 @@
   --text-sm: 12.5px;
   --text-md: 13.5px;
   --text-rg: 16px;
-  --text-lg: 19.5px;
+  --text-lg: 21px;
   --text-xl: 21px;
   --text-2xl: 24px;
 
   --leading-tight: 1.45;
   --leading-normal: 1.5;
-  --leading-relaxed: 1.7;
+  --leading-relaxed: 1.65;
 
   /* Layout */
   --page-max: 900px;
@@ -540,7 +540,10 @@ video {
 }
 
 /* ---------- FOOTER ---------- */
-footer p { font-size: var(--text-sm); }
+footer p { 
+  font-family: var(--font-heading);
+  font-size: var(--text-sm); 
+}
 .site-footer {
   width: 100%;
   padding: 72px var(--page-padding) 70px;

@@ -10,8 +10,9 @@ h1 {
   max-width: 58%; 
 }
 .intro p {
-  color: var(--text-muted);
+  font-family: var(--font-heading);
   font-size:15px;
+  color: var(--text-muted);
 }
 .intro-actions {
   display: flex;
@@ -293,14 +294,20 @@ body.is-opening-ready .opening-trackling {
     color 500ms cubic-bezier(.22, 1, .36, 1);
 }
 
+.intro-emphasis {
+  display: inline-block;
+  margin: 0;
+  
+  transition:
+    color 500ms cubic-bezier(.22, 1, .36, 1),
+    margin 600ms cubic-bezier(.22, 1, .36, 1);
+}
 .intro-title:hover {
   color: rgba(45, 52, 73, 0.52);
 }
-
 .intro-title:hover .intro-emphasis {
   color: var(--text-primary);
-
-  margin-right: 7px;
+  margin: 0 8px;
 }
 
 .intro-title:hover .intro-emphasis::before {
@@ -806,6 +813,7 @@ transform: translateZ(0);
 .experience-company {
   margin: 0;
 
+  font-family: var(--font-heading);
   font-size: var(--text-sm);
   letter-spacing: 0.1px;
 
@@ -813,6 +821,7 @@ transform: translateZ(0);
 }
 .experience-date {
   margin: 0;
+  font-family: var(--font-heading);
   font-size: var(--text-sm);
   color: var(--text-muted);
   letter-spacing: 0;
@@ -1582,12 +1591,6 @@ transform: translateZ(0);
   .project-hover-meta { font-size: var(--text-md); }
   .intro p {  font-size: var(--text-rg);}
 }
-
-/* @media (min-width: 2400px) {
-  .project-hover-title { font-size: var(--text-rg); }
-  .project-hover-meta { font-size: var(--text-md); }
-  .intro p {  font-size: var(--text-lg);}
-} */
 
 /* ---------- MOBILE ---------- */
 @media (max-width: 1024px) {
