@@ -1,40 +1,231 @@
 const helloWave =
   document.querySelector(".hello-wave");
 
-if (helloWave) {
+const pageLoader =
+  document.getElementById("pageLoader");
 
-  function playHelloWave() {
+const loaderFacts =
+  document.getElementById("loaderFacts");
 
+const prefersReducedMotion =
+  window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+const shouldSkipLoader =
+  window.location.hash === "#work";
+
+function playHelloWave() {
+  if (
+    !helloWave ||
+    helloWave.classList.contains(
+      "is-waving"
+    )
+  ) {
+    return;
+  }
+
+  helloWave.classList.add(
+    "is-waving"
+  );
+}
+
+function startOpeningAnimation() {
+  requestAnimationFrame(() => {
+    document.body.classList.add(
+      "is-opening-ready"
+    );
+  });
+
+  setTimeout(
+    playHelloWave,
+    850
+  );
+}
+
+function completePageLoader() {
+  document.body.classList.add(
+    "is-loader-finished"
+  );
+
+  pageLoader?.classList.add(
+    "is-done"
+  );
+
+  window.setTimeout(
+    () => {
+      document.body.classList.remove(
+        "is-loader-running"
+      );
+    },
+    560
+  );
+
+  window.setTimeout(
+    startOpeningAnimation,
+    540
+  );
+}
+
+function finishPageLoader() {
+  document.body.classList.remove(
+    "is-loading"
+  );
+
+  window.setTimeout(
+    completePageLoader,
+    80
+  );
+}
+
+document.body.classList.add(
+  "is-loading"
+);
+
+window.addEventListener(
+  "DOMContentLoaded",
+  () => {
     if (
-      helloWave.classList.contains(
-        "is-waving"
-      )
+      prefersReducedMotion ||
+      shouldSkipLoader ||
+      !pageLoader ||
+      !loaderFacts
     ) {
+      document.body.classList.add(
+        "is-loader-finished"
+      );
+
+      pageLoader?.classList.add(
+        "is-done"
+      );
+
+      document.body.classList.remove(
+        "is-loading",
+        "is-loader-running"
+      );
+
+      startOpeningAnimation();
       return;
     }
 
-    helloWave.classList.add(
-      "is-waving"
+    document.body.classList.add(
+      "is-loader-running"
     );
-  }
 
+    const loaderMessagePool = [
+      "rolling into the playground",
+      "packing a few tiny details",
+      "warming up the tiny interactions",
+      "making room for experiments",
+      "checking the little corners",
+      "getting the work ready"
+    ];
 
-  window.addEventListener(
-    "DOMContentLoaded",
-    () => {
-      requestAnimationFrame(() => {
-        document.body.classList.add(
-          "is-opening-ready"
+    const loaderWelcomePool = [
+      "done, welcome",
+      "come on in",
+      "you made it",
+      "welcome in"
+    ];
+
+    const loaderMessages =
+      [...loaderMessagePool]
+        .sort(() => Math.random() - 0.5)
+        .slice(
+          0,
+          Math.random() > 0.48 ? 3 : 2
         );
+
+    loaderFacts.textContent =
+      loaderMessages[0];
+
+    window.setTimeout(() => {
+      pageLoader.classList.add(
+        "is-complete"
+      );
+    }, 720);
+
+    loaderMessages
+      .slice(1)
+      .forEach((message, index) => {
+        window.setTimeout(() => {
+          loaderFacts.classList.add(
+            "is-switching"
+          );
+
+          window.setTimeout(() => {
+            loaderFacts.textContent =
+              message;
+
+            loaderFacts.classList.remove(
+              "is-switching"
+            );
+          }, 220);
+        }, 1450 + index * 760);
       });
 
-      setTimeout(
-        playHelloWave,
-        850
+    window.setTimeout(() => {
+      loaderFacts.classList.add(
+        "is-switching"
       );
-    }
-  );
 
+      window.setTimeout(() => {
+        loaderFacts.textContent =
+          [...loaderWelcomePool]
+            .sort(() => Math.random() - 0.5)
+            [0];
+
+        pageLoader.classList.add(
+          "is-welcome"
+        );
+
+        loaderFacts.classList.remove(
+          "is-switching"
+        );
+      }, 220);
+    }, 3050);
+
+    window.setTimeout(
+      finishPageLoader,
+      4250
+    );
+  }
+);
+
+const revealPieces =
+  document.querySelectorAll(".reveal-piece");
+
+if (revealPieces.length) {
+  if (prefersReducedMotion) {
+    revealPieces.forEach((piece) => {
+      piece.classList.add("is-visible");
+    });
+  } else {
+    const revealObserver =
+      new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          });
+        },
+        {
+          threshold: 0.16,
+          rootMargin: "0px 0px -8% 0px"
+        }
+      );
+
+    revealPieces.forEach((piece) => {
+      revealObserver.observe(piece);
+    });
+  }
+}
+
+if (helloWave) {
 
   const helloGreeting =
   document.querySelector(".hello-greeting");
