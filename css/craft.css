@@ -36,8 +36,8 @@ body.craft-dialog-open {
 
 .craft-wave {
   display: inline-block;
-  transform: rotate(0deg);
-  transform-origin: 72% 78%;
+  transform: scale(1) translateY(0);
+  transform-origin: 50% 70%;
   cursor: default;
 }
 
@@ -63,7 +63,11 @@ body.craft-dialog-open {
 }
 
 .craft-wave.is-waving {
-  animation: craftWave 950ms ease-in-out 1;
+  animation: craftHeartHands 900ms ease-in-out 1;
+}
+
+.craft-greeting:hover .craft-wave {
+  animation: craftHeartHands 900ms ease-in-out infinite;
 }
 
 .craft-intro h1 {
@@ -101,33 +105,29 @@ body.is-opening-ready .opening-intro-current {
   animation: openingIntroIn 590ms cubic-bezier(.22, 1, .36, 1) 200ms forwards;
 }
 
-@keyframes craftWave {
+@keyframes craftHeartHands {
   0% {
-    transform: rotate(0deg);
+    transform: scale(1) translateY(0);
   }
 
-  18% {
-    transform: rotate(20deg);
+  22% {
+    transform: scale(1.08) translateY(-1px);
   }
 
-  36% {
-    transform: rotate(-11deg);
+  44% {
+    transform: scale(.98) translateY(0);
   }
 
-  54% {
-    transform: rotate(16deg);
+  64% {
+    transform: scale(1.05) translateY(-1px);
   }
 
-  70% {
-    transform: rotate(-7deg);
-  }
-
-  84% {
-    transform: rotate(5deg);
+  82% {
+    transform: scale(1.01) translateY(0);
   }
 
   100% {
-    transform: rotate(0deg);
+    transform: scale(1) translateY(0);
   }
 }
 
@@ -519,8 +519,15 @@ body.is-opening-ready .opening-intro-current {
 }
 
 .craft-dialog-logo--photocrumb {
-  width: 74px;
-  max-height: 22px;
+    justify-self: self-start;
+    width: fit-content !important;
+      height: 30px;
+  max-height: none;
+  transform: translateY(0);
+}
+
+.craft-eyebrow--photocrumb {
+  gap: 4px;
 }
 
 .craft-eyebrow > img + span::before,
@@ -531,6 +538,10 @@ body.is-opening-ready .opening-intro-current {
   height: 24px;
   margin: 0 9px 0 2px;
   color: rgba(45, 52, 73, 0.16);
+}
+
+.craft-eyebrow--photocrumb > img + span::before {
+  margin-left: 0;
 }
 
 .craft-dialog-meta .meta-row {
