@@ -24,6 +24,22 @@
 
 <body>
 
+<div class="page-loader" id="pageLoader" aria-live="polite" aria-label="Loading introduction">
+  <div class="loader-copy">
+    <div class="loader-text">
+      <h1 class="loader-line loader-identity">
+        welcome to my little corner <span class="loader-smile">:)</span>
+      </h1>
+      <p class="loader-facts">
+        <span id="loaderFacts">rolling into the playground</span>
+      </p>
+      <div class="loader-progress" aria-hidden="true">
+        <span class="loader-progress-track"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <nav class="site-nav" aria-label="Main navigation">
     <div class="nav-container">
 
@@ -72,7 +88,7 @@
         <span class="hello-hover-text">Hi there!</span>
         </div>
 
-        <h1 class="intro-title">
+        <h1 class="intro-title opening-intro opening-intro-title">
         I’m Angela, a designer making everyday life and decisions
         <span class="intro-emphasis">simpler</span>
         for people in real contexts.
@@ -245,7 +261,7 @@
         </div>
 
         <!-- ROW 3 -->
-        <div class="bento-row bento-row-small-large bento-row-about">
+        <div class="bento-row bento-row-small-large bento-row-about reveal-piece">
 
             <a href="about.html" class="project-card about-card">
 
@@ -380,7 +396,7 @@
         </div>
 
         <!-- ROW 4 — PLAYFUL -->
-        <div class="bento-row bento-row-small-large playful-row">
+        <div class="bento-row bento-row-small-large playful-row reveal-piece">
 
         <!-- Objects -->
         <div class="playful-card object-card" id="objectStage" data-motion="sway">
