@@ -78,6 +78,53 @@ function finishPageLoader() {
   );
 }
 
+function wait(ms) {
+  return new Promise((resolve) => {
+    window.setTimeout(resolve, ms);
+  });
+}
+
+function waitForMediaReady() {
+  const media =
+    [
+      ...document.querySelectorAll("main img"),
+      ...document.querySelectorAll("main video")
+    ];
+
+  const mediaReady =
+    media.map((item) => {
+      if (item.tagName === "IMG") {
+        if (item.complete && item.naturalWidth > 0) {
+          return Promise.resolve();
+        }
+
+        if (item.decode) {
+          return item.decode().catch(() => {});
+        }
+
+        return new Promise((resolve) => {
+          item.addEventListener("load", resolve, { once: true });
+          item.addEventListener("error", resolve, { once: true });
+        });
+      }
+
+      if (item.readyState >= 2) {
+        return Promise.resolve();
+      }
+
+      return new Promise((resolve) => {
+        item.addEventListener("loadeddata", resolve, { once: true });
+        item.addEventListener("canplay", resolve, { once: true });
+        item.addEventListener("error", resolve, { once: true });
+      });
+    });
+
+  return Promise.race([
+    Promise.allSettled(mediaReady),
+    wait(6500)
+  ]);
+}
+
 document.body.classList.add(
   "is-loading"
 );
@@ -164,7 +211,12 @@ window.addEventListener(
         }, 1450 + index * 760);
       });
 
-    window.setTimeout(() => {
+    Promise
+      .all([
+        wait(3400),
+        waitForMediaReady()
+      ])
+      .then(() => {
       loaderFacts.classList.add(
         "is-switching"
       );
@@ -183,12 +235,12 @@ window.addEventListener(
           "is-switching"
         );
       }, 220);
-    }, 3050);
 
-    window.setTimeout(
-      finishPageLoader,
-      4250
-    );
+      window.setTimeout(
+        finishPageLoader,
+        950
+      );
+    });
   }
 );
 
