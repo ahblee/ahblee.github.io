@@ -196,6 +196,18 @@ body.is-loader-running .loader-progress-track::after {
     loaderProgressFill 2900ms cubic-bezier(.22, 1, .36, 1) 760ms forwards;
 }
 
+.page-loader.is-welcome .loader-progress-track::after {
+  animation: none;
+  transform: scaleX(1);
+  transition: transform 420ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.page-loader.is-welcome .loader-progress-track::before {
+  animation:
+    loaderProgressPulse 1300ms ease-in-out infinite;
+  left: 100%;
+}
+
 @keyframes loaderProgressFill {
   to {
     transform: scaleX(1);
