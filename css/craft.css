@@ -3,9 +3,16 @@
 ========================================= */
 
 .craft-page {
-  width: min(1200px, calc(100% - 80px));
+  width: min(
+    var(--page-max),
+    calc(100% - (var(--page-padding) * 2))
+  );
   margin-inline: auto;
-  padding: 140px 0 120px;
+  padding: 150px 0 120px;
+}
+
+body.craft-dialog-open {
+  overflow: hidden;
 }
 
 
@@ -14,39 +21,139 @@
 ========================================= */
 
 .craft-intro {
-  max-width: 720px;
-  margin-bottom: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--grid-gap);
+  margin: 0 0 96px;
 }
 
-.craft-kicker {
-  margin: 0 0 18px;
-  font-size: 13px;
-  font-weight: 500;
-  color: #9fa2ad;
+.craft-greeting {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.craft-wave {
+  display: inline-block;
+  transform: rotate(0deg);
+  transform-origin: 72% 78%;
+  cursor: default;
+}
+
+.craft-hover-text {
+  position: absolute;
+  left: calc(100% + 8px);
+  top: 50%;
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-regular);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-4px, -50%);
+  pointer-events: none;
+  transition:
+    opacity 220ms ease,
+    transform 380ms cubic-bezier(.16, 1, .3, 1);
+}
+
+.craft-greeting:hover .craft-hover-text {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.craft-wave.is-waving {
+  animation: craftWave 950ms ease-in-out 1;
 }
 
 .craft-intro h1 {
-  margin: 0;
-
-  font-size: clamp(36px, 2vw, 64px);
-  line-height: var(--leading-tight);
-  letter-spacing: -0.035em;
-  font-weight: 500;
-
-  color: #2d3449;
+  color: var(--text-primary);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.3px;
+  max-width: 60%;
 }
 
-.craft-description {
-  max-width: 520px;
-
-  margin: 26px 0 0;
-
-  font-size: 16px;
-  line-height: 1.6;
-
-  color: #7c818f;
+.craft-intro p {
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  line-height: 1.35;
+  max-width: 560px;
 }
 
+.opening-intro {
+  opacity: 0;
+  translate: 6px 3px;
+  will-change: translate, opacity;
+}
+
+body.is-opening-ready .opening-intro-hello {
+  animation: openingIntroIn 590ms cubic-bezier(.22, 1, .36, 1) 40ms forwards;
+}
+
+body.is-opening-ready .opening-intro-title {
+  animation: openingIntroIn 610ms cubic-bezier(.22, 1, .36, 1) 120ms forwards;
+}
+
+body.is-opening-ready .opening-intro-current {
+  animation: openingIntroIn 590ms cubic-bezier(.22, 1, .36, 1) 200ms forwards;
+}
+
+@keyframes craftWave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  18% {
+    transform: rotate(20deg);
+  }
+
+  36% {
+    transform: rotate(-11deg);
+  }
+
+  54% {
+    transform: rotate(16deg);
+  }
+
+  70% {
+    transform: rotate(-7deg);
+  }
+
+  84% {
+    transform: rotate(5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes openingIntroIn {
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+
+.case-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+  
+  margin: var(--space-md) 0 var(--grid-gap);
+}
+.case-eyebrow span + span::before,
+.case-note a + a::before {
+  content: "/";
+  margin: 0 9px 0 2px;
+  color: rgba(45, 52, 73, .15);
+}
 
 /* =========================================
    GRID
@@ -54,95 +161,504 @@
 
 .craft-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-
-  gap: 72px 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(42px, 6vw, 70px) var(--grid-gap);
+  align-items: start;
 }
 
-
-/* Wide pieces can take the whole row */
-
-.craft-item--wide {
-  grid-column: 1 / -1;
+.craft-item {
+  min-width: 0;
 }
 
-
-/* =========================================
-   MEDIA
-========================================= */
+.craft-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
 
 .craft-media {
   position: relative;
-
+  display: block;
   width: 100%;
-  /* aspect-ratio: 4 / 3; */
-
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-
-  border-radius: 18px;
-  background: #f8fafb;
+  border-radius: var(--radius-card);
+  background: #f2f3f3;
+  box-shadow: 0 12px 24px rgba(45, 52, 73, 0.055);
+  transform: translateY(0);
+  transition:
+    box-shadow 360ms ease,
+    transform 360ms ease;
 }
 
-.craft-media--portrait {
-  aspect-ratio: 4 / 5;
+.craft-media--soft {
+  background: #e5e3cf;
 }
 
-.craft-media img {
+.craft-media--blue {
+  background: #adcaee;
+}
+
+.craft-media--green {
+  background: #069a4c;
+}
+
+.craft-media--pink {
+  background: #f4eded;
+}
+
+.craft-media img,
+.craft-media video {
   width: 100%;
   height: 100%;
-
   display: block;
-
   object-fit: cover;
-
-  transition: transform 500ms ease;
+  border-radius: inherit;
+  filter: saturate(1.08) contrast(1.03) brightness(1.01);
+  transition: transform 520ms cubic-bezier(.16, 1, .3, 1);
 }
 
+.craft-card:hover .craft-media,
+.craft-card:focus-visible .craft-media {
+  box-shadow: 0 16px 32px rgba(45, 52, 73, 0.08);
+  transform: translateY(-3px);
+}
 
-/* subtle interaction */
+.craft-card:active .craft-media {
+  transform: translateY(-1px) scale(.985);
+}
 
-.craft-item:hover .craft-media img {
+.craft-card:hover img,
+.craft-card:hover video,
+.craft-card:focus-visible img,
+.craft-card:focus-visible video {
   transform: scale(1.025);
+}
+
+.craft-card:focus-visible {
+  outline: 0;
+}
+
+.craft-card:focus-visible .craft-media {
+  outline: 0;
+}
+
+.craft-card-caption {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+
+  min-height: 40px;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.craft-card:hover .craft-card-caption,
+.craft-card:focus-visible .craft-card-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.craft-card-caption span:first-child {
+  color: var(--text-primary);
+  font-size: var(--text-md);
+  font-weight: 400;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.craft-card-caption span:last-child {
+  display: none;
 }
 
 
 /* =========================================
-   META
+   DIALOG
 ========================================= */
 
-.craft-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-
-  gap: 24px;
-
-  padding-top: 14px;
+.craft-dialog {
+  position: fixed;
+  top: 28px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: min(1124px, calc(100% - 48px));
+  max-width: none;
+  height: calc(100dvh - 28px);
+  max-height: none;
+  margin: 0 auto;
+  border: 0;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  padding: 0;
+  color: var(--text-primary);
+  background: transparent;
+  overflow: hidden;
 }
 
-.craft-meta h2 {
-  margin: 0 0 4px;
-
-  font-size: 14px;
-  line-height: 1.4;
-
-  font-weight: 500;
-
-  color: #2d3449;
+.craft-dialog:focus,
+.craft-dialog:focus-visible {
+  outline: 0;
 }
 
-.craft-meta p,
-.craft-meta > span {
+.craft-dialog::backdrop {
+  background: rgba(16, 18, 24, 0.44);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.craft-dialog[open]::backdrop {
+  animation: craftBackdropIn 220ms ease both;
+}
+
+.craft-dialog.is-closing::backdrop {
+  animation: craftBackdropOut 220ms ease both;
+}
+
+.craft-dialog-panel {
+  position: relative;
+  height: 100%;
+  max-height: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.craft-dialog-panel::-webkit-scrollbar {
+  display: none;
+}
+
+.craft-dialog-panel:focus,
+.craft-dialog-panel:focus-visible {
+  outline: 0;
+}
+
+.craft-dialog[open] .craft-dialog-panel {
+  animation: craftPanelIn 420ms cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.craft-dialog.is-closing .craft-dialog-panel {
+  animation: craftPanelOut 280ms cubic-bezier(.7, 0, .84, 0) both;
+}
+
+.craft-dialog[open] .craft-dialog-media {
+  animation: craftMediaIn 440ms cubic-bezier(.16, 1, .3, 1) 35ms both;
+}
+
+.craft-dialog[open] .craft-dialog-content,
+.craft-dialog[open] .craft-placeholder-section {
+  animation: craftContentIn 440ms cubic-bezier(.16, 1, .3, 1) 70ms both;
+}
+
+@keyframes craftBackdropIn {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes craftBackdropOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes craftPanelIn {
+  from {
+    transform: translateY(64px);
+  }
+}
+
+@keyframes craftPanelOut {
+  to {
+    transform: translateY(64px);
+  }
+}
+
+@keyframes craftMediaIn {
+  from {
+    transform: translateY(28px);
+  }
+}
+
+@keyframes craftContentIn {
+  from {
+    transform: translateY(34px);
+  }
+}
+
+.craft-dialog-close {
+  position: sticky;
+  top: 18px;
+  z-index: 3;
+  float: right;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin: 0 18px -38px 0;
+  border: 1px solid rgba(45, 52, 73, 0.1);
+  border-radius: var(--radius-pill);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.84);
+  font: inherit;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 180ms ease;
+}
+
+.craft-dialog-close:hover,
+.craft-dialog-close:focus-visible {
+  border-color: rgba(45, 52, 73, 0.24);
+}
+
+.craft-project-detail {
+  display: none;
+}
+
+.craft-project-detail.is-active {
+  display: block;
+  min-height: 100%;
+  margin-bottom: 28px;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-card);
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: none;
+}
+
+.craft-dialog-media {
+  overflow: hidden;
   margin: 0;
-
-  font-size: 12px;
-  line-height: 1.5;
-
-  color: #9fa2ad;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  background: var(--grey-bg);
 }
 
-.craft-meta > span {
-  flex-shrink: 0;
+.craft-dialog-media img,
+.craft-dialog-media video {
+  width: 100%;
+  height: min(720px, 72dvh);
+  max-height: none;
+  display: block;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.craft-dialog-content {
+  display: grid;
+  grid-template-columns: .2725fr .455fr .2725fr;
+  gap: var(--space-xl);
+  padding: 48px 48px 0;
+}
+
+.craft-dialog-meta {
+  grid-column: 1;
+  margin: 0;
+}
+
+.craft-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: 0 0 var(--grid-gap);
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: .055em;
+}
+
+.craft-eyebrow span {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  line-height: 24px;
+}
+
+.craft-eyebrow img,
+.craft-dialog-logo {
+  display: block;
+  width: 38px;
+  height: auto;
+  max-height: 18px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  transform: translateY(-2px);
+}
+
+.craft-dialog-logo--photocrumb {
+  width: 74px;
+  max-height: 22px;
+}
+
+.craft-eyebrow > img + span::before,
+.craft-eyebrow span + span::before {
+  content: "/";
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  margin: 0 9px 0 2px;
+  color: rgba(45, 52, 73, 0.16);
+}
+
+.craft-dialog-meta .meta-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-top: calc(var(--grid-gap) - var(--space-sm));
+}
+
+.craft-dialog-meta .meta-row span {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+.craft-dialog-meta .meta-row p {
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: var(--text-rg);
+  line-height: var(--leading-tight);
+}
+
+.craft-dialog-summary {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.craft-dialog-summary hgroup {
+  display: grid;
+  gap: 10px;
+}
+
+.craft-dialog-summary h2 {
+  max-width: 500px;
+  color: var(--text-primary);
+  font-size: 1.844rem;
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: -1.25px;
+}
+
+.craft-dialog-summary hgroup p {
+  max-width: 500px;
+  color: var(--text-secondary);
+  font-family: var(--font-heading);
+  font-size: 1.844rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -1px;
+}
+
+.craft-dialog-summary > p {
+  max-width: none;
+  color: var(--text-secondary);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.craft-placeholder-section {
+  display: grid;
+  gap: calc(var(--grid-gap) / 2);
+  padding: 48px 20px;
+}
+
+.craft-placeholder-copy {
+  width: min(var(--page-max), 100%);
+  margin-inline: auto;
+}
+
+.craft-placeholder-copy h3 {
+  margin: 0 0 10px;
+  color: var(--text-primary);
+  font-size: var(--text-rg);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.craft-placeholder-copy p {
+  max-width: 560px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.craft-placeholder-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: calc(var(--grid-gap) / 2);
+}
+
+.craft-placeholder-image {
+  display: block;
+  width: 100%;
+  min-height: 0;
+  border: 0;
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(45, 52, 73, 0.035), rgba(45, 52, 73, 0)),
+    var(--grey-bg);
+}
+
+img.craft-placeholder-image {
+  height: clamp(360px, 54vw, 660px);
+  min-height: 0;
+  object-fit: cover;
+}
+
+.craft-placeholder-section > .craft-placeholder-image {
+  height: clamp(420px, 58vw, 720px);
+}
+
+.craft-placeholder-grid .craft-placeholder-image {
+  height: clamp(210px, 27vw, 340px);
+}
+
+.craft-placeholder-section--kosta > .craft-placeholder-image {
+  height: clamp(560px, 68vw, 880px);
+}
+
+.craft-placeholder-grid--kosta {
+  grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+  align-items: start;
+  grid-auto-rows: clamp(320px, 34vw, 500px);
+}
+
+.craft-placeholder-grid--kosta .craft-placeholder-image {
+  height: 100%;
 }
 
 
@@ -151,10 +667,51 @@
 ========================================= */
 
 @media (max-width: 900px) {
+  .craft-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
+  .craft-dialog {
+    width: calc(100% - 36px);
+    top: 18px;
+    height: calc(100dvh - 18px);
+    max-height: none;
+  }
+
+  .craft-dialog-panel {
+    height: 100%;
+    max-height: none;
+  }
+
+  .craft-project-detail.is-active {
+    margin-bottom: 18px;
+  }
+
+  .craft-dialog-media img,
+  .craft-dialog-media video {
+    height: min(620px, 64dvh);
+  }
+
+  .craft-dialog-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    padding: 32px 24px 0;
+  }
+
+  .craft-dialog-meta,
+  .craft-dialog-summary {
+    grid-column: 1;
+  }
+
+  .craft-dialog-summary {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 640px) {
   .craft-page {
-    width: min(420px, calc(100% - 48px));
-    padding: 110px 0 80px;
+    width: min(520px, calc(100% - 36px));
+    padding: 140px 0 88px;
   }
 
   .craft-intro {
@@ -162,22 +719,148 @@
   }
 
   .craft-intro h1 {
-    font-size: clamp(34px, 10vw, 48px);
+    max-width: 100%;
+  }
+
+  .craft-intro p {
+    font-size: 15px;
   }
 
   .craft-grid {
     grid-template-columns: 1fr;
-
-    gap: 48px;
+    gap: 54px;
   }
 
-  .craft-item--wide {
-    grid-column: auto;
+  .craft-card-caption {
+    opacity: 1;
+    transform: none;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    min-height: 38px;
+    padding: 0 14px;
   }
 
+  .craft-card-caption span:first-child {
+    font-size: var(--text-sm);
+  }
+
+  .craft-media {
+    border-radius: 18px;
+  }
+
+  .craft-dialog {
+    width: calc(100% - 20px);
+    top: 10px;
+    height: calc(100dvh - 10px);
+    max-height: none;
+  }
+
+  .craft-dialog-panel {
+    height: 100%;
+    max-height: none;
+    border-radius: 0;
+  }
+
+  .craft-project-detail.is-active {
+    margin-bottom: 10px;
+    border-radius: 18px;
+  }
+
+  .craft-dialog-media {
+    margin: 0;
+    border-radius: 18px 18px 0 0;
+  }
+
+  .craft-dialog-media img,
+  .craft-dialog-media video {
+    height: min(520px, 60dvh);
+  }
+
+  .craft-dialog-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    padding: 26px 22px 0;
+  }
+
+  .craft-dialog-meta {
+    grid-column: 1;
+  }
+
+  .craft-dialog-summary {
+    grid-column: 1;
+  }
+
+  .craft-dialog-meta .meta-row {
+    display: grid;
+    gap: 4px;
+  }
+
+  .craft-dialog-summary h2 {
+    font-size: 30px;
+  }
+
+  .craft-dialog-summary hgroup p {
+    font-size: 19px;
+  }
+
+  .craft-placeholder-section {
+    gap: 14px;
+    padding: 14px 12px 0;
+  }
+
+  .craft-placeholder-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .craft-placeholder-section > .craft-placeholder-image {
+    height: clamp(320px, 112vw, 580px);
+  }
+
+  .craft-placeholder-grid .craft-placeholder-image {
+    height: clamp(220px, 74vw, 360px);
+  }
+
+  .craft-placeholder-section--kosta > .craft-placeholder-image {
+    height: clamp(420px, 128vw, 680px);
+  }
+
+  .craft-placeholder-grid--kosta {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+
+  .craft-placeholder-grid--kosta .craft-placeholder-image {
+    aspect-ratio: 16 / 10;
+    height: auto;
+  }
+
+  .craft-placeholder-grid--kosta .craft-placeholder-image--portrait {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (hover: none) {
+  .craft-card-caption {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
   .craft-media,
-  .craft-media--portrait {
-    aspect-ratio: 4 / 3;
+  .craft-media img,
+  .craft-media video,
+  .craft-card-caption,
+  .craft-dialog[open]::backdrop,
+  .craft-dialog.is-closing::backdrop,
+  .craft-dialog[open] .craft-dialog-panel,
+  .craft-dialog.is-closing .craft-dialog-panel,
+  .craft-dialog[open] .craft-dialog-media,
+  .craft-dialog[open] .craft-dialog-content,
+  .craft-dialog[open] .craft-placeholder-section {
+    animation: none;
+    transition: none;
   }
-
 }
