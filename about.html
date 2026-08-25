@@ -11,6 +11,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap"
     rel="stylesheet"
@@ -23,12 +24,24 @@
 <body>
 
 <nav class="site-nav" aria-label="Main navigation">
+
   <div class="nav-container">
+
     <a href="index.html#work">Work</a>
+
     <a href="about.html">About</a>
 
-    <a class="nav-logo site-logo" href="index.html" aria-label="Angela home">
-      <svg class="flower-logo" viewBox="0 0 34 34" aria-hidden="true" focusable="false">
+    <a
+      class="nav-logo site-logo"
+      href="index.html"
+      aria-label="Angela home"
+    >
+      <svg
+        class="flower-logo"
+        viewBox="0 0 34 34"
+        aria-hidden="true"
+        focusable="false"
+      >
         <circle class="petal p1" cx="17" cy="17" r="6" />
         <circle class="petal p2" cx="17" cy="17" r="6" />
         <circle class="petal p3" cx="17" cy="17" r="6" />
@@ -40,132 +53,749 @@
     </a>
 
     <a href="craft.html">Craft</a>
-    <a href="https://drive.google.com/file/d/1jJFOqW51bYr0jPNeFUMd1rsVUuqRmTYS/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
+
+    <a
+      href="https://drive.google.com/file/d/1jJFOqW51bYr0jPNeFUMd1rsVUuqRmTYS/view?usp=sharing"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Resume
+    </a>
+
   </div>
+
 </nav>
 
-<main class="about-page">
-  <section class="about-hero container">
-    <div class="about-portrait opening-item opening-portrait" id="aboutPortrait">
-      <img src="assets/img/about/me.png" alt="Angela as a kid" class="about-portrait-img is-childhood">
-      <img src="assets/img/about/me2.png" alt="Angela now" class="about-portrait-img is-now">
-    </div>
 
-    <div class="about-copy opening-item opening-copy">
-      <p class="about-kicker">About Angela</p>
+<main class="about-page">
+
+  <section class="about-intro">
+
+    <div class="about-copy">
+
+      <p class="about-kicker">Hi, I'm Angela</p>
 
       <h1>
-        Hello, I’m a Korean-Canadian designer based in Vancouver.
+        I am a Korean-Canadian Designer in Van
       </h1>
 
-      <div class="about-story">
-        <p>
-          My path actually started in Computing Science. I’d been glued to computers since I was five, so naturally I thought I could become all CSI with my computer skills :> Turns out, CS wasn’t quite for me, but the rare assignments where I got to build something brought back a spark I hadn’t felt in a long time.
-        </p>
-        <p>
-          So I steered the wheel <i>(although I still don’t have my L)</i> toward Interactive Arts + Technology and jumped into design. Now, in the era of AI, I love using it to explore, build, and understand systems more deeply — while keeping the human judgment, curiosity, and slightly-too-obsessed brain behind the work.
-        </p>
-        <p>
-          At the end of the day, I just like making meaningful things for people, and hopefully adding a little joy along the way :-)
 
+      <div class="about-story">
+
+        <p>
+
+          Growing up as a second-generation immigrant, it took me a while to figure out who I was, what I genuinely enjoyed, and where I wanted to go.
+
+
+
+
+
+          Growing up as a second-generation immigrant, it took me a while
+          to figure out who I was, what I genuinely enjoyed, and what I
+          wanted to do.
         </p>
+
+        <p>
+          My path actually started in Computing Science. I’d been glued to computers since I was five, so naturally, I thought I could become all CSI with my computer skills :> Turns out, CS wasn’t quite for me. But the few assignments where I got to actually build something brought back a spark I hadn’t felt in a long time.
+        </p>
+
+        <p>
+          So I steered the wheel (although I still don’t have my L) toward Interactive Arts + Technology and somehow ended up in design. Now I spend a lot of time exploring, building, and poking around systems to understand how things work (lately with AI somewhere in the process) while keeping the judgment, curiosity, and slightly-too-obsessed brain behind it all.
+        </p>
+
+        <p>At the end of the day, I just like making thoughtful things for people — and hopefully adding a little joy along the way :-)
+        </p>
+
       </div>
+
 
       <div class="about-actions">
-        <a href="mailto:angela001201@gmail.com">SAY HI</a>
-        <a href="https://drive.google.com/file/d/1ITYUYfYwU2_ngWHM9-fl03x5f3og8KuS/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
+        <a href="mailto:angela001201@gmail.com">
+          📮 Reach out to me
+        </a>
       </div>
+
     </div>
+
   </section>
 
-  <section class="about-meta container opening-item opening-meta" aria-label="Angela's background">
-    <div class="meta-panel">
+  <section class="about-media-section">
+
+    <div class="about-media-topbar">
+
+      <div>
+
+        <p class="about-media-note">
+          A few things from along the way.
+        </p>
+      </div>
+
+
+      <div
+        class="about-gallery-controls"
+        aria-label="Media controls"
+      >
+
+        <!-- FULLSCREEN -->
+
+        <button
+          class="about-gallery-control"
+          id="aboutFullscreenButton"
+          type="button"
+          aria-label="View media fullscreen"
+          title="Fullscreen"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M8 3H3v5" />
+            <path d="M16 3h5v5" />
+            <path d="M8 21H3v-5" />
+            <path d="M16 21h5v-5" />
+          </svg>
+
+        </button>
+
+
+        <!-- GRID -->
+
+        <button
+          class="about-gallery-control"
+          id="aboutGridButton"
+          type="button"
+          aria-expanded="false"
+          aria-label="Expand media grid"
+          title="View all"
+        >
+
+          <span
+            class="grid-icon"
+            aria-hidden="true"
+          >
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+          </span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <div
+      class="about-gallery"
+      id="aboutGallery"
+    >
+
+      <div
+        class="about-gallery-grid"
+        id="aboutGalleryGrid"
+      >
+
+        <button
+          class="about-media-card"
+          type="button"
+          data-caption="Making things"
+          aria-label="Flip Making things card"
+        >
+
+          <span class="about-card-inner">
+
+            <span class="about-card-face about-card-front">
+
+              <img
+                src="assets/about/me.jpg"
+                alt="Angela"
+              >
+
+            </span>
+
+
+            <span class="about-card-face about-card-back">
+
+              <span class="about-card-back-meta">
+               Me & my bubble tea
+              </span>
+
+              <!-- <span class="about-card-back-title">
+                Me & My Supporter: Mango Bubble Tea
+              </span>
+
+              <span class="about-card-back-copy">
+              </span>
+            </span> -->
+
+          </span>
+
+        </button>
+
+        
+        <button
+          class="about-media-card"
+          type="button"
+          data-caption="Currently making"
+          aria-label="Flip Currently making card"
+        >
+
+          <span class="about-card-inner">
+
+            <span class="about-card-face about-card-front">
+
+              <video
+                src="assets/about/korea.MOV"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+
+            </span>
+
+
+            <span class="about-card-face about-card-back">
+
+              <span class="about-card-back-meta">
+                2024 Summer in Korea.
+              </span>
+
+              <!-- <span class="about-card-back-title">
+                Still figuring things out.
+              </span>
+
+              <span class="about-card-back-copy">
+                Designing, coding, learning, experimenting with AI,
+                and trying not to keep twenty versions of everything.
+              </span>
+
+              <span class="about-card-back-footer">
+                Vancouver · now
+              </span> -->
+
+            </span>
+
+          </span>
+
+        </button>
+
+        <button
+          class="about-media-card"
+          type="button"
+          data-caption="Process"
+          aria-label="Flip Process card"
+        >
+
+          <span class="about-card-inner">
+
+            <span class="about-card-face about-card-front">
+
+              <img
+                src="assets/about/me.png"
+                alt=""
+              >
+
+            </span>
+
+            <span class="about-card-face about-card-back">
+
+              <span class="about-card-back-meta">
+                MSI 2025
+              </span>
+
+              <span class="about-card-back-title">
+                me at happiest
+              </span>
+
+              <span class="about-card-back-copy">
+                I luv t1.
+              </span>
+
+            </span>
+
+          </span>
+
+        </button>
+
+        <button
+          class="about-media-card"
+          type="button"
+          data-caption="Vancouver, lately"
+          aria-label="Flip Vancouver card"
+        >
+
+          <span class="about-card-inner">
+
+            <span class="about-card-face about-card-front">
+
+              <video
+                src="assets/about/craft.MP4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+
+            </span>
+
+
+            <span class="about-card-face about-card-back">
+
+              <span class="about-card-back-meta">
+                Craft
+              </span>
+
+              <!-- <span class="about-card-back-title">
+                Home, lately.
+              </span>
+
+              <span class="about-card-back-copy">
+                Rain, mountains, long walks, coffee shops, and
+                occasionally wondering why I still don’t have my L.
+              </span>
+
+              <span class="about-card-back-footer">
+                BC · Canada
+              </span> -->
+
+            </span>
+
+          </span>
+
+        </button>
+
+        <button
+          class="about-media-card"
+          type="button"
+          data-caption="Youth KOSTA"
+          aria-label="Flip Youth KOSTA card"
+        >
+
+          <span class="about-card-inner">
+
+            <span class="about-card-face about-card-front">
+
+              <img
+                src="assets/about/friends.png"
+                alt="Friends"
+              >
+
+            </span>
+
+
+            <span class="about-card-face about-card-back">
+
+              <span class="about-card-back-meta">
+               Friends
+              </span>
+<!-- 
+              <span class="about-card-back-title">
+                One of those very busy event days.
+              </span>
+
+              <span class="about-card-back-copy">
+                Designing, running the photo booth, printing photos,
+                helping with payments, and somehow ending up everywhere
+                at once.
+              </span>
+
+              <span class="about-card-back-footer">
+                event design · production
+              </span> -->
+
+            </span>
+
+          </span>
+
+        </button>
+
+        <button
+          class="about-media-card"
+          type="button"
+          data-caption="Everyday"
+          aria-label="Flip Everyday card"
+        >
+
+          <span class="about-card-inner">
+
+            <span class="about-card-face about-card-front">
+
+              <video
+                src="assets/about/van.MOV"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video> 
+
+            </span>
+
+
+            <span class="about-card-face about-card-back">
+
+              <span class="about-card-back-meta">
+                Vancouver.
+              </span>
+
+              <!-- <span class="about-card-back-title">
+                I take photos of things I want to remember.
+              </span>
+
+              <span class="about-card-back-copy">
+                Light, streets, places, objects, or whatever made
+                me stop for a second and look.
+              </span>
+
+              <span class="about-card-back-footer">
+                probably somewhere in my camera roll
+              </span> -->
+
+            </span>
+
+          </span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="about-background">
+
+
+    <!-- EXPERIENCE -->
+
+    <div class="background-group">
+
       <h2>Experience</h2>
 
-      <div class="meta-list">
-        <article class="meta-item">
-          <div>
-            <h3>AGCF</h3>
-            <p>Brand and web experiences</p>
-          </div>
-          <span>07/2026 - Present</span>
-        </article>
+      <div class="background-list">
 
-        <article class="meta-item">
-          <div>
-            <h3>Photocrumb</h3>
-            <p>UX/UI & Graphic Designer, Freelance</p>
-          </div>
-          <span>01/2025 - Present</span>
-        </article>
 
-        <article class="meta-item">
-          <div>
-            <h3>Simon Fraser University</h3>
-            <p>Design and Research Assistant, Co-op</p>
+        <!-- AGCF -->
+
+        <details class="background-item">
+
+          <summary>
+
+            <span class="background-name">
+              AGCF
+            </span>
+
+            <span class="background-role">
+              Multimedia Designer
+            </span>
+
+            <span class="background-date">
+              07/2026 — Present
+            </span>
+
+            <span
+              class="background-toggle"
+              aria-hidden="true"
+            >
+              +
+            </span>
+
+          </summary>
+
+
+          <div class="background-detail">
+
+            <div class="background-detail-spacer"></div>
+
+
+            <div class="background-detail-copy">
+
+              <p>
+                Working as the solo designer across brand, web,
+                digital, and print experiences for Amazing Grace
+                Christian Fellowship.
+              </p>
+
+              <p class="background-tags">
+                Brand Design · Web Design · Squarespace ·
+                HTML/CSS/JS · Visual Design
+              </p>
+
+            </div>
+
           </div>
-          <span>01/2023 - 08/2023</span>
-        </article>
+
+        </details>
+
+
+
+        <!-- PHOTOCRUMB -->
+
+        <details class="background-item">
+
+          <summary>
+
+            <span class="background-name">
+              Photocrumb
+            </span>
+
+            <span class="background-role">
+              UX/UI & Visual Designer · Freelance
+            </span>
+
+            <span class="background-date">
+              01/2025 — Present
+            </span>
+
+            <span
+              class="background-toggle"
+              aria-hidden="true"
+            >
+              +
+            </span>
+
+          </summary>
+
+
+          <div class="background-detail">
+
+            <div class="background-detail-spacer"></div>
+
+
+            <div class="background-detail-copy">
+
+              <p>
+                Designing across the photo booth experience,
+                from website UX/UI to seasonal frames,
+                stickers, and in-booth visual elements.
+              </p>
+
+              <p class="background-tags">
+                UI Design · Visual Design · Illustration · Front-end
+              </p>
+
+            </div>
+
+          </div>
+
+        </details>
+
+
+
+        <!-- SFU -->
+
+        <details class="background-item">
+
+          <summary>
+
+            <span class="background-name">
+              Simon Fraser University
+            </span>
+
+            <span class="background-role">
+              Design & Research Assistant · Co-op
+            </span>
+
+            <span class="background-date">
+              01/2023 — 08/2023
+            </span>
+
+            <span
+              class="background-toggle"
+              aria-hidden="true"
+            >
+              +
+            </span>
+
+          </summary>
+
+
+          <div class="background-detail">
+
+            <div class="background-detail-spacer"></div>
+
+
+            <div class="background-detail-copy">
+
+              <p>
+                Worked across UX research, information design,
+                and visual communication for SFU
+                Co-operative Education.
+              </p>
+
+              <p class="background-tags">
+                UX Research · Information Design · Visual Design ·
+                Accessibility
+              </p>
+
+            </div>
+
+          </div>
+
+        </details>
+
+
       </div>
+
     </div>
 
-    <div class="meta-panel">
+
+
+    <!-- EDUCATION -->
+
+    <div
+      class="background-group
+             background-group--education"
+    >
+
       <h2>Education</h2>
 
-      <div class="meta-list">
-        <article class="meta-item">
-          <div>
-            <h3>Simon Fraser University</h3>
-            <p>BA. Interactive Arts + Technology, Minor. Print + Digital Publication</p>
+      <div class="background-list">
+
+
+        <div
+          class="background-item
+                 background-item--static"
+        >
+
+          <div class="background-row">
+
+            <span class="background-name">
+              Simon Fraser University
+            </span>
+
+            <span class="background-role">
+              BA · Interactive Arts + Technology
+            </span>
+
+            <span class="background-date">
+              2018 — Present
+            </span>
+
+            <span
+              class="background-toggle
+                     background-toggle--empty"
+              aria-hidden="true"
+            ></span>
+
           </div>
-          <span>09/2018 - Present</span>
-        </article>
+
+        </div>
+
+
       </div>
-    </div>
-  </section>
 
-  <section class="photo-marquee opening-item opening-marquee" aria-label="Angela's photo roll">
-    <div class="photo-marquee-track" id="photoMarqueeTrack"></div>
-  </section>
-
-  <section class="about-extras container opening-item opening-extras">
-    <div class="extras-intro">
-      <p class="about-kicker">The extras</p>
-      <h2>Off the record</h2>
-
-      <button class="current-status" id="currentStatus" type="button" aria-label="Shuffle current status">
-        <span>I’m not the most active, but</span>
-        <strong id="statusText">loading...</strong>
-      </button>
-
-      <div class="tags" aria-label="Angela's extra interests">
-        <span>Photographer</span>
-        <span>Homebody</span>
-        <span>Coffeeholic</span>
-        <span>T1-fan</span>
-        <span>ISFP</span>
-        <span>Digimon-stan</span>
-      </div>
     </div>
 
-    <div class="photo-board-shell">
-      <button class="board-toggle" id="tidyBtn" type="button">Let Angela Clean It</button>
-      <div class="photo-board" id="photoBoard" aria-label="Interactive photo board"></div>
-    </div>
+
   </section>
+
 </main>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <p class="footer-credit">
-      <span>© 2026 by</span>
-      <a href="about.html" target="_blank" rel="noopener noreferrer">Angela</a>
-      <span>·</span>
-      <span>Vancouver</span>
-      <span id="footerClock">--:--</span>
-    </p>
+
+
+<!-- =========================================
+     FULLSCREEN LIGHTBOX
+========================================== -->
+
+<dialog
+  class="about-lightbox"
+  id="aboutLightbox"
+>
+
+  <div class="about-lightbox-inner">
+
+
+    <button
+      class="lightbox-close"
+      id="lightboxClose"
+      type="button"
+      aria-label="Close fullscreen media"
+    >
+      ×
+    </button>
+
+
+    <button
+      class="lightbox-nav
+             lightbox-nav--previous"
+      id="lightboxPrevious"
+      type="button"
+      aria-label="Previous media"
+    >
+      ←
+    </button>
+
+
+    <div
+      class="lightbox-stage"
+      id="lightboxStage"
+    ></div>
+
+
+    <button
+      class="lightbox-nav
+             lightbox-nav--next"
+      id="lightboxNext"
+      type="button"
+      aria-label="Next media"
+    >
+      →
+    </button>
+
+
+    <div class="lightbox-footer">
+
+      <span id="lightboxCaption"></span>
+
+      <span id="lightboxCount"></span>
+
+    </div>
+
+
   </div>
+
+</dialog>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================== -->
+
+<footer class="site-footer">
+
+  <div class="footer-inner">
+
+    <p class="footer-credit">
+
+      <span>© 2026 by</span>
+
+      <a href="about.html">
+        Angela
+      </a>
+
+      <span>·</span>
+
+      <span>Vancouver</span>
+
+      <span id="footerClock">
+        --:--
+      </span>
+
+    </p>
+
+  </div>
+
 </footer>
+
 
 <script src="js/about.js"></script>
 <script src="js/global.js"></script>
