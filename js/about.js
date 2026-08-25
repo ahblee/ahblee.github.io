@@ -1,16 +1,3 @@
-window.addEventListener("DOMContentLoaded", () => {
-  requestAnimationFrame(() => {
-    document.body.classList.add("is-opening-ready");
-  });
-});
-
-const aboutPortrait = document.getElementById("aboutPortrait");
-
-if (aboutPortrait) {
-  aboutPortrait.addEventListener("click", () => {
-    aboutPortrait.classList.toggle("is-swapped");
-  });
-}
 
 const statusText = document.getElementById("statusText");
 const currentStatus = document.getElementById("currentStatus");
@@ -79,292 +66,865 @@ if (statusText && currentStatus) {
   currentStatus.addEventListener("pointerleave", restartStatusTimer);
 }
 
-const marqueeTrack = document.getElementById("photoMarqueeTrack");
 
-if (marqueeTrack) {
-  const marqueePhotos = [
-    ["side1.png", "Summer in Seoul"],
-    ["side2.png", "BTS of mirror install"],
-    ["side3.png", "Golden hour in Van"],
-    ["side4.png", "KOSTA merch install"],
-    ["side5.png", "One of my hand-drawn menus"],
-    ["side6.png", "My first ever ceramic dish"],
-    ["side7.png", "Craft day"],
-    ["side8.png", "My barista era"],
-    ["side9.png", "Summer in Van"],
-    ["side10.png", "She wore it better"],
-    ["side11.png", "Just the perfect set up"],
-    ["side12.png", "1-Day bouquet duty"],
-    ["side13.png", "When your friend needs a poster"],
-    ["side14.png", "Just me and my installation"]
-  ];
+/* =========================================
+   ABOUT MEDIA GALLERY
+   pile + flip + swipe + viewer + grid
+========================================= */
 
-  [...marqueePhotos, ...marqueePhotos].forEach(([fileName, caption]) => {
-    const tile = document.createElement("div");
-    tile.className = "photo-tile";
+const gallery =
+  document.getElementById("aboutGallery");
 
-    const img = document.createElement("img");
-    img.src = `assets/img/about/${fileName}`;
-    img.alt = caption;
-    img.loading = "lazy";
+const galleryGrid =
+  document.getElementById("aboutGalleryGrid");
 
-    const label = document.createElement("span");
-    label.className = "photo-caption";
-    label.textContent = caption;
+const gridButton =
+  document.getElementById("aboutGridButton");
 
-    tile.append(img, label);
-    marqueeTrack.appendChild(tile);
-  });
-}
+const viewerButton =
+  document.getElementById("aboutFullscreenButton");
 
-const photoBoard = document.getElementById("photoBoard");
-const tidyBtn = document.getElementById("tidyBtn");
+const mediaCards =
+  Array.from(
+    document.querySelectorAll(".about-media-card")
+  );
 
-if (photoBoard && tidyBtn) {
-  const boardPhotos = [
-    ["photo9.png", "", 270],
-    ["photo7.png", "", 260],
-    ["photo2.png", "", 300],
-    ["photo22.png", "", 300],
-    ["photo12.png", "", 260],
-    ["photo11.png", "", 260],
-    ["photo1.png", "", 270],
-    ["photo14.png", "", 270],
-    ["photo21.png", "", 280],
-    ["photo16.png", "", 290],
-    ["photo3.png", "is-square", 260],
-    ["photo4.png", "is-square", 150],
-    ["photo13.png", "is-square", 280],
-    ["photo5.png", "is-square", 250],
-    ["photo10.png", "is-square", 200],
-    ["photo17.png", "is-tall", 220],
-    ["photo25.png", "is-tall", 220],
-    ["photo20.png", "is-tall", 190],
-    ["photo6.png", "is-tall", 220],
-    ["photo18.png", "is-tall", 210],
-    ["photo23.png", "is-tall", 220],
-    ["photo8.png", "is-tall", 250],
-    ["photo24.png", "is-tall", 230],
-    ["photo15.png", "is-tall", 220]
-  ];
 
-  const rotations = [-7, 4, -3, 6, -5, 3, -6, 2, -4, 5, -6, 3];
-  const stage = document.createElement("div");
-  stage.className = "photo-stage";
-  photoBoard.appendChild(stage);
 
-  const isMobile = () => window.innerWidth <= 768;
-  const boardWidth = () => photoBoard.clientWidth;
-  const boardHeight = () => photoBoard.clientHeight;
+/* =========================================
+   STATE
+========================================= */
 
-  let zIndex = 1;
-  let isTidy = false;
-  let panX = 0;
-  let panY = 0;
-  let isPanning = false;
-  let panStartX = 0;
-  let panStartY = 0;
+let stackOrder = [...mediaCards];
 
-  function overlaps(a, b, padding = 22) {
-    return !(
-      a.x + a.w + padding < b.x ||
-      b.x + b.w + padding < a.x ||
-      a.y + a.h + padding < b.y ||
-      b.y + b.h + padding < a.y
+let activeViewerIndex = 0;
+
+let dragCard = null;
+
+let startX = 0;
+let startY = 0;
+
+let dragX = 0;
+let dragY = 0;
+
+let hasDragged = false;
+
+const SWIPE_THRESHOLD = 80;
+
+
+
+/* =========================================
+   UPDATE STACK
+========================================= */
+
+function updatePile() {
+
+  stackOrder.forEach((card, index) => {
+
+    card.dataset.stackPosition =
+      String(index);
+
+    card.style.removeProperty("--drag-x");
+    card.style.removeProperty("--drag-y");
+    card.style.removeProperty("--drag-r");
+
+    card.classList.remove(
+      "is-dragging",
+      "is-swiping"
     );
-  }
 
-  function findPosition(width, height, placed, spreadWidth, spreadHeight) {
-    for (let attempt = 0; attempt < 120; attempt += 1) {
-      const x = 24 + Math.random() * Math.max(spreadWidth - width - 48, 1);
-      const y = 18 + Math.random() * Math.max(spreadHeight - height - 36, 1);
-      const next = { x, y, w: width, h: height };
-
-      if (!placed.some((item) => overlaps(next, item))) {
-        return { x, y };
-      }
-    }
-
-    return {
-      x: 24 + Math.random() * Math.max(spreadWidth - width - 48, 1),
-      y: 18 + Math.random() * Math.max(spreadHeight - height - 36, 1)
-    };
-  }
-
-  function makeDraggable(card) {
-    let startX = 0;
-    let startY = 0;
-    let startLeft = 0;
-    let startTop = 0;
-    let dragging = false;
-
-    card.addEventListener("pointerdown", (event) => {
-      if (isTidy) return;
-
-      event.stopPropagation();
-      dragging = true;
-      startX = event.clientX;
-      startY = event.clientY;
-      startLeft = parseFloat(card.style.left);
-      startTop = parseFloat(card.style.top);
-      card.style.zIndex = String(++zIndex);
-      card.classList.add("is-dragging");
-      card.setPointerCapture(event.pointerId);
-    });
-
-    card.addEventListener("pointermove", (event) => {
-      if (!dragging) return;
-
-      card.style.left = `${startLeft + event.clientX - startX}px`;
-      card.style.top = `${startTop + event.clientY - startY}px`;
-    });
-
-    function stopDragging() {
-      dragging = false;
-      card.classList.remove("is-dragging");
-    }
-
-    card.addEventListener("pointerup", stopDragging);
-    card.addEventListener("pointercancel", stopDragging);
-  }
-
-  function buildCards() {
-    const placed = [];
-    const spreadWidth = boardWidth() * (isMobile() ? 0.9 : 1);
-    const spreadHeight = boardHeight() * (isMobile() ? 2.1 : 1.65);
-    const maxCardWidth = isMobile()
-      ? Math.min(boardWidth() * 0.55, 180)
-      : Math.min(boardWidth() * 0.3, 270);
-
-    return boardPhotos.map(([fileName, ratioClass, baseWidth], index) => {
-      const card = document.createElement("div");
-      const img = document.createElement("img");
-      const scaledWidth = Math.round(baseWidth * (boardWidth() / 900));
-      const width = Math.max(132, Math.min(scaledWidth, maxCardWidth));
-      const estimatedHeight = ratioClass === "is-tall"
-        ? width * 1.34
-        : ratioClass === "is-square"
-          ? width
-          : width * 0.76;
-      const position = findPosition(width, estimatedHeight, placed, spreadWidth, spreadHeight);
-
-      card.className = "photo-card";
-      card.style.width = `${width}px`;
-      card.style.left = `${position.x}px`;
-      card.style.top = `${position.y}px`;
-      card.style.zIndex = String(index + 1);
-      card.style.transform = `rotate(${rotations[index % rotations.length]}deg)`;
-
-      img.src = `assets/img/about/${fileName}`;
-      img.alt = "";
-      img.draggable = false;
-      if (ratioClass) img.classList.add(ratioClass);
-
-      placed.push({ x: position.x, y: position.y, w: width, h: estimatedHeight });
-      card.appendChild(img);
-      stage.appendChild(card);
-      makeDraggable(card);
-      return card;
-    });
-  }
-
-  const cardEls = buildCards();
-  const messyPositions = cardEls.map((card) => ({
-    left: card.style.left,
-    top: card.style.top,
-    width: card.style.width,
-    transform: card.style.transform
-  }));
-
-  photoBoard.addEventListener("pointerdown", (event) => {
-    if (event.target !== photoBoard && event.target !== stage) return;
-    if (isMobile() || isTidy) return;
-
-    isPanning = true;
-    panStartX = event.clientX - panX;
-    panStartY = event.clientY - panY;
-    photoBoard.setPointerCapture(event.pointerId);
   });
 
-  photoBoard.addEventListener("pointermove", (event) => {
-    if (!isPanning) return;
-
-    panX = event.clientX - panStartX;
-    panY = event.clientY - panStartY;
-    stage.style.transform = `translate(${panX}px, ${panY}px)`;
-  });
-
-  photoBoard.addEventListener("pointerup", () => {
-    isPanning = false;
-  });
-
-  function tidyGrid() {
-    const mobile = isMobile();
-    const columns = mobile ? 3 : 5;
-    const gap = mobile ? 8 : 16;
-    const padding = mobile ? 10 : 24;
-    const columnWidth = Math.floor((boardWidth() - padding * 2 - gap * (columns - 1)) / columns);
-    const rowHeights = [];
-
-    stage.style.transform = "translate(0, 0)";
-    panX = 0;
-    panY = 0;
-
-    cardEls.forEach((card, index) => {
-      const row = Math.floor(index / columns);
-      card.classList.add("is-tidying");
-      card.style.width = `${columnWidth}px`;
-      card.style.transform = "rotate(0deg)";
-      rowHeights[row] = Math.max(rowHeights[row] || 0, card.offsetHeight);
-    });
-
-    const rowTops = [];
-    let currentTop = padding;
-
-    rowHeights.forEach((height, index) => {
-      rowTops[index] = currentTop;
-      currentTop += height + gap;
-    });
-
-    cardEls.forEach((card, index) => {
-      const column = index % columns;
-      const row = Math.floor(index / columns);
-
-      card.style.left = `${padding + column * (columnWidth + gap)}px`;
-      card.style.top = `${rowTops[row]}px`;
-      card.style.zIndex = String(index + 1);
-
-      window.setTimeout(() => card.classList.remove("is-tidying"), 620);
-    });
-
-    stage.style.height = `${currentTop + padding}px`;
-  }
-
-  function messify() {
-    stage.style.height = "";
-
-    cardEls.forEach((card, index) => {
-      const original = messyPositions[index];
-
-      card.classList.add("is-tidying");
-      card.style.left = original.left;
-      card.style.top = original.top;
-      card.style.width = original.width;
-      card.style.transform = original.transform;
-
-      window.setTimeout(() => card.classList.remove("is-tidying"), 620);
-    });
-  }
-
-  tidyBtn.addEventListener("click", () => {
-    isTidy = !isTidy;
-    photoBoard.classList.toggle("is-tidy", isTidy);
-    tidyBtn.textContent = isTidy ? "Make It Messy Again" : "Let Angela Clean It";
-
-    if (isTidy) {
-      tidyGrid();
-    } else {
-      messify();
-    }
-  });
 }
+
+
+updatePile();
+
+
+
+/* =========================================
+   FLIP
+========================================= */
+
+function flipCard(card) {
+
+  card.classList.toggle(
+    "is-flipped"
+  );
+
+}
+
+
+
+/* =========================================
+   VIEWER ACTIVE CARD
+========================================= */
+
+function setActiveViewerCard(index) {
+
+  if (!mediaCards.length) return;
+
+
+  activeViewerIndex =
+    (
+      index +
+      mediaCards.length
+    ) %
+    mediaCards.length;
+
+
+  mediaCards.forEach(
+    (card, cardIndex) => {
+
+      const active =
+        cardIndex ===
+        activeViewerIndex;
+
+
+      card.classList.toggle(
+        "is-active",
+        active
+      );
+
+
+      /*
+        Viewer always shows
+        the photo/video front.
+      */
+
+      card.classList.remove(
+        "is-flipped"
+      );
+
+    }
+  );
+
+}
+
+
+
+/* =========================================
+   RESET DRAG STYLES
+========================================= */
+
+function resetCardDrag(card) {
+
+  card.classList.remove(
+    "is-dragging",
+    "is-swiping"
+  );
+
+  card.style.removeProperty(
+    "--drag-x"
+  );
+
+  card.style.removeProperty(
+    "--drag-y"
+  );
+
+  card.style.removeProperty(
+    "--drag-r"
+  );
+
+}
+
+
+
+/* =========================================
+   START DRAG
+========================================= */
+
+function startDrag(event, card) {
+
+  /*
+    No dragging while in
+    viewer or grid mode.
+  */
+
+  if (
+    gallery.classList.contains(
+      "is-viewer"
+    ) ||
+    gallery.classList.contains(
+      "is-expanded"
+    )
+  ) {
+    return;
+  }
+
+
+  /*
+    Only the top card
+    can be dragged.
+  */
+
+  if (
+    card.dataset.stackPosition
+    !== "0"
+  ) {
+    return;
+  }
+
+
+  if (
+    event.button !== undefined &&
+    event.button !== 0
+  ) {
+    return;
+  }
+
+
+  dragCard = card;
+
+  startX = event.clientX;
+  startY = event.clientY;
+
+  dragX = 0;
+  dragY = 0;
+
+  hasDragged = false;
+
+
+  card.classList.add(
+    "is-dragging"
+  );
+
+
+  if (
+    card.setPointerCapture
+  ) {
+
+    try {
+
+      card.setPointerCapture(
+        event.pointerId
+      );
+
+    } catch (_) {}
+
+  }
+
+}
+
+
+
+/* =========================================
+   MOVE DRAG
+========================================= */
+
+function moveDrag(event) {
+
+  if (!dragCard) return;
+
+
+  dragX =
+    event.clientX -
+    startX;
+
+  dragY =
+    event.clientY -
+    startY;
+
+
+  if (
+    Math.abs(dragX) > 5 ||
+    Math.abs(dragY) > 5
+  ) {
+
+    hasDragged = true;
+
+  }
+
+
+  dragCard.style.setProperty(
+    "--drag-x",
+    `${dragX}px`
+  );
+
+
+  /*
+    Only move vertically a little
+    so it still feels like a
+    horizontal photo shuffle.
+  */
+
+  dragCard.style.setProperty(
+    "--drag-y",
+    `${dragY * 0.18}px`
+  );
+
+
+  dragCard.style.setProperty(
+    "--drag-r",
+    `${dragX * 0.035}deg`
+  );
+
+}
+
+
+
+/* =========================================
+   FINISH DRAG
+========================================= */
+
+function finishDrag() {
+
+  if (!dragCard) return;
+
+
+  const card =
+    dragCard;
+
+
+  const shouldSwipe =
+    Math.abs(dragX) >=
+    SWIPE_THRESHOLD;
+
+
+  card.classList.remove(
+    "is-dragging"
+  );
+
+
+
+  /* -----------------------------------------
+     SUCCESSFUL SWIPE
+  ----------------------------------------- */
+
+  if (shouldSwipe) {
+
+    const direction =
+      dragX >= 0
+        ? 1
+        : -1;
+
+
+    card.classList.add(
+      "is-swiping"
+    );
+
+
+    card.style.setProperty(
+      "--drag-x",
+      `${direction * 430}px`
+    );
+
+
+    card.style.setProperty(
+      "--drag-y",
+      `${dragY * .25}px`
+    );
+
+
+    card.style.setProperty(
+      "--drag-r",
+      `${direction * 14}deg`
+    );
+
+
+    window.setTimeout(
+      () => {
+
+        /*
+          Put top card at
+          back of stack.
+        */
+
+        stackOrder.shift();
+
+        stackOrder.push(card);
+
+
+        /*
+          Reset flipped state
+          before it returns.
+        */
+
+        card.classList.remove(
+          "is-flipped"
+        );
+
+
+        updatePile();
+
+      },
+      260
+    );
+
+  }
+
+
+
+  /* -----------------------------------------
+     CLICK / SMALL MOVEMENT
+  ----------------------------------------- */
+
+  else {
+
+    resetCardDrag(card);
+
+
+    /*
+      If the user didn't really
+      drag, treat it as click
+      and flip the card.
+    */
+
+    if (!hasDragged) {
+
+      flipCard(card);
+
+    }
+
+  }
+
+
+  dragCard = null;
+
+}
+
+
+
+/* =========================================
+   POINTER EVENTS
+========================================= */
+
+mediaCards.forEach(
+  (card) => {
+
+    card.addEventListener(
+      "pointerdown",
+      (event) => {
+
+        startDrag(
+          event,
+          card
+        );
+
+      }
+    );
+
+
+    card.addEventListener(
+      "pointermove",
+      moveDrag
+    );
+
+
+    card.addEventListener(
+      "pointerup",
+      finishDrag
+    );
+
+
+    card.addEventListener(
+      "pointercancel",
+      finishDrag
+    );
+
+  }
+);
+
+
+
+/* =========================================
+   VIEWER BUTTON
+   ⛶
+========================================= */
+
+if (
+  gallery &&
+  viewerButton
+) {
+
+  viewerButton.addEventListener(
+    "click",
+    () => {
+
+      const openingViewer =
+        !gallery.classList.contains(
+          "is-viewer"
+        );
+
+
+      /* -------------------------------------
+         Close grid
+      ------------------------------------- */
+
+      gallery.classList.remove(
+        "is-expanded"
+      );
+
+
+      if (gridButton) {
+
+        gridButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        gridButton.title =
+          "View all";
+
+      }
+
+
+
+      /* -------------------------------------
+         Toggle viewer
+      ------------------------------------- */
+
+      gallery.classList.toggle(
+        "is-viewer",
+        openingViewer
+      );
+
+
+
+      if (openingViewer) {
+
+        /*
+          Start viewer on whichever
+          card is currently on top.
+        */
+
+        const frontCard =
+          stackOrder[0];
+
+
+        const frontIndex =
+          mediaCards.indexOf(
+            frontCard
+          );
+
+
+        setActiveViewerCard(
+          frontIndex >= 0
+            ? frontIndex
+            : 0
+        );
+
+
+        viewerButton.setAttribute(
+          "aria-label",
+          "Close media viewer"
+        );
+
+
+        viewerButton.title =
+          "Close viewer";
+
+      }
+
+
+      else {
+
+        mediaCards.forEach(
+          (card) => {
+
+            card.classList.remove(
+              "is-active"
+            );
+
+          }
+        );
+
+
+        viewerButton.setAttribute(
+          "aria-label",
+          "Open media viewer"
+        );
+
+
+        viewerButton.title =
+          "View media";
+
+      }
+
+    }
+  );
+
+}
+
+
+
+/* =========================================
+   CARD CLICK
+========================================= */
+
+mediaCards.forEach(
+  (card, index) => {
+
+    card.addEventListener(
+      "click",
+      () => {
+
+
+        /* ---------------------------------
+           VIEWER:
+           click thumbnail to change image
+        --------------------------------- */
+
+        if (
+          gallery.classList.contains(
+            "is-viewer"
+          )
+        ) {
+
+          setActiveViewerCard(
+            index
+          );
+
+          return;
+
+        }
+
+
+
+        /* ---------------------------------
+           GRID:
+           click card to flip
+        --------------------------------- */
+
+        if (
+          gallery.classList.contains(
+            "is-expanded"
+          )
+        ) {
+
+          flipCard(card);
+
+        }
+
+
+        /*
+          DEFAULT PILE:
+          do nothing here.
+
+          The flip is already handled
+          by pointerup so it doesn't
+          fire twice.
+        */
+
+      }
+    );
+
+  }
+);
+
+
+
+/* =========================================
+   GRID BUTTON
+   ▦
+========================================= */
+
+if (
+  gallery &&
+  gridButton
+) {
+
+  gridButton.addEventListener(
+    "click",
+    () => {
+
+      const openingGrid =
+        !gallery.classList.contains(
+          "is-expanded"
+        );
+
+
+      /* -------------------------------------
+         Close viewer first
+      ------------------------------------- */
+
+      gallery.classList.remove(
+        "is-viewer"
+      );
+
+
+      mediaCards.forEach(
+        (card) => {
+
+          card.classList.remove(
+            "is-active"
+          );
+
+          resetCardDrag(card);
+
+        }
+      );
+
+
+      if (viewerButton) {
+
+        viewerButton.setAttribute(
+          "aria-label",
+          "Open media viewer"
+        );
+
+        viewerButton.title =
+          "View media";
+
+      }
+
+
+
+      /* -------------------------------------
+         Toggle grid
+      ------------------------------------- */
+
+      gallery.classList.toggle(
+        "is-expanded",
+        openingGrid
+      );
+
+
+      gridButton.setAttribute(
+        "aria-expanded",
+        String(openingGrid)
+      );
+
+
+      gridButton.setAttribute(
+        "aria-label",
+        openingGrid
+          ? "Collapse media grid"
+          : "Expand media grid"
+      );
+
+
+      gridButton.title =
+        openingGrid
+          ? "Collapse"
+          : "View all";
+
+    }
+  );
+
+}
+
+
+
+/* =========================================
+   KEYBOARD
+========================================= */
+
+mediaCards.forEach(
+  (card) => {
+
+    card.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          event.key !== "Enter" &&
+          event.key !== " "
+        ) {
+          return;
+        }
+
+
+        event.preventDefault();
+
+
+
+        /* viewer */
+
+        if (
+          gallery.classList.contains(
+            "is-viewer"
+          )
+        ) {
+
+          const index =
+            mediaCards.indexOf(card);
+
+          setActiveViewerCard(
+            index
+          );
+
+          return;
+
+        }
+
+
+
+        /* grid */
+
+        if (
+          gallery.classList.contains(
+            "is-expanded"
+          )
+        ) {
+
+          flipCard(card);
+
+          return;
+
+        }
+
+
+
+        /* pile */
+
+        if (
+          card.dataset.stackPosition
+          === "0"
+        ) {
+
+          flipCard(card);
+
+        }
+
+      }
+    );
+
+  }
+);
+
+
+
+/* =========================================
+   EXPERIENCE
+   ONLY ONE OPEN AT A TIME
+========================================= */
+
+const experienceItems =
+  Array.from(
+    document.querySelectorAll(
+      ".background-group:not(.background-group--education) details.background-item"
+    )
+  );
+
+
+experienceItems.forEach(
+  (item) => {
+
+    item.addEventListener(
+      "toggle",
+      () => {
+
+        if (!item.open) return;
+
+
+        experienceItems.forEach(
+          (other) => {
+
+            if (
+              other !== item &&
+              other.open
+            ) {
+
+              other.open = false;
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+  }
+);
