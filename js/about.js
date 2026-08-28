@@ -1,72 +1,3 @@
-
-const statusText = document.getElementById("statusText");
-const currentStatus = document.getElementById("currentStatus");
-
-const statuses = [
-  "I spend hours on healthy addictions like puzzles and games.",
-  "I can spend hours making sense of a mess.",
-  "I stress over details. Like, a lot.",
-  "I go all in, sometimes to the point of dreaming about it.",
-  "I stay up way too late to finish what I started.",
-  "I believe every learning experience counts.",
-  "I built this portfolio with AI help and way too much coffee.",
-  "I think in systems and design like a developer."
-];
-
-let lastStatus = "";
-let statusTimer = null;
-
-function getRandomStatus() {
-  if (statuses.length === 1) return statuses[0];
-
-  let nextStatus = lastStatus;
-  let attempts = 0;
-
-  while (nextStatus === lastStatus && attempts < 12) {
-    nextStatus = statuses[Math.floor(Math.random() * statuses.length)];
-    attempts += 1;
-  }
-
-  lastStatus = nextStatus;
-  return nextStatus;
-}
-
-function setStatus() {
-  if (!statusText) return;
-
-  statusText.classList.add("is-changing");
-
-  window.setTimeout(() => {
-    statusText.textContent = getRandomStatus();
-    statusText.classList.remove("is-changing");
-  }, 180);
-}
-
-function restartStatusTimer() {
-  if (statusTimer) {
-    window.clearInterval(statusTimer);
-  }
-
-  statusTimer = window.setInterval(setStatus, 5200);
-}
-
-if (statusText && currentStatus) {
-  statusText.textContent = getRandomStatus();
-  restartStatusTimer();
-
-  currentStatus.addEventListener("click", () => {
-    setStatus();
-    restartStatusTimer();
-  });
-
-  currentStatus.addEventListener("pointerenter", () => {
-    if (statusTimer) window.clearInterval(statusTimer);
-  });
-
-  currentStatus.addEventListener("pointerleave", restartStatusTimer);
-}
-
-
 /* =========================================
    ABOUT MEDIA GALLERY
    pile + flip + swipe + viewer + grid
@@ -75,8 +6,6 @@ if (statusText && currentStatus) {
 const gallery =
   document.getElementById("aboutGallery");
 
-const galleryGrid =
-  document.getElementById("aboutGalleryGrid");
 
 const gridButton =
   document.getElementById("aboutGridButton");
