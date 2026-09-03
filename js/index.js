@@ -1,19 +1,12 @@
-const helloWave =
-  document.querySelector(".hello-wave");
+const helloWave = document.querySelector(".hello-wave");
 
-const pageLoader =
-  document.getElementById("pageLoader");
+const pageLoader = document.getElementById("pageLoader");
 
-const loaderFacts =
-  document.getElementById("loaderFacts");
+const loaderFacts = document.getElementById("loaderFacts");
 
-const prefersReducedMotion =
-  window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const shouldSkipLoader =
-  window.location.hash === "#work";
+const shouldSkipLoader = window.location.hash === "#work";
 
 function playHelloWave() {
   if (
@@ -125,9 +118,7 @@ function waitForMediaReady() {
   ]);
 }
 
-document.body.classList.add(
-  "is-loading"
-);
+document.body.classList.add("is-loading");
 
 window.addEventListener(
   "DOMContentLoaded",
@@ -1076,23 +1067,6 @@ if ( objectStage && objectSwitcher && objectPosition && objectLook && objectImg 
     },
 
     {
-      src: "assets/img/index/keyboard.png",
-
-      width: "112%",
-      height: "112%",
-
-      motion: "still",
-
-      glow:
-        "rgba(181, 169, 224, 0.20)",
-
-      shadowWidth: "105px",
-
-      spring: 0.055,
-      damping: 0.85
-    },
-
-    {
       src: "assets/img/index/coffee.png",
 
       width: "98%",
@@ -1634,7 +1608,6 @@ if ( objectStage && objectSwitcher && objectPosition && objectLook && objectImg 
   render();
 
 }
-
 
 /* --- SKILLS ORBIT --- */
 document.addEventListener("DOMContentLoaded", () => {
@@ -3264,36 +3237,18 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 });
 
-
-
-
-
-const contactBar =
-  document.querySelector("#contactBar");
-
-const contactFront =
-  document.querySelector("#contactFront");
-
+const contactBar = document.querySelector("#contactBar");
+const contactFront = document.querySelector("#contactFront");
 
 let currentReveal = 0;
 let targetReveal = 0;
-
 let isPinned = false;
-
-
+const revealSpeed = 0.085;
 /*
   Lower = slower / softer
   Higher = faster
-
   0.065 feels smooth without
   being noticeably sluggish.
-*/
-
-const revealSpeed = 0.085;
-
-
-/*
-  Animation loop
 */
 
 function animateContact() {
@@ -3302,14 +3257,6 @@ function animateContact() {
 
   currentReveal +=
     difference * revealSpeed;
-
-
-  /*
-    Snap when extremely close.
-
-    Prevents the browser from
-    endlessly calculating tiny values.
-  */
 
   if (Math.abs(difference) < 0.001) {
     currentReveal = targetReveal;
@@ -3326,18 +3273,9 @@ function animateContact() {
     animateContact
   );
 }
-
-
-/*
-  Desktop hover
-*/
-
 contactBar.addEventListener(
   "pointerenter",
   (event) => {
-    /*
-      Ignore touch hover states.
-    */
 
     if (event.pointerType === "touch") {
       return;
@@ -3354,7 +3292,6 @@ contactBar.addEventListener(
     );
   }
 );
-
 
 contactBar.addEventListener(
   "pointerleave",
@@ -3374,17 +3311,6 @@ contactBar.addEventListener(
     );
   }
 );
-
-
-/*
-  Click / tap
-
-  Desktop:
-  clicking pins it open
-
-  Mobile:
-  tapping opens/closes it
-*/
 
 contactFront.addEventListener(
   "click",
@@ -3412,10 +3338,4 @@ contactFront.addEventListener(
     }
   }
 );
-
-
-/*
-  Start animation
-*/
-
 animateContact();
