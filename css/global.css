@@ -1,4 +1,3 @@
-/* ---------- VARIABLES ---------- */
 :root {
   /* Colors */
   --bg: #FBFCFD;
@@ -25,6 +24,9 @@
   --leading-normal: 1.5;
   --leading-relaxed: 1.65;
 
+  --weight-regular: 400;
+  --weight-medium: 500;
+
   /* Layout */
   --page-max: 900px;
   --page-padding: 40px;
@@ -45,10 +47,6 @@
   --radius-card: 18px;
   --radius-pill: 999px;
 }
-
-
-/* ---------- RESET ---------- */
-
 *,
 *::before,
 *::after {
@@ -57,13 +55,7 @@
   padding: 0;
 }
 
-
-/* ---------- BASE ---------- */
-
-html {
-  scroll-behavior: smooth;
-}
-
+html { scroll-behavior: smooth; }
 body {
   min-height: 100vh;
 
@@ -78,42 +70,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3,
-p {
-  margin: 0;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-weight: 500;
-  letter-spacing: -.3px;
-}
-
-h1 { 
-  font-size: var(--text-lg);
-  line-height: var(--leading-relaxed);
-}
-
-p {
-  font-size: var(--text-rg);
-  letter-spacing: -.2px;
-  font-family: var(--font-body);
-  font-size: var(--text-rg);
-  font-weight: 400;
-  color: var(--text-primary);
-  line-height: var(--leading-tight);
-  letter-spacing: -0.175px;
-}
-
-
-
-
-/* ---------- ELEMENTS ---------- */
-
+/* ---------- SHARED ELEMENTS ---------- */
 a {
   color: var(--text-secondary);
   text-decoration: none;
@@ -132,8 +89,6 @@ video {
   height: auto;
 }
 
-/* ---------- SHARED LAYOUT ---------- */
-
 .container {
   width: min(
     var(--page-max),
@@ -143,6 +98,50 @@ video {
   margin-inline: auto;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+  letter-spacing: -.3px;
+}
+h1 { 
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+}
+p {
+  font-family: var(--font-body);
+  font-size: var(--text-rg);
+  color: var(--text-primary);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.185px;
+}
+
+.buttons {
+  display: flex;
+  gap: var(--space-sm);
+}
+.buttons a {
+
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+
+  margin-top: 24px;
+
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  padding: var(--space-sm) var(--space-md);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  transition: 300ms ease;
+}
+.buttons a:hover, .buttons a:focus {
+  border: 1px solid var(--text-muted);
+}
+
+
 /* ---------- NAV ---------- */
 .site-nav {
   position: fixed;
@@ -151,12 +150,12 @@ video {
   transform: translateX(-50%);
 
   z-index: 100;
-  width: 372px;
+  width: 360px;
   
   border: 1px solid var(--border);
 
   border-radius: var(--radius-pill);
-  padding: var(--space-sm) var(--grid-gap);
+  padding: var(--space-sm) var(--space-sm);
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(1px);
@@ -168,24 +167,18 @@ video {
   align-items: center;
   justify-content: center;
 
-  gap: 12px;
+  gap: 6px;
 }
-
 .nav-container a {
   font-size: var(--text-sm);
-  font-weight: var(--weight-medium);
   color: var(--text-muted);
   white-space: nowrap;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-
+  letter-spacing: .3px;
 }
-
 .nav-container a:hover,
-.nav-container a:focus-visible {
-  color: var(--text-primary);
-}
+.nav-container a:focus-visible { color: var(--text-primary); }
 
 .nav-logo {
   display: grid;
@@ -359,7 +352,6 @@ video {
     animation: none;
   }
 }
-
 @media (max-width: 768px) {
   .site-nav {
     top: 20px;
@@ -378,44 +370,29 @@ video {
     font-size: var(--text-xs);
   }
 }
+
 /* ---------- NAV SCROLL COLLAPSE ---------- */
 
-.site-nav {
-  transition:
-    padding 600ms cubic-bezier(.16, 1, .3, 1);
-}
-
+.site-nav { transition: padding 600ms cubic-bezier(.16, 1, .3, 1); }
 .nav-container {
   transition:
     grid-template-columns 600ms cubic-bezier(.16, 1, .3, 1),
     gap 600ms cubic-bezier(.16, 1, .3, 1);
 }
 
-/*
-  Only target the menu links.
-  The flower logo stays untouched.
-*/
-
 .nav-container > a:not(.nav-logo) {
   display: block;
 
-  max-width: 90px;
+  max-width: 72px;
   min-width: 0;
-
   overflow: hidden;
-
   opacity: 1;
-
   transition:
     max-width 600ms cubic-bezier(.16, 1, .3, 1),
     opacity 240ms ease,
     transform 600ms cubic-bezier(.16, 1, .3, 1),
     color 180ms ease;
 }
-
-
-/* Collapsed */
-
 .site-nav.is-collapsed {
   width: auto;
   padding-left: var(--space-sm);
@@ -430,14 +407,9 @@ video {
 .site-nav.is-collapsed
 .nav-container > a:not(.nav-logo) {
   max-width: 0;
-
   opacity: 0;
-
   pointer-events: none;
 }
-
-
-/* Pull left-side links toward flower */
 
 .site-nav.is-collapsed
 .nav-container > a:nth-child(1),
@@ -446,21 +418,12 @@ video {
   transform: translateX(8px);
 }
 
-
-/* Pull right-side links toward flower */
-
 .site-nav.is-collapsed
 .nav-container > a:nth-child(4),
 .site-nav.is-collapsed
 .nav-container > a:nth-child(5) {
   transform: translateX(-8px);
 }
-
-
-/*
-  Hovering over the collapsed flower
-  temporarily expands the nav.
-*/
 
 .site-nav.is-collapsed:hover,
 .site-nav.is-collapsed:focus-within {
@@ -525,10 +488,6 @@ video {
     max-width: 70px;
   }
 }
-
-
-/* Reduced motion */
-
 @media (prefers-reduced-motion: reduce) {
 
   .site-nav,
@@ -607,6 +566,9 @@ footer p {
   :root {
     --leading-relaxed: 1.685;
   }
+  
+  .buttons a {  margin-top: 30px; }
+
 
 
 }
