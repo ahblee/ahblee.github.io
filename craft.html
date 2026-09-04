@@ -45,29 +45,31 @@
 
 <main class="craft-page">
 
-  <section class="craft-intro" aria-labelledby="craft-title">
+  <section class="intro" aria-labelledby="craft-landing">
 
-    <div class="craft-greeting opening-intro opening-intro-hello">
-      <span class="craft-wave" aria-hidden="true">🫶</span>
-      <span class="craft-hover-text">Made with care & love</span>
+    <div class="greeting opening-intro opening-intro-heart">
+      <span class="heart" aria-hidden="true">🫶</span>
+      <span class="hover-text">Made with care & love</span>
     </div>
 
-    <h1 class="opening-intro opening-intro-title">Some smaller visual pieces that still earned their spot, just not on the home page.</h1>
-
-    <p class="opening-intro opening-intro-current">Less write-up, not less care</p>
+    <h1 class="opening-intro opening-intro-title">
+      Smaller visual pieces that still earned their spot ✦ ݁˖
+    </h1>
     
   </section>
-
-  <section class="craft-grid" aria-label="Selected craft projects">
+  
+  <section class="grid" aria-label="Selected craft projects">
 
     <!-- PROJECT 01 -->
     <article class="craft-item">
+
       <button class="craft-card" type="button" data-craft-open="photocrumb" aria-label="Open Photocrumb project">
-        <span class="craft-media">
-          <video src="assets/craft/photocrumb-cover.mp4" autoplay muted loop playsinline preload="metadata"></video>
-        </span>
-        <span class="craft-card-caption">Photocrumb</span>
+
+        <span class="craft-media"><video src="assets/craft/photocrumb-cover.mp4" autoplay muted loop playsinline preload="metadata"></video></span>
+        <span class="card-caption">Photocrumb</span>
+
       </button>
+
     </article>
 
     <!-- PROJECT 02 -->
@@ -76,7 +78,7 @@
         <span class="craft-media">
           <video src="assets/craft/labatie-cover.mp4" autoplay muted loop playsinline preload="metadata"></video>
         </span>
-        <span class="craft-card-caption">La Bâtie</span>
+        <span class="card-caption">La Bâtie</span>
       </button>
     </article>
 
@@ -86,7 +88,7 @@
         <span class="craft-media craft-media--soft">
           <img src="assets/craft/kosta-cover.png" alt="Youth KOSTA poster design">
         </span>
-        <span class="craft-card-caption">Youth KOSTA
+        <span class="card-caption">Youth KOSTA
         </span>
       </button>
     </article>
@@ -99,7 +101,7 @@
 
           <!-- <img src="assets/craft/book-cover.png" alt="Alice's Adventures in Wonderland book design"> -->
         </span>
-        <span class="craft-card-caption">Alice's Adventures in Wonderland</span>
+        <span class="card-caption">Alice's Adventures in Wonderland</span>
       <!-- </button> -->
     </article> 
 
@@ -110,18 +112,17 @@
                               <video src="assets/craft/boba-cover.mov" autoplay muted loop playsinline preload="metadata"></video>
 
         </span>
-        <span class="craft-card-caption">Pearl Fever BobaQuiz</span>
+        <span class="card-caption">Pearl Fever BobaQuiz</span>
       <!-- </button> -->
     </article> 
 
-
     <!-- PROJECT 06 -->
-<!-- 
+    <!-- 
     <article class="craft-item">
         <span class="craft-media craft-media--green">
           <img src="assets/craft/magazine-cover.png" alt="WEARdrobe brand and magazine design">
         </span>
-        <span class="craft-card-caption">
+        <span class="card-caption">
           <span>WEARdrobe</span>
           <span>Brand · Magazine</span>
         </span>
@@ -129,38 +130,55 @@
 
   </section>
 
-  <dialog class="craft-dialog" id="craftDialog" aria-labelledby="craftDialogTitle">
+  <!-- Main Content -->
+  <dialog class="dialog" id="craftDialog" aria-labelledby="craftDialogTitle">
     
-    <div class="craft-dialog-panel">
+    <div class="dialog-panel">
 
-      <button class="craft-dialog-close" type="button" data-craft-close aria-label="Close project">
-        <span aria-hidden="true">×</span>
-      </button>
+      <button class="dialog-close" type="button" data-close aria-label="Close project"><span aria-hidden="true">×</span></button>
 
-      <article class="craft-project-detail" data-craft-project="photocrumb">
+      <!-- PHOTOCRUMB -->
+      <article class="dialog-project" data-craft-project="photocrumb">
         
-        <div class="craft-dialog-media">
+        <div class="dialog-cover">
           <video src="assets/craft/photocrumb-cover.mp4" autoplay muted loop playsinline preload="metadata"></video>
         </div>
 
-        <div class="craft-dialog-content">
-          <aside class="craft-dialog-meta" aria-label="Project details">
-            <div class="craft-eyebrow craft-eyebrow--photocrumb"><img class="craft-dialog-logo craft-dialog-logo--photocrumb" src="assets/craft/photocrumb-logo.svg" alt=""><span>2025-26</span></div>
+        <div class="dialog-content">
+
+          <aside class="dialog-meta" aria-label="Project details">
+
+            <div class="dialog-eyebrow dialog-eyebrow--photocrumb">
+              <img class="dialog-logo dialog-logo--photocrumb" src="assets/craft/photocrumb-logo.svg" alt="Photocrumb Logo">
+              <span>2025-26</span>
+            </div>
+
             <div class="meta-row"><span>Role</span><p>Visual Designer</p></div>
-            <div class="meta-row"><span>Focus</span><p>Illustration, visual system</p></div>
+            <div class="meta-row"><span>Type</span><p>Freelance</p></div>
+            <div class="meta-row"><span>Team</span><p>Solo Designer</p></div>
+
           </aside>
+
           <div class="craft-dialog-summary">
+
             <hgroup>
               <h2 id="craftDialogTitle">Photocrumb</h2>
               <p>Making new memories, season after season.</p>
             </hgroup>
+
             <p>
-              Photocrumb is a self-serve photo booth studio focused on playful, customizable photo experiences. Since 2025, I’ve worked across UI and visual design, creating seasonal photo frames, stickers, and in-booth interface elements used by customers in-store. Because the experience changes throughout the year, much of my work is about finding new ways to make each season feel fresh while still recognizably Photocrumb, turning a quick photo booth visit into something personal and worth keeping.
+              Photocrumb is a self-serve photo booth studio focused on playful, customizable photo experiences. Since 2025, I’ve worked across UI and visual design, creating seasonal frames, stickers, and in-booth interface elements. I also designed a new mini frame format for a more portable keepsake, planned for release. Across each design, my goal is to keep the experience feeling fresh while still feeling like Photocrumb.
             </p>
+            
+            <p>
+              One of my designs generated the most revenue among Photocrumb’s frame options that day, with 1,000+ uses.
+            </p>
+
           </div>
+
         </div>
 
-        <div class="craft-placeholder-section">
+        <div class="placeholder-section">
           
           <img src="assets/craft/photo-sticker.png" class="craft-placeholder-image" alt="">
 
@@ -183,12 +201,18 @@
 
       </article>
 
-      <article class="craft-project-detail" data-craft-project="labatie">
-        <div class="craft-dialog-media">
+
+
+
+
+
+<!-- 
+      <article class="dialog-project" data-craft-project="labatie">
+        <div class="dialog-cover">
           <video src="assets/craft/labatie-cover2.mp4" autoplay muted loop playsinline preload="metadata"></video>
         </div>
-        <div class="craft-dialog-content">
-          <aside class="craft-dialog-meta" aria-label="Project details">
+        <div class="dialog-content">
+          <aside class="dialog-meta" aria-label="Project details">
             <div class="craft-eyebrow"><img class="craft-dialog-logo" src="assets/craft/labatie-logo.png" alt=""><span>2024</span></div>
             <div class="meta-row"><span>Role</span><p>Lead Designer</p></div>
             <div class="meta-row"><span>Team</span><p>5 Designers</p></div>
@@ -212,7 +236,7 @@
         </p>
           </div>
         </div>
-        <div class="craft-placeholder-section">
+        <div class="placeholder-section">
           
           <img src="assets/craft/labatie-microsite.png" class="craft-placeholder-image" alt="">
 
@@ -229,12 +253,12 @@
 
       </article>
 
-      <article class="craft-project-detail" data-craft-project="kosta">
-        <div class="craft-dialog-media">
+      <article class="dialog-project" data-craft-project="kosta">
+        <div class="dialog-cover">
           <img src="assets/craft/kosta-cover2.png" alt="Youth KOSTA poster design">
         </div>
-        <div class="craft-dialog-content">
-          <aside class="craft-dialog-meta" aria-label="Project details">
+        <div class="dialog-content">
+          <aside class="dialog-meta" aria-label="Project details">
             <div class="craft-eyebrow"><img class="craft-dialog-logo" src="assets/craft/kosta-logo.svg" alt=""><span>2025</span></div>
             <div class="meta-row"><span>Role</span><p>Visual Designer</p></div>
             <div class="meta-row"><span>Focus</span><p>Event Design, Visual Design, Production</p></div>
@@ -250,11 +274,11 @@
           </div>
         </div>
 
-        <div class="craft-placeholder-section craft-placeholder-section--kosta">
+        <div class="placeholder-section placeholder-section--kosta">
           
           <img src="assets/craft/kosta-poster.png" class="craft-placeholder-image" alt="">
 
-          <div class="craft-placeholder-grid craft-placeholder-grid--kosta" aria-label="Youth KOSTA project images">
+          <div class="craft-placeholder-grid placeholder-grid--kosta" aria-label="Youth KOSTA project images">
             <img src="assets/craft/kosta-mirror.png" class="craft-placeholder-image craft-placeholder-image--portrait" alt="">
             <img src="assets/craft/kosta-team.png" class="craft-placeholder-image" alt="">
           </div>
@@ -262,12 +286,12 @@
         </div>
       </article>
 
-      <article class="craft-project-detail" data-craft-project="alice">
-        <div class="craft-dialog-media">
+      <article class="dialog-project" data-craft-project="alice">
+        <div class="dialog-cover">
           <img src="assets/craft/book.png" alt="Alice's Adventures in Wonderland book design">
         </div>
-        <div class="craft-dialog-content">
-          <aside class="craft-dialog-meta" aria-label="Project details">
+        <div class="dialog-content">
+          <aside class="dialog-meta" aria-label="Project details">
             <div class="craft-eyebrow"><span>Craft</span><span>2022</span></div>
             <div class="meta-row"><span>Role</span><p>Book Designer</p></div>
             <div class="meta-row"><span>Focus</span><p>Cover, typography, print layout</p></div>
@@ -283,20 +307,20 @@
             </p>
           </div>
         </div>
-        <div class="craft-placeholder-section">
+        <div class="placeholder-section">
           <div class="craft-placeholder-grid" aria-label="Placeholder project images">
             <div class="craft-placeholder-image"></div>
             <div class="craft-placeholder-image"></div>
           </div>
         </div>
-      </article>
+      </article> -->
 
-      <!-- <article class="craft-project-detail" data-craft-project="weardrobe">
-        <div class="craft-dialog-media">
+      <!-- <article class="dialog-project" data-craft-project="weardrobe">
+        <div class="dialog-cover">
           <img src="assets/craft/weardrobe.png" alt="WEARdrobe brand and magazine design">
         </div>
-        <div class="craft-dialog-content">
-          <aside class="craft-dialog-meta" aria-label="Project details">
+        <div class="dialog-content">
+          <aside class="dialog-meta" aria-label="Project details">
             <div class="craft-eyebrow"><span>Craft</span><span>2022</span></div>
             <div class="meta-row"><span>Role</span><p>Brand Designer</p></div>
             <div class="meta-row"><span>Focus</span><p>Editorial system, identity, layout</p></div>
@@ -312,7 +336,7 @@
             </p>
           </div>
         </div>
-        <div class="craft-placeholder-section">
+        <div class="placeholder-section">
           <div class="craft-placeholder-grid" aria-label="Placeholder project images">
             <div class="craft-placeholder-image"></div>
             <div class="craft-placeholder-image"></div>
@@ -320,12 +344,12 @@
         </div>
       </article> -->
 
-      <article class="craft-project-detail" data-craft-project="fever">
-        <div class="craft-dialog-media">
+      <!-- <article class="dialog-project" data-craft-project="fever">
+        <div class="dialog-cover">
           <img src="assets/craft/fever.png" alt="Pearl Fever BobaQuiz web prototype">
         </div>
-        <div class="craft-dialog-content">
-          <aside class="craft-dialog-meta" aria-label="Project details">
+        <div class="dialog-content">
+          <aside class="dialog-meta" aria-label="Project details">
             <div class="craft-eyebrow"><span>Craft</span><span>2020</span></div>
             <div class="meta-row"><span>Role</span><p>Interaction Designer</p></div>
             <div class="meta-row"><span>Focus</span><p>Quiz flow, visual design, prototype</p></div>
@@ -341,13 +365,13 @@
             </p>
           </div>
         </div>
-        <div class="craft-placeholder-section">
+        <div class="placeholder-section">
           <div class="craft-placeholder-grid" aria-label="Placeholder project images">
             <div class="craft-placeholder-image"></div>
             <div class="craft-placeholder-image"></div>
           </div>
         </div>
-      </article>
+      </article> -->
     </div>
   </dialog>
 
