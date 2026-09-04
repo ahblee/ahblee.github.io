@@ -1,5 +1,7 @@
 const helloWave = document.querySelector(".hello-wave");
 
+const helloGreeting = document.querySelector(".hello-greeting");
+
 const pageLoader = document.getElementById("pageLoader");
 
 const loaderFacts = document.getElementById("loaderFacts");
@@ -28,6 +30,12 @@ function startOpeningAnimation() {
     document.body.classList.add(
       "is-opening-ready"
     );
+
+    if (!prefersReducedMotion) {
+      helloGreeting?.classList.add(
+        "is-hover-preview"
+      );
+    }
   });
 
   setTimeout(
@@ -80,9 +88,12 @@ function wait(ms) {
 function waitForMediaReady() {
   const media =
     [
-      ...document.querySelectorAll("main img"),
-      ...document.querySelectorAll("main video")
+      ...document.querySelectorAll("[data-loader-media]")
     ];
+
+  if (!media.length) {
+    return Promise.resolve();
+  }
 
   const mediaReady =
     media.map((item) => {
@@ -269,15 +280,16 @@ if (revealPieces.length) {
 }
 
 if (helloWave) {
+  helloGreeting?.addEventListener(
+    "pointerenter",
+    () => {
+      helloGreeting.classList.remove(
+        "is-hover-preview"
+      );
 
-  const helloGreeting =
-  document.querySelector(".hello-greeting");
-
-helloGreeting?.addEventListener(
-  "pointerenter",
-  playHelloWave
-);
-
+      playHelloWave();
+    }
+  );
 
   helloWave.addEventListener(
     "animationend",
@@ -289,6 +301,19 @@ helloGreeting?.addEventListener(
   );
 
 }
+
+helloGreeting?.addEventListener(
+  "animationend",
+  (event) => {
+    if (
+      event.animationName === "introHoverTextPreview"
+    ) {
+      helloGreeting.classList.remove(
+        "is-hover-preview"
+      );
+    }
+  }
+);
 
 /* --- GRASS --- */
 

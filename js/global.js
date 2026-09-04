@@ -131,4 +131,47 @@ function updateFooterClock() {
 updateFooterClock();
 setInterval(updateFooterClock, 30000);
 
+/* --- LAZY VIDEOS --- */
+const lazyVideos =
+  document.querySelectorAll("video[data-src]");
 
+function loadLazyVideo(video) {
+  if (!video.dataset.src) {
+    return;
+  }
+
+  video.src = video.dataset.src;
+  video.removeAttribute("data-src");
+  video.load();
+
+  if (video.autoplay) {
+    video.play().catch(() => {});
+  }
+}
+
+if (lazyVideos.length) {
+  if ("IntersectionObserver" in window) {
+    const lazyVideoObserver =
+      new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            loadLazyVideo(entry.target);
+            lazyVideoObserver.unobserve(entry.target);
+          });
+        },
+        {
+          rootMargin: "320px 0px"
+        }
+      );
+
+    lazyVideos.forEach((video) => {
+      lazyVideoObserver.observe(video);
+    });
+  } else {
+    lazyVideos.forEach(loadLazyVideo);
+  }
+}
