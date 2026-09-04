@@ -10,75 +10,76 @@
   margin-inline: auto;
   padding: 150px 0 0;
 }
-body.craft-dialog-open { overflow: hidden; }
+body.dialog-open { overflow: hidden; }
 
 
 
 /* ----- Intro Heading ----- */
-.craft-intro {
+.intro {
   display: flex;
   flex-direction: column;
-  gap: var(--grid-gap);
-  margin: 0 0 96px;
+  gap: var(--space-sm);
+  margin: 0 0 48px;
 }
 
-.craft-greeting {
+.greeting {
   position: relative;
   display: inline-flex;
   align-items: center;
   width: fit-content;
 }
-.craft-wave {
+.heart {
   display: inline-block;
   transform: scale(1) translateY(0);
   transform-origin: 50% 70%;
   cursor: default;
 }
-.craft-hover-text {
+.hover-text {
   position: absolute;
   left: calc(100% + 8px);
   top: 50%;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-size: var(--text-xs);
-  font-weight: var(--weight-regular);
+  font-weight: 300;
   white-space: nowrap;
   opacity: 0;
   transform: translate(-4px, -50%);
   pointer-events: none;
-  transition:
-    opacity 220ms ease,
-    transform 380ms cubic-bezier(.16, 1, .3, 1);
+  transition: opacity 220ms ease, transform 380ms cubic-bezier(.16, 1, .3, 1);
 }
-.craft-greeting:hover .craft-hover-text {
-  opacity: 1;
-  transform: translate(0, -50%);
+
+.greeting:hover .hover-text,
+.greeting:focus .hover-text { opacity: 1; transform: translate(0, -50%); }
+
+body.is-opening-ready .opening-intro-heart.is-hover-preview:not(:hover) .hover-text {
+  animation: craftHoverTextPreview 6400ms cubic-bezier(.16, 1, .3, 1) 620ms both;
 }
-.craft-wave.is-waving { animation: craftHeartHands 900ms ease-in-out 1; }
-.craft-greeting:hover .craft-wave
-.craft-greeting:focus .craft-wave { animation: craftHeartHands 900ms ease-in-out infinite; }
+body.is-opening-ready .opening-intro-heart.is-hover-preview:hover .hover-text {
+  animation: none;
+}
+body.is-opening-ready .opening-intro-heart.is-hover-preview:not(:hover) .heart {
+  animation: craftPreviewHeartHands 6400ms ease-in-out 620ms both;
+}
+.heart.is-waving { animation: craftHeartHands 900ms ease-in-out 1; }
+.greeting:hover .heart,
+.greeting:focus .heart { animation: craftHeartHands 900ms ease-in-out infinite; }
 
 h1 {
-  color: var(--text-primary);
-  font-size: var(--text-lg);
+  font-size: var(--text-rg);
   font-weight: 400;
-  letter-spacing: -0.3px;
-  max-width: 60%;
-}
-.craft-intro p {
-  color: var(--text-muted);
-  font-family: var(--font-heading);
-  font-size: 15px;
-  line-height: 1.35;
-  max-width: 560px;
+  color: var(--text-primary);
+  letter-spacing: .015px;
 }
 
-/* animation */
+
+
+/* ----- Intro Animation ----- */
 .opening-intro {
   opacity: 0;
   translate: 6px 3px;
   will-change: translate, opacity;
 }
-body.is-opening-ready .opening-intro-hello {
+body.is-opening-ready .opening-intro-heart {
   animation: openingIntroIn 590ms cubic-bezier(.22, 1, .36, 1) 40ms forwards;
 }
 body.is-opening-ready .opening-intro-title {
@@ -112,6 +113,53 @@ body.is-opening-ready .opening-intro-current {
     transform: scale(1) translateY(0);
   }
 }
+@keyframes craftHoverTextPreview {
+  0% {
+    opacity: 0;
+    transform: translate(-4px, -50%);
+  }
+
+  10%,
+  88% {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-4px, -50%);
+  }
+}
+@keyframes craftPreviewHeartHands {
+  0%,
+  18%,
+  42%,
+  66%,
+  88%,
+  100% {
+    transform: scale(1) translateY(0);
+  }
+
+  22%,
+  70% {
+    transform: scale(1.08) translateY(-1px);
+  }
+
+  26%,
+  74% {
+    transform: scale(.98) translateY(0);
+  }
+
+  30%,
+  78% {
+    transform: scale(1.05) translateY(-1px);
+  }
+
+  34%,
+  82% {
+    transform: scale(1.01) translateY(0);
+  }
+}
 @keyframes openingIntroIn {
   to {
     opacity: 1;
@@ -121,9 +169,8 @@ body.is-opening-ready .opening-intro-current {
 
 
 
-
 /* ----- Grid ----- */
-.craft-grid {
+.grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--grid-gap);
@@ -173,14 +220,12 @@ body.is-opening-ready .opening-intro-current {
   transform: translateY(-3px);
 }
 .craft-card:active .craft-media { transform: translateY(-1px) scale(.985); }
-.craft-card:hover img,
-.craft-card:hover video,
-.craft-card:focus-visible img,
+.craft-card:hover img, .craft-card:hover video, .craft-card:focus-visible img,
 .craft-card:focus-visible video { transform: scale(1.025); }
 .craft-card:focus-visible { outline: 0; }
 .craft-card:focus-visible .craft-media { outline: 0; }
 
-.craft-card-caption {
+.card-caption {
   position: absolute;
   left: 18px;
   right: 18px;
@@ -213,21 +258,18 @@ body.is-opening-ready .opening-intro-current {
     opacity 220ms ease,
     transform 220ms ease;
 }
-.craft-card:hover .craft-card-caption,
-.craft-card:focus-visible .craft-card-caption {
+.craft-card:hover .card-caption,
+.craft-card:focus-visible .card-caption {
   opacity: 1;
   transform: translateY(0);
 }
 
 
 
-/* ----- Dialog ----- */
-.craft-dialog {
+/* ----- Dialog Setting ----- */
+.dialog {
   position: fixed;
-  top: 28px;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  top: 40px; right: 0; bottom: 0; left: 0;
   width: min(1124px, calc(100% - 48px));
   max-width: none;
   height: calc(100dvh - 28px);
@@ -239,19 +281,17 @@ body.is-opening-ready .opening-intro-current {
   color: var(--text-primary);
   background: transparent;
   overflow: hidden;
-}
-.craft-dialog:focus,
-.craft-dialog:focus-visible { outline: 0; }
-
-.craft-dialog::backdrop {
+} 
+.dialog:focus, .dialog:focus-visible { outline: 0; }
+.dialog::backdrop {
   background: rgba(16, 18, 24, 0.44);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
-.craft-dialog[open]::backdrop { animation: craftBackdropIn 220ms ease both; }
-.craft-dialog.is-closing::backdrop { animation: craftBackdropOut 220ms ease both; }
+.dialog[open]::backdrop { animation: craftBackdropIn 220ms ease both; }
+.dialog.is-closing::backdrop { animation: craftBackdropOut 220ms ease both; }
 
-.craft-dialog-panel {
+.dialog-panel {
   position: relative;
   height: 100%;
   max-height: none;
@@ -265,15 +305,14 @@ body.is-opening-ready .opening-intro-current {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
-.craft-dialog-panel::-webkit-scrollbar { display: none; }
-.craft-dialog-panel:focus,
-.craft-dialog-panel:focus-visible { outline: 0; }
+.dialog-panel::-webkit-scrollbar { display: none; }
+.dialog-panel:focus,
+.dialog-panel:focus-visible { outline: 0; }
 
-.craft-dialog[open] .craft-dialog-panel { animation: craftPanelIn 420ms cubic-bezier(.16, 1, .3, 1) both; }
-.craft-dialog.is-closing .craft-dialog-panel { animation: craftPanelOut 280ms cubic-bezier(.7, 0, .84, 0) both; }
-.craft-dialog[open] .craft-dialog-media { animation: craftMediaIn 440ms cubic-bezier(.16, 1, .3, 1) 35ms both; }
-.craft-dialog[open] .craft-dialog-content,
-.craft-dialog[open] .craft-placeholder-section { animation: craftContentIn 440ms cubic-bezier(.16, 1, .3, 1) 70ms both; }
+.dialog[open] .dialog-panel { animation: craftPanelIn 420ms cubic-bezier(.16, 1, .3, 1) both; }
+.dialog.is-closing .dialog-panel { animation: craftPanelOut 280ms cubic-bezier(.7, 0, .84, 0) both; }
+.dialog[open] .dialog-cover { animation: craftMediaIn 440ms cubic-bezier(.16, 1, .3, 1) 35ms both; }
+.dialog[open] .dialog-content, .dialog[open] .placeholder-section { animation: craftContentIn 440ms cubic-bezier(.16, 1, .3, 1) 70ms both; }
 
 @keyframes craftBackdropIn {
   from {
@@ -306,7 +345,7 @@ body.is-opening-ready .opening-intro-current {
   }
 }
 
-.craft-dialog-close {
+.dialog-close {
   position: sticky;
   top: 18px;
   z-index: 3;
@@ -328,29 +367,27 @@ body.is-opening-ready .opening-intro-current {
   -webkit-backdrop-filter: blur(8px);
   transition: border-color 180ms ease;
 }
-.craft-dialog-close:hover,
-.craft-dialog-close:focus-visible { border-color: rgba(45, 52, 73, 0.24); }
+.dialog-close:hover, .dialog-close:focus-visible { border-color: rgba(45, 52, 73, 0.24); }
 
-.craft-project-detail { display: none; }
-.craft-project-detail.is-active {
+.dialog-project { display: none; }
+.dialog-project.is-active {
   display: grid;
   gap: 30px;
   min-height: 100%;
   margin-bottom: 28px;
   overflow: hidden;
-  /* border: 1px solid rgba(45, 52, 73, .05); */
   border-radius: var(--radius-card);
   background: rgba(255, 255, 255, .95);
   box-shadow: none;
 }
-.craft-dialog-media {
+.dialog-cover {
   overflow: hidden;
   margin: 0;
   border-radius: 18px 18px 0 0;
   background: var(--grey-bg);
 }
-.craft-dialog-media img,
-.craft-dialog-media video {
+.dialog-cover img,
+.dialog-cover video {
   width: 100%;
   height: auto;
   max-height: none;
@@ -358,70 +395,65 @@ body.is-opening-ready .opening-intro-current {
   object-fit: contain;
   border-radius: 0;
 }
-.craft-dialog-content {
+
+
+/* DIALOG INTRO */
+.dialog-content {
   display: grid;
   grid-template-columns: .2725fr .455fr .2725fr;
   gap: var(--space-xl);
-  padding: 0 40px;
+  padding: 10px 40px;
 }
-.craft-dialog-meta {
-  grid-column: 1;
-  margin: 0;
-}
-.craft-eyebrow {
+
+.dialog-eyebrow {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  margin: var(--space-md) 0 var(--grid-gap);
+  margin: 10px 0 30px;
   color: var(--text-muted);
   font-size: var(--text-xs);
   line-height: var(--leading-normal);
-  text-transform: uppercase;
   letter-spacing: -.0085em;
 }
-.craft-eyebrow span {
+.dialog-eyebrow span {
   display: inline;
   height: auto;
   line-height: inherit;
 }
-.craft-eyebrow img,
-.craft-dialog-logo {
+.dialog-logo {
   display: block;
   width: 38px;
-  height: auto;
-  max-height: 18px;
+  max-height: 20px;
   object-fit: contain;
-  flex: 0 0 auto;
-  transform: translateY(-2px);
+  padding-bottom: 1px;
 }
-.craft-eyebrow > img + span::before,
-.craft-eyebrow span + span::before {
+.dialog-eyebrow > img + span::before,
+.dialog-eyebrow span + span::before {
   content: "/";
   display: inline;
   height: auto;
   margin: 0 9px 0 2px;
   color: rgba(45, 52, 73, .15);
 }
-.craft-dialog-meta .meta-row {
+
+.dialog-meta .meta-row {
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
-  margin-top: calc(var(--grid-gap) - var(--space-sm));
+  margin-top: 20px;
 }
-.craft-dialog-meta .meta-row span {
-  color: var(--text-muted);
+.dialog-meta .meta-row span {
+  font-family: var(--font-body);
   font-size: var(--text-sm);
-  letter-spacing: -.0085em;
-}
-.craft-dialog-meta .meta-row p {
   color: var(--text-primary);
-  font-size: 17px;
-  line-height: var(--leading-normal);
-  letter-spacing: -0.35px;
+  letter-spacing: -.001rem;
+}
+.dialog-meta .meta-row p {
+  font-size: var(--text-md);
+  color: var(--text-muted);
+  letter-spacing: -.002rem;
 }
 
-
-/* Title Groups */
 .craft-dialog-summary {
   grid-column: 2;
   display: flex;
@@ -431,33 +463,33 @@ body.is-opening-ready .opening-intro-current {
 .craft-dialog-summary hgroup {
   display: grid;
   gap: 0;
-}
-.craft-dialog-summary h2 {
   max-width: 500px;
+}
+.craft-dialog-summary h2, .craft-dialog-summary hgroup p  {
   color: var(--text-primary);
-  font-size: 1.844rem;
+  font-size: 1.75rem;
   font-weight: 600;
+  letter-spacing: -.5px;
   line-height: var(--leading-tight);
-  letter-spacing: -1.15px;
 }
 .craft-dialog-summary hgroup p {
-  max-width: 500px;
   color: var(--text-muted);
   font-family: var(--font-heading);
-  font-size: 1.844rem;
   font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: -1px;
+  letter-spacing: -.9px;
+  line-height: 1.3;
+  margin-top: var(--space-xs);
+
 }
 .craft-dialog-summary > p {
-  max-width: none;
-  /* color: var(--text-secondary); */
-  letter-spacing: -0.35px;
+  font-size: var(--text-rg);
+  letter-spacing: -0.018rem;
   line-height: 1.65;
 }
 
 
-.craft-placeholder-section {
+
+.placeholder-section {
   display: grid;
   gap: var(--grid-gap);
   padding: 48px 20px;
@@ -501,32 +533,36 @@ img.craft-placeholder-image {
   min-height: 0;
   object-fit: contain;
 }
-.craft-placeholder-section > .craft-placeholder-image {
+.placeholder-section > .craft-placeholder-image {
   height: auto;
 }
 .craft-placeholder-grid .craft-placeholder-image {
   height: auto;
 }
 
-.craft-dialog-logo--photocrumb {
-  justify-self: self-start;
-  width: fit-content !important;
-  height: 30px;
-  max-height: none;
-  transform: translateY(0);
-}
-.craft-eyebrow--photocrumb { gap: 4px; }
-.craft-eyebrow--photocrumb > img + span::before { margin-left: 0; }
 
-.craft-placeholder-section--kosta > .craft-placeholder-image {
+
+
+
+
+
+.dialog-logo--photocrumb {
+  width: fit-content !important;
+  height: 19px;
+  padding: 0 var(--space-sm) 0 0px;
+}
+.dialog-eyebrow--photocrumb { gap: 4px; }
+.dialog-eyebrow--photocrumb > img + span::before { margin-left: 0; }
+
+.placeholder-section--kosta > .craft-placeholder-image {
   height: auto;
 }
-.craft-placeholder-grid--kosta {
+.placeholder-grid--kosta {
   grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
   align-items: start;
   grid-auto-rows: auto;
 }
-.craft-placeholder-grid--kosta .craft-placeholder-image {
+.placeholder-grid--kosta .craft-placeholder-image {
   height: auto;
 }
 
@@ -534,38 +570,37 @@ img.craft-placeholder-image {
 
 /* ----- MQ ----- */
 @media (max-width: 900px) {
-  .craft-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 
-  .craft-dialog {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .dialog {
     width: calc(100% - 36px);
     top: 18px;
     height: calc(100dvh - 18px);
     max-height: none;
   }
 
-  .craft-dialog-panel {
+  .dialog-panel {
     height: 100%;
     max-height: none;
   }
 
-  .craft-project-detail.is-active {
+  .dialog-project.is-active {
     margin-bottom: 18px;
   }
 
-  .craft-dialog-media img,
-  .craft-dialog-media video {
+  .dialog-cover img,
+  .dialog-cover video {
     height: auto;
   }
 
-  .craft-dialog-content {
+  .dialog-content {
     grid-template-columns: 1fr;
     gap: var(--space-xl);
     padding: 0 24px;
   }
 
-  .craft-dialog-meta,
+  .dialog-meta,
   .craft-dialog-summary {
     grid-column: 1;
   }
@@ -575,29 +610,21 @@ img.craft-placeholder-image {
   }
 }
 @media (max-width: 640px) {
+
   .craft-page {
     width: min(520px, calc(100% - 36px));
     padding: 140px 0 88px;
   }
 
-  .craft-intro {
-    margin-bottom: 64px;
-  }
+  .intro { margin-bottom: 64px; }
 
-  .craft-intro h1 {
-    max-width: 100%;
-  }
 
-  .craft-intro p {
-    font-size: 15px;
-  }
-
-  .craft-grid {
+  .grid {
     grid-template-columns: 1fr;
     gap: 54px;
   }
 
-  .craft-card-caption {
+  .card-caption {
     opacity: 1;
     transform: none;
     left: 14px;
@@ -607,7 +634,7 @@ img.craft-placeholder-image {
     padding: 0 14px;
   }
 
-  .craft-card-caption span:first-child {
+  .card-caption span:first-child {
     font-size: var(--text-sm);
   }
 
@@ -615,41 +642,39 @@ img.craft-placeholder-image {
     border-radius: 18px;
   }
 
-  .craft-dialog {
+  .dialog {
     width: calc(100% - 20px);
     top: 10px;
     height: calc(100dvh - 10px);
     max-height: none;
   }
 
-  .craft-dialog-panel {
+  .dialog-panel {
     height: 100%;
     max-height: none;
     border-radius: 0;
   }
 
-  .craft-project-detail.is-active {
+  .dialog-project.is-active {
     margin-bottom: 10px;
     border-radius: 18px;
   }
 
-  .craft-dialog-media {
+  .dialog-cover {
     margin: 0;
     border-radius: 18px 18px 0 0;
   }
 
-  .craft-dialog-media img,
-  .craft-dialog-media video {
-    height: auto;
-  }
+  .dialog-cover img,
+  .dialog-cover video { height: auto; }
 
-  .craft-dialog-content {
+  .dialog-content {
     grid-template-columns: 1fr;
     gap: var(--space-xl);
     padding: 0 22px;
   }
 
-  .craft-dialog-meta {
+  .dialog-meta {
     grid-column: 1;
   }
 
@@ -657,7 +682,7 @@ img.craft-placeholder-image {
     grid-column: 1;
   }
 
-  .craft-dialog-meta .meta-row {
+  .dialog-meta .meta-row {
     display: grid;
     gap: 4px;
   }
@@ -670,7 +695,7 @@ img.craft-placeholder-image {
     font-size: 19px;
   }
 
-  .craft-placeholder-section {
+  .placeholder-section {
     gap: 14px;
     padding: 14px 12px 0;
   }
@@ -680,7 +705,7 @@ img.craft-placeholder-image {
     gap: 14px;
   }
 
-  .craft-placeholder-section > .craft-placeholder-image {
+  .placeholder-section > .craft-placeholder-image {
     height: auto;
   }
 
@@ -688,44 +713,48 @@ img.craft-placeholder-image {
     height: auto;
   }
 
-  .craft-placeholder-section--kosta > .craft-placeholder-image {
+  .placeholder-section--kosta > .craft-placeholder-image {
     height: auto;
   }
 
-  .craft-placeholder-grid--kosta {
+  .placeholder-grid--kosta {
     grid-template-columns: 1fr;
     grid-auto-rows: auto;
   }
 
-  .craft-placeholder-grid--kosta .craft-placeholder-image {
+  .placeholder-grid--kosta .craft-placeholder-image {
     aspect-ratio: 16 / 10;
     height: auto;
   }
 
-  .craft-placeholder-grid--kosta .craft-placeholder-image--portrait {
+  .placeholder-grid--kosta .craft-placeholder-image--portrait {
     aspect-ratio: 4 / 5;
   }
 }
 
 @media (hover: none) {
-  .craft-card-caption {
+  .card-caption {
     opacity: 1;
     transform: none;
   }
 }
+
 @media (prefers-reduced-motion: reduce) {
   .craft-media,
   .craft-media img,
   .craft-media video,
-  .craft-card-caption,
-  .craft-dialog[open]::backdrop,
-  .craft-dialog.is-closing::backdrop,
-  .craft-dialog[open] .craft-dialog-panel,
-  .craft-dialog.is-closing .craft-dialog-panel,
-  .craft-dialog[open] .craft-dialog-media,
-  .craft-dialog[open] .craft-dialog-content,
-  .craft-dialog[open] .craft-placeholder-section {
+  .card-caption,
+  .dialog[open]::backdrop,
+  .dialog.is-closing::backdrop,
+  .dialog[open] .dialog-panel,
+  .dialog.is-closing .dialog-panel,
+  .dialog[open] .dialog-cover,
+  .dialog[open] .dialog-content,
+  .dialog[open] .placeholder-section {
     animation: none;
     transition: none;
+  }
+  .hover-text {
+    animation: none !important;
   }
 }
