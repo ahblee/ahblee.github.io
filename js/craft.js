@@ -1,9 +1,10 @@
-const craftWave = document.querySelector(".craft-wave");
+const craftHeart = document.querySelector(".heart");
+const craftGreeting = document.querySelector(".greeting");
 const craftDialog = document.getElementById("craftDialog");
 const craftOpenButtons = document.querySelectorAll("[data-craft-open]");
-const craftCloseButtons = document.querySelectorAll("[data-craft-close]");
+const craftCloseButtons = document.querySelectorAll("[data-close]");
 const craftProjects = document.querySelectorAll("[data-craft-project]");
-const craftPanel = craftDialog?.querySelector(".craft-dialog-panel");
+const craftPanel = craftDialog?.querySelector(".dialog-panel");
 const craftProjectIds = Array.from(craftProjects, (project) => project.dataset.craftProject);
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -11,22 +12,36 @@ let lastFocusedCraftButton = null;
 let activeCraftProjectId = craftProjectIds[0];
 let closeCraftTimer = null;
 
-function triggerCraftWave() {
-  if (!craftWave || craftWave.classList.contains("is-waving")) {
+function triggerCraftHeart() {
+  if (!craftHeart || craftHeart.classList.contains("is-waving")) {
     return;
   }
 
-  craftWave.classList.add("is-waving");
+  craftHeart.classList.add("is-waving");
 }
 
 window.addEventListener("load", () => {
   document.body.classList.add("is-opening-ready");
+
+  if (!reducedMotionQuery.matches) {
+    craftGreeting?.classList.add("is-hover-preview");
+  }
 });
 
-if (craftWave) {
-  craftWave.addEventListener("mouseenter", triggerCraftWave);
-  craftWave.addEventListener("animationend", () => {
-    craftWave.classList.remove("is-waving");
+craftGreeting?.addEventListener("animationend", (event) => {
+  if (event.animationName === "craftHoverTextPreview") {
+    craftGreeting.classList.remove("is-hover-preview");
+  }
+});
+
+craftGreeting?.addEventListener("pointerenter", () => {
+  craftGreeting.classList.remove("is-hover-preview");
+});
+
+if (craftHeart) {
+  craftGreeting?.addEventListener("mouseenter", triggerCraftHeart);
+  craftHeart.addEventListener("animationend", () => {
+    craftHeart.classList.remove("is-waving");
   });
 }
 
@@ -76,7 +91,7 @@ function openCraftProject(projectId, trigger) {
   craftDialog.classList.remove("is-closing");
   setActiveCraftProject(projectId);
 
-  document.body.classList.add("craft-dialog-open");
+  document.body.classList.add("dialog-open");
   craftDialog.showModal();
 }
 
@@ -134,6 +149,6 @@ craftDialog?.addEventListener("keydown", (event) => {
 craftDialog?.addEventListener("close", () => {
   window.clearTimeout(closeCraftTimer);
   craftDialog.classList.remove("is-closing");
-  document.body.classList.remove("craft-dialog-open");
+  document.body.classList.remove("dialog-open");
   lastFocusedCraftButton?.focus();
 });
