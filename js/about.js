@@ -457,6 +457,51 @@ mediaCards.forEach(
 
 
 /* =========================================
+   EXPERIENCE
+   ONLY ONE OPEN AT A TIME
+========================================= */
+
+const experienceItems =
+  Array.from(
+    document.querySelectorAll(
+      ".background-group:not(.education) details.background-item"
+    )
+  );
+
+
+experienceItems.forEach(
+  (item) => {
+
+    item.addEventListener(
+      "toggle",
+      () => {
+
+        if (!item.open) return;
+
+
+        experienceItems.forEach(
+          (other) => {
+
+            if (
+              other !== item &&
+              other.open
+            ) {
+
+              other.open = false;
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+  }
+);
+
+
+/* =========================================
    VIEWER BUTTON
    ⛶
 ========================================= */
@@ -811,5 +856,4 @@ mediaCards.forEach(
 
   }
 );
-
 
