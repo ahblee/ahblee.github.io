@@ -1,12 +1,30 @@
 :root {
-  /* Colors */
+  /* Shared interface palette: page, card and one secondary surface.
+     Craft's landscape and mini-map keep their own illustration palette. */
   --bg: #FBFCFD;
-  --grey-bg: #F8F9FA;
+  --surface: #FFFFFF;
+  --grey-bg: #F4F5F6;
   --accent: #E5A827;
   --text-primary: #2D3449;
-  --text-secondary: #7c818f;
-  --text-muted: #9598a2;
-  --border: rgba(45, 52, 73, 0.08);
+  --text-secondary: #606775;
+  --text-muted: #747985;
+  --text-inverse: var(--surface);
+  --border: #E7E9EC;
+  --border-strong: #D9DDE2;
+  --focus: #7C8198;
+
+  /* Shared tints for floating controls, media, shadows and emphasis. */
+  --surface-floating: color-mix(in srgb, var(--surface) 90%, transparent);
+  --surface-on-dark: color-mix(in srgb, var(--surface) 20%, transparent);
+  --border-on-dark: color-mix(in srgb, var(--surface) 30%, transparent);
+  --text-inverse-muted: color-mix(in srgb, var(--surface) 72%, transparent);
+  --overlay: color-mix(in srgb, var(--text-primary) 44%, transparent);
+  --shadow-soft: color-mix(in srgb, var(--text-primary) 4%, transparent);
+  --shadow-color: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  --shadow-strong: color-mix(in srgb, var(--text-primary) 12%, transparent);
+  --accent-wash: color-mix(in srgb, var(--accent) 5%, transparent);
+  --accent-soft: color-mix(in srgb, var(--accent) 14%, transparent);
+  --accent-border: color-mix(in srgb, var(--accent) 24%, transparent);
 
   /* Typography */
   --font-heading: "Manrope", "Geist", sans-serif;
@@ -16,6 +34,7 @@
   --text-sm: 12.5px;
   --text-md: 13.5px;
   --text-rg: 16px;
+  --text-subheading: 18px;
   --text-lg: 21px;
   --text-xl: 21px;
   --text-2xl: 24px;
@@ -43,9 +62,12 @@
 
   /* Grid */
   --grid-gap: 24px;
+  --card-padding: 24px;
+  --card-padding-compact: 16px;
 
   /* Radius */
   --radius-card: 18px;
+  --radius-inset: 12px;
   --radius-pill: 999px;
 }
 *,
@@ -82,6 +104,10 @@ a {
 a:hover, a:focus {
   color: var(--text-primary);
 }
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
 
 img,
 video {
@@ -114,32 +140,46 @@ p {
   font-family: var(--font-body);
   font-size: var(--text-rg);
   color: var(--text-primary);
-  line-height: var(--leading-tight);
-  letter-spacing: -0.185px;
+  line-height: var(--leading-relaxed);
+  letter-spacing: -.01em;
 }
 
 .buttons {
   display: flex;
-  gap: var(--space-sm);
+  flex-wrap: wrap;
+  gap: var(--space-md);
 }
 .buttons a {
-
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
   font-family: var(--font-heading);
-  font-size: var(--text-sm);
-  color: var(--text-secondary);
-
-  margin-top: 24px;
-
+  font-size: 14px;
+  font-weight: var(--weight-medium);
+  line-height: 1.25;
+  color: var(--text-primary);
+  background: var(--surface);
+  margin-top: 30px;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--border);
-  padding: var(--space-sm) var(--space-md);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-
-  transition: 300ms ease;
+  border: 1px solid var(--border-strong);
+  padding: 9px 18px;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
 }
-.buttons a:hover, .buttons a:focus {
-  border: 1px solid var(--text-muted);
+.buttons .button-primary {
+  color: var(--text-inverse);
+  background: var(--text-primary);
+  border-color: var(--text-primary);
+}
+.buttons .button-primary:hover,
+.buttons .button-primary:focus-visible {
+  background: var(--text-secondary);
+  border-color: var(--text-secondary);
+}
+.buttons .button-secondary:hover,
+.buttons .button-secondary:focus-visible {
+  background: var(--grey-bg);
+  border-color: var(--text-muted);
 }
 
 
@@ -157,7 +197,7 @@ p {
 
   border-radius: var(--radius-pill);
   padding: var(--space-sm) var(--space-sm);
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: var(--surface-floating);
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(1px);
 }
@@ -341,7 +381,7 @@ p {
 }
 .nav-logo:focus-visible {
   outline:
-    1px solid rgba(45, 52, 73, .22);
+    1px solid var(--focus);
 
   outline-offset: 4px;
 }
@@ -565,6 +605,7 @@ footer p {
 @media (max-width: 1024px) {
 
   :root {
+    --page-padding: 24px;
     --leading-relaxed: 1.685;
   }
   
@@ -572,4 +613,11 @@ footer p {
 
 
 
+}
+
+@media (max-width: 520px) {
+  :root {
+    --page-padding: 20px;
+    --card-padding: 20px;
+  }
 }
