@@ -13,6 +13,7 @@ const shouldSkipLoader = window.location.hash === "#work";
 function playHelloWave() {
   if (
     !helloWave ||
+    prefersReducedMotion ||
     helloWave.classList.contains(
       "is-waving"
     )
@@ -30,12 +31,6 @@ function startOpeningAnimation() {
     document.body.classList.add(
       "is-opening-ready"
     );
-
-    if (!prefersReducedMotion) {
-      helloGreeting?.classList.add(
-        "is-hover-preview"
-      );
-    }
   });
 
   setTimeout(
@@ -282,13 +277,7 @@ if (revealPieces.length) {
 if (helloWave) {
   helloGreeting?.addEventListener(
     "pointerenter",
-    () => {
-      helloGreeting.classList.remove(
-        "is-hover-preview"
-      );
-
-      playHelloWave();
-    }
+    playHelloWave
   );
 
   helloWave.addEventListener(
@@ -301,19 +290,6 @@ if (helloWave) {
   );
 
 }
-
-helloGreeting?.addEventListener(
-  "animationend",
-  (event) => {
-    if (
-      event.animationName === "introHoverTextPreview"
-    ) {
-      helloGreeting.classList.remove(
-        "is-hover-preview"
-      );
-    }
-  }
-);
 
 /* --- GRASS --- */
 
@@ -1066,7 +1042,7 @@ if ( objectStage && objectSwitcher && objectPosition && objectLook && objectImg 
       motion: "sway",
 
       glow:
-        "rgba(221, 158, 88, 0.23)",
+        "var(--accent-soft)",
 
       shadowWidth: "82px",
 
@@ -1083,7 +1059,7 @@ if ( objectStage && objectSwitcher && objectPosition && objectLook && objectImg 
       motion: "bob",
 
       glow:
-        "rgba(255, 126, 132, 0.20)",
+        "var(--accent-soft)",
 
       shadowWidth: "48px",
 
@@ -1100,7 +1076,7 @@ if ( objectStage && objectSwitcher && objectPosition && objectLook && objectImg 
       motion: "float",
 
       glow:
-        "rgba(189, 123, 66, 0.19)",
+        "var(--accent-soft)",
 
       shadowWidth: "72px",
 
