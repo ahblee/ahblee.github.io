@@ -5,13 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Craft - Angela</title>
+  <title>Angela Lee</title>
+  <meta name="description" content="Explore Angela’s little neighbourhood of visual design experiments, from Photocrumb and La Bâtie to book design and BobaQuiz.">
 
   <link rel="icon" href="assets/logo.svg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@300;400;500;600&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Manrope:wght@300..700&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="css/global.css">
@@ -19,7 +20,7 @@
 
 </head>
 
-<body>
+<body class="craft-body">
 
 <nav class="site-nav" aria-label="Main navigation">
   <div class="nav-container">
@@ -38,110 +39,52 @@
       </svg>
     </a>
 
-    <a href="craft.html">Craft</a>
-    <a href="https://drive.google.com/file/d/1jJFOqW51bYr0jPNeFUMd1rsVUuqRmTYS/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
+    <a href="craft.html" aria-current="page">Craft</a>
+    <a href="https://drive.google.com/file/d/1_kQtVVlZg5KwPyXN_LUyG0hnvb33Usgo/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
   </div>
 </nav>
 
 <main class="craft-page">
+  <h1 class="sr-only">Craft — Angela’s little neighbourhood of design experiments</h1>
+  <div class="craft-controls" hidden>
+    <nav class="village-map" id="villageMap" aria-label="Village mini map — travel to a project">
+      <svg class="map-landscape" aria-hidden="true"></svg>
+      <div class="map-destinations"></div>
+      <span class="map-player" role="img" aria-label="Your position in the village"></span>
+    </nav>
+  </div>
 
-  <section class="intro" aria-labelledby="craft-landing">
-
-    <div class="greeting opening-intro opening-intro-heart">
-      <span class="heart" aria-hidden="true">🫶</span>
-      <span class="hover-text">Made with care & love</span>
+  <section class="craft-world" id="craftWorld" aria-label="Explore the craft neighbourhood" hidden>
+    <p id="worldInstructions" class="sr-only">Use WASD or the arrow keys to wander. Approach a building and press Enter to visit. Select a mini-map building to travel to its entrance, then press Enter or tap Visit. Movement keys or Escape cancel a trip. Every project also has a Tab/Enter link.</p>
+    <div class="world-stage" id="worldStage" role="group" aria-label="Neighbourhood walking area" aria-describedby="worldInstructions" tabindex="0">
+      <canvas id="worldCanvas" aria-hidden="true"></canvas>
+      <div id="worldDestinations"></div>
     </div>
-
-    <h1 class="opening-intro opening-intro-title">
-      Smaller visual pieces that still earned their spot ✦ ݁˖
-    </h1>
-    
-  </section>
-  
-  <section class="grid" aria-label="Selected craft projects">
-
-    <!-- PROJECT 01 -->
-    <article class="craft-item">
-
-      <button class="craft-card" type="button" data-craft-open="photocrumb" aria-label="Open Photocrumb project">
-
-        <span class="craft-media"><video src="assets/craft/photocrumb-cover.mp4" autoplay muted loop playsinline preload="metadata"></video></span>
-        <span class="card-caption">Photocrumb</span>
-
-      </button>
-
-    </article>
-
-    <!-- PROJECT 02 -->
-    <article class="craft-item">
-      <button class="craft-card" type="button" data-craft-open="labatie" aria-label="Open La Bâtie project">
-        <span class="craft-media">
-          <video src="assets/craft/labatie-cover.mp4" autoplay muted loop playsinline preload="metadata"></video>
-        </span>
-        <span class="card-caption">La Bâtie</span>
-      </button>
-    </article>
-
-    <!-- PROJECT 03 -->
-    <article class="craft-item">
-      <button class="craft-card" type="button" data-craft-open="kosta" aria-label="Open Youth KOSTA project">
-        <span class="craft-media craft-media--soft">
-          <img src="assets/craft/kosta-cover.png" alt="Youth KOSTA poster design" loading="lazy" decoding="async">
-        </span>
-        <span class="card-caption">Youth KOSTA
-        </span>
-      </button>
-    </article>
-
-    <!-- PROJECT 04 -->
-    <article class="craft-item">
-      <!-- <button class="craft-card" type="button" data-craft-open="alice" aria-label="Open Alice book design project"> -->
-        <span class="craft-media craft-media--blue">
-                    <video src="assets/craft/book-cover.mov" autoplay muted loop playsinline preload="metadata"></video>
-
-          <!-- <img src="assets/craft/book-cover.png" alt="Alice's Adventures in Wonderland book design"> -->
-        </span>
-        <span class="card-caption">Alice's Adventures in Wonderland</span>
-      <!-- </button> -->
-    </article> 
-
-    <!-- PROJECT 05 -->
-    <article class="craft-item">
-      <!-- <button class="craft-card" type="button" data-craft-open="fever" aria-label="Open Pearl Fever BobaQuiz project"> -->
-        <span class="craft-media craft-media--pink">
-                              <video src="assets/craft/boba-cover.mov" autoplay muted loop playsinline preload="metadata"></video>
-
-        </span>
-        <span class="card-caption">Pearl Fever BobaQuiz</span>
-      <!-- </button> -->
-    </article> 
-
-    <!-- PROJECT 06 -->
-    <!-- 
-    <article class="craft-item">
-        <span class="craft-media craft-media--green">
-          <img src="assets/craft/magazine-cover.png" alt="WEARdrobe brand and magazine design">
-        </span>
-        <span class="card-caption">
-          <span>WEARdrobe</span>
-          <span>Brand · Magazine</span>
-        </span>
-    </article>  -->
-
+    <aside class="world-welcome" id="worldWelcome" aria-label="Welcome to the neighbourhood">
+      <button type="button" id="dismissWelcome" aria-label="Dismiss walking instructions">×</button>
+      <p class="welcome-title">Take a little wander.</p>
+      <p>Move with <kbd>WASD</kbd> or the <strong>arrow keys</strong>.<br>Stop by a building and press <kbd>Enter</kbd> to visit.</p>
+      <p class="welcome-map">Or pick a place on the mini map.</p>
+    </aside>
+    <p class="world-hint">WASD / arrows to wander · Enter to visit</p>
+    <div class="world-nearby" id="worldNearby" aria-live="polite" aria-atomic="true" hidden><a id="worldVisit" href="#craft-photocrumb">Visit <span></span> <kbd>↵</kbd></a></div>
+    <p class="world-note" id="worldNote" role="status" aria-live="polite"></p>
   </section>
 
-  <!-- Main Content -->
-  <dialog class="dialog" id="craftDialog" aria-labelledby="craftDialogTitle">
-    
-    <div class="dialog-panel">
-
-      <button class="dialog-close" type="button" data-close aria-label="Close project"><span aria-hidden="true">×</span></button>
-
-      <!-- PHOTOCRUMB -->
+  <!-- These native disclosures are the content source and the no-JS experience.
+       Add a project here, then give its ID a location in js/craft-scene.js → PLACES. -->
+  <section class="craft-index" id="craftIndex" aria-labelledby="craftIndexTitle">
+    <div class="index-heading"><h2 id="craftIndexTitle">The little collection</h2><p>Pick something that catches your eye.</p></div>
+    <details class="project-entry" id="craft-photocrumb" data-project-id="photocrumb">
+      <summary><span class="project-number">01</span><span class="project-name">Photocrumb</span><span class="project-kind">UI & visual design</span><span class="project-arrow" aria-hidden="true">↗</span></summary>
       <article class="dialog-project" data-craft-project="photocrumb">
         
-        <div class="dialog-cover">
-          <video data-src="assets/craft/photocrumb-cover.mp4" autoplay muted loop playsinline preload="none"></video>
+        <div class="dialog-cover craft-media" data-craft-media>
+          <div class="craft-media-stage">
+            <img class="craft-media-poster" src="assets/craft/photo-ui.png" alt="A collection of seasonal Photocrumb photo frame designs" loading="lazy" decoding="async">
+            <video data-craft-src="assets/craft/photocrumb-cover.mp4" aria-label="Photocrumb design preview" muted playsinline preload="none" hidden></video>
+          </div>
+          <a class="craft-media-fallback" href="assets/craft/photocrumb-cover.mp4" target="_blank" rel="noopener">Watch the Photocrumb video ↗</a>
         </div>
 
         <div class="dialog-content">
@@ -162,7 +105,7 @@
           <div class="dialog-summary">
 
             <hgroup>
-              <h2 id="craftDialogTitle">Photocrumb</h2>
+              <h2 id="title-photocrumb">Photocrumb</h2>
               <p>Making new memories, season after season.</p>
             </hgroup>
 
@@ -200,12 +143,17 @@
         </div>
 
       </article>
-
-      <!-- LA BATIE -->
+    </details>
+    <details class="project-entry" id="craft-labatie" data-project-id="labatie">
+      <summary><span class="project-number">02</span><span class="project-name">La Bâtie</span><span class="project-kind">Art direction & web</span><span class="project-arrow" aria-hidden="true">↗</span></summary>
       <article class="dialog-project" data-craft-project="labatie">
         
-        <div class="dialog-cover">
-          <video data-src="assets/craft/labatie-cover2.mp4" autoplay muted loop playsinline preload="none"></video>
+        <div class="dialog-cover craft-media" data-craft-media>
+          <div class="craft-media-stage">
+            <img class="craft-media-poster" src="assets/craft/labatie-mockup1.png" alt="La Bâtie festival identity applied to a cassette and its packaging" loading="lazy" decoding="async">
+            <video data-craft-src="assets/craft/labatie-cover2.mp4" aria-label="La Bâtie design preview" muted playsinline preload="none" hidden></video>
+          </div>
+          <a class="craft-media-fallback" href="assets/craft/labatie-cover2.mp4" target="_blank" rel="noopener">Watch the La Bâtie video ↗</a>
         </div>
 
         <div class="dialog-content">
@@ -226,7 +174,7 @@
           <div class="dialog-summary">
 
             <hgroup>
-              <h2 id="craftDialogTitle">La Bâtie</h2>
+              <h2 id="title-labatie">La Bâtie</h2>
               <p>Bringing audiences closer to the artists behind the stage.</p>
             </hgroup>
 
@@ -266,12 +214,19 @@
         </div>
 
       </article>
+    </details>
 
-      <!-- KOSTA -->
-       <article class="dialog-project" data-craft-project="kosta">
+    <details class="project-entry" id="craft-kosta" data-project-id="kosta">
+      <summary><span class="project-number">03</span><span class="project-name">Youth KOSTA</span><span class="project-kind">Visual & spatial design</span><span class="project-arrow" aria-hidden="true">↗</span></summary>
+      <article class="dialog-project" data-craft-project="kosta">
         
-        <div class="dialog-cover">
-          <img src="assets/craft/kosta-cover2.png" alt="Kosta Cover" loading="lazy" decoding="async">
+
+        <div class="craft-media" data-craft-media>
+          <div class="craft-media-stage">
+            <img class="craft-media-poster" src="assets/craft/kosta-cover2.png" alt="Kosta volunteer preview cover" loading="lazy" decoding="async">
+            <video data-craft-src="assets/craft/kosta-cover2.mp4" aria-label="Kosta volunteer preview" muted playsinline preload="none" hidden></video>
+          </div>
+          <a class="craft-media-fallback" href="assets/craft/kosta-cover2.mp4" target="_blank" rel="noopener">Watch the Kosta preview ↗</a>
         </div>
 
         <div class="dialog-content">
@@ -285,19 +240,19 @@
 
             <div class="meta-row"><span>Role</span><p>Visual Designer</p></div>
             <div class="meta-row"><span>Type</span><p>Volunteer</p></div>
-            <div class="meta-row"><span>Team</span><p>4 Designers <br> 7 Volunteers</div>
+            <div class="meta-row"><span>Team</span><p>4 Designers <br> 7 Volunteers</p></div>
 
           </aside>
 
           <div class="dialog-summary">
 
             <hgroup>
-              <h2 id="craftDialogTitle">Youth KOSTA</h2>
+              <h2 id="title-kosta">Youth KOSTA</h2>
               <p>Bringing visual touchpoints to life on-site.</p>
             </hgroup>
 
             <p>
-              As a designer, I created wayfinding posters and helped lead several on-site experiences, including the photo booth, selfie mirror installation, and merch booth. During the photo booth sessions, I managed media, photo printing, payments, and day-of operations, making sure the experience ran smoothly from setup to final print.
+              KOSTA is a three-day Christian youth event bringing together attendees, speakers, and volunteers from across the globe and community. As a designer, I created nine wayfinding poster sets in both horizontal and vertical formats for speakers and key service areas. I also led the setup of the merch booth, photo booth, and a mirror installation used as a selfie zone. During the event, I took the lead on photo booth operations, handling media adjustments, photo printing, payments, and day-of coordination to keep everything running smoothly.
             </p>
 
           </div>
@@ -310,112 +265,45 @@
 
           <div class="gallery-grid" aria-label="Project images">
 
-            <img src="assets/craft/kosta-mirror.png" class="gallery-image" alt="La Batie Mock up 1" loading="lazy" decoding="async">
-            <img src="assets/craft/kosta-team.png" class="gallery-image" alt="La Batie Mock up 2" loading="lazy" decoding="async">
+            <img src="assets/craft/kosta-mirror.png" class="gallery-image" alt="Youth KOSTA mirror installation" loading="lazy" decoding="async">
+            <img src="assets/craft/kosta-mirror2.png" class="gallery-image" alt="Youth KOSTA mirror installation setup" loading="lazy" decoding="async">
+
+            <!-- <img src="assets/craft/kosta-team.png" class="gallery-image" alt="Youth KOSTA event team" loading="lazy" decoding="async"> -->
             
           </div>
 
         </div>
 
       </article>
+    </details>
+    
+    <details class="project-entry" id="craft-alice" data-project-id="alice" data-project-status="Under construction">
+      <summary><span class="project-number">04</span><span class="project-name">Alice’s Adventures in Wonderland</span><span class="project-kind">Book design</span><span class="project-status">Under construction</span></summary>
+      <article class="dialog-project dialog-project--construction" data-craft-project="alice">
+        <span class="project-status">Under construction</span>
+        <h2 id="title-alice">Alice’s Adventures in Wonderland</h2>
+        <p>I’m putting this project together. Check back soon for the full story.</p>
+      </article>
+    </details>
 
+    <details class="project-entry" id="craft-fever" data-project-id="fever" data-project-status="Under construction">
+      <summary><span class="project-number">05</span><span class="project-name">Pearl Fever BobaQuiz</span><span class="project-kind">Interaction design</span><span class="project-status">Under construction</span></summary>
+      <article class="dialog-project dialog-project--construction" data-craft-project="fever">
+        <span class="project-status">Under construction</span>
+        <h2 id="title-fever">Pearl Fever BobaQuiz</h2>
+        <p>I’m putting this project together. Check back soon for the full story.</p>
+      </article>
+    </details>
 
+  </section>
 
-<!-- 
-      
-
-
-      <article class="dialog-project" data-craft-project="alice">
-        <div class="dialog-cover">
-          <img src="assets/craft/book.png" alt="Alice's Adventures in Wonderland book design">
-        </div>
-        <div class="dialog-content">
-          <aside class="dialog-meta" aria-label="Project details">
-            <div class="dialog-eyebrow"><span>Craft</span><span>2022</span></div>
-            <div class="meta-row"><span>Role</span><p>Book Designer</p></div>
-            <div class="meta-row"><span>Focus</span><p>Cover, typography, print layout</p></div>
-            <div class="meta-row"><span>Format</span><p>Book design</p></div>
-          </aside>
-          <div class="dialog-summary">
-            <hgroup>
-              <h2>Alice's Adventures in Wonderland</h2>
-              <p>A print design study built around curiosity and strange scale.</p>
-            </hgroup>
-            <p>
-              This book design interprets the story through playful proportion, quiet color, and hand-drawn details. The goal was to create a reading object that feels whimsical while keeping the structure clean enough for the text to breathe.
-            </p>
-          </div>
-        </div>
-        <div class="placeholder-section">
-          <div class="craft-placeholder-grid" aria-label="Placeholder project images">
-            <div class="craft-placeholder-image"></div>
-            <div class="craft-placeholder-image"></div>
-          </div>
-        </div>
-      </article> -->
-
-      <!-- <article class="dialog-project" data-craft-project="weardrobe">
-        <div class="dialog-cover">
-          <img src="assets/craft/weardrobe.png" alt="WEARdrobe brand and magazine design">
-        </div>
-        <div class="dialog-content">
-          <aside class="dialog-meta" aria-label="Project details">
-            <div class="dialog-eyebrow"><span>Craft</span><span>2022</span></div>
-            <div class="meta-row"><span>Role</span><p>Brand Designer</p></div>
-            <div class="meta-row"><span>Focus</span><p>Editorial system, identity, layout</p></div>
-            <div class="meta-row"><span>Format</span><p>Magazine concept</p></div>
-          </aside>
-          <div class="dialog-summary">
-            <hgroup>
-              <h2>WEARdrobe</h2>
-              <p>A fashion magazine concept centered on personal style systems.</p>
-            </hgroup>
-            <p>
-              WEARdrobe combines brand design and editorial layout to explore how clothing can be presented as a flexible identity system. The project uses bold composition and modular structure to make the magazine feel expressive but organized.
-            </p>
-          </div>
-        </div>
-        <div class="placeholder-section">
-          <div class="craft-placeholder-grid" aria-label="Placeholder project images">
-            <div class="craft-placeholder-image"></div>
-            <div class="craft-placeholder-image"></div>
-          </div>
-        </div>
-      </article> -->
-
-      <!-- <article class="dialog-project" data-craft-project="fever">
-        <div class="dialog-cover">
-          <img src="assets/craft/fever.png" alt="Pearl Fever BobaQuiz web prototype">
-        </div>
-        <div class="dialog-content">
-          <aside class="dialog-meta" aria-label="Project details">
-            <div class="dialog-eyebrow"><span>Craft</span><span>2020</span></div>
-            <div class="meta-row"><span>Role</span><p>Interaction Designer</p></div>
-            <div class="meta-row"><span>Focus</span><p>Quiz flow, visual design, prototype</p></div>
-            <div class="meta-row"><span>Format</span><p>Web prototype</p></div>
-          </aside>
-          <div class="dialog-summary">
-            <hgroup>
-              <h2>Pearl Fever BobaQuiz</h2>
-              <p>A playful quiz concept for choosing a drink match.</p>
-            </hgroup>
-            <p>
-              BobaQuiz turns product discovery into a light interaction. The flow was designed to feel quick and friendly, using expressive visuals and simple choices to help people land on a drink recommendation without making the experience feel transactional.
-            </p>
-          </div>
-        </div>
-        <div class="placeholder-section">
-          <div class="craft-placeholder-grid" aria-label="Placeholder project images">
-            <div class="craft-placeholder-image"></div>
-            <div class="craft-placeholder-image"></div>
-          </div>
-        </div>
-      </article> -->
+  <dialog class="dialog" id="craftDialog" aria-label="Craft project">
+    <div class="dialog-panel">
+      <form method="dialog"><button class="dialog-close" type="submit" aria-label="Close project"><span aria-hidden="true">×</span></button></form>
+      <div id="craftDialogContent"></div>
     </div>
   </dialog>
-
 </main>
-
 
 <footer class="site-footer">
   <div class="footer-inner">
@@ -430,6 +318,10 @@
 </footer>
 
 <script src="js/craft.js"></script>
+<script src="js/vendor/three-r160.min.js"></script>
+<script src="js/craft-scene.js"></script>
+<script src="js/craft-map.js"></script>
+<script src="js/craft-world.js"></script>
 <script src="js/global.js"></script>
 
 </body>
