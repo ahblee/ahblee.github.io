@@ -81,14 +81,14 @@
 
 <main>
 
-    <section class="intro container">
+    <section class="intro container" aria-labelledby="intro-title">
 
         <div class="hello-greeting opening-intro opening-intro-hello">
             <span class="hello-wave" aria-hidden="true">👋</span>
             <span class="hello-hover-text">Hi there!</span>
         </div>
 
-        <h1 class="intro-title opening-intro opening-intro-title">
+        <h1 class="intro-title opening-intro opening-intro-title" id="intro-title">
             I’m Angela, a designer making everyday life and decisions
             <span class="intro-emphasis">simpler</span>
             for people in real contexts.
@@ -96,7 +96,7 @@
 
         <div class="intro-bottom">
             
-            <p class="opening-intro opening-intro-current">Incoming Design Intern @ UBC</p>
+            <p class="opening-intro opening-intro-current">Currently a Design Intern @ UBC, creating digital learning experiences.</p>
 
             <div class="buttons opening-intro opening-intro-actions">
                 <a href="mailto:angela001201@gmail.com">Say hi</a>
@@ -117,7 +117,7 @@
 
                 <div class="grass-card">
 
-                <video class="grass-video" src="assets/img/index/grass.mov" autoplay loop muted playsinline></video>
+                <video class="grass-video" src="assets/img/index/grass.mov" autoplay loop muted playsinline preload="metadata"></video>
 
                 <canvas
                     class="grass-particles"
@@ -190,6 +190,7 @@
                     loop
                     muted
                     playsinline
+                    preload="metadata"
                     ></video>
                 </div>
                 <div class="project-hover-ui">
@@ -212,7 +213,7 @@
             <div class="project-card agcf-card project-card-disabled opening-piece opening-left opening-agcf" aria-label="AGCF project coming soon">
 
                 <div class="project-media">
-                    <img src="assets/img/index/agcf-cover.png" alt="AGCF website redesign">
+                    <img src="assets/img/index/agcf-cover.png" alt="AGCF website redesign" loading="lazy" decoding="async">
                     <span class="project-status-badge">Coming soon</span>
                 </div>
                 <div class="project-hover-ui">
@@ -238,6 +239,7 @@
                     loop
                     muted
                     playsinline
+                    preload="metadata"
                     ></video>
                 </div>
                 
@@ -270,8 +272,8 @@
                 <div class="about-content">
 
                     <div class="about-profile">
-                        <img class="about-photo" src="assets/img/index/me.png" alt="Angela" >
-                        <img class="about-signature" src="assets/img/index/signature.webp" alt="Angela's signature">
+                        <img class="about-photo" src="assets/img/index/me.png" alt="Angela" loading="lazy" decoding="async">
+                        <img class="about-signature" src="assets/img/index/signature.webp" alt="Angela's signature" loading="lazy" decoding="async">
                     </div>
 
                     <div class="experience-list">
@@ -286,7 +288,7 @@
                     <div class="experience-item">
                         <p class="experience-company">AGCF Intern</p>
                         <p class="experience-date">
-                        07/2026 — 08/2026
+                        07/2026 — 09/2026
                         </p>
                     </div>
 
@@ -303,7 +305,7 @@
 
                 </div>
 
-                <img class="about-hover-photo" src="assets/img/index/me2.png" alt="" aria-hidden="true" >
+                <img class="about-hover-photo" src="assets/img/index/me2.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
 
                 <div class="project-hover-ui">
                     <div class="project-hover-pill">
@@ -327,7 +329,7 @@
 
                 <a href="sfu.html" class="project-card sfu-card">
                     <div class="project-media">
-                        <img src="assets/img/index/sfu-cover.png" alt="SFU design work">
+                        <img src="assets/img/index/sfu-cover.png" alt="SFU design work" loading="lazy" decoding="async">
                     </div>
                     <div class="project-hover-ui">
                         <div class="project-hover-pill">
@@ -428,6 +430,8 @@
                     src="assets/img/index/camera.png"
                     alt=""
                     draggable="false"
+                    loading="lazy"
+                    decoding="async"
                 >
                 </span>
             </span>
@@ -441,7 +445,7 @@
         <div class="playful-card skills-orbit-card" id="skillsOrbitCard" >
         <div class="skills-orbit-stage" id="skillsOrbitStage">
             <div class="orbit-me" id="orbitMe">
-            <img src="assets/img/index/orbit.png" alt="Angela" draggable="false">
+            <img src="assets/img/index/orbit.png" alt="Angela" draggable="false" loading="lazy" decoding="async">
             </div>
 
             <span class="orbit-skill">
