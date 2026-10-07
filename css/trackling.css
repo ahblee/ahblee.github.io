@@ -1,19 +1,11 @@
 
 .three-col {
+  display: grid;
+  gap: var(--grid-gap);
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 
-
-.trackling-hero > img {
-  display: block;
-  width: 100%;
-  border-radius: 18px 18px 0 0;
-  background: var(--grey-bg);
-  transform: translate3d(0, var(--hero-cover-y, 0), 0) scale(var(--hero-cover-scale, 1));
-  transform-origin: center center;
-  will-change: transform;
-}
 
 .trackling-cover {
   aspect-ratio: 16 / 8.4;
@@ -31,8 +23,8 @@
   gap: 12px;
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  background: rgba(45, 52, 73, .018);
-  padding: 30px;
+  background: var(--grey-bg);
+  padding: var(--card-padding);
 }
 
 .trackling-stat span,
@@ -69,7 +61,7 @@
 }
 
 .trackling-question p {
-  color: var(--bg);
+  color: var(--text-inverse);
   font-size: clamp(22px, 3vw, 34px);
   font-weight: 500;
   line-height: 1.18;
@@ -77,7 +69,7 @@
 }
 
 .trackling-question span {
-  color: rgba(255, 255, 255, .62);
+  color: var(--text-inverse-muted);
 }
 
 .trackling-image-wrap {
@@ -95,14 +87,14 @@
   margin-top: 16px;
   overflow: hidden;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--radius-card);
   background: var(--bg);
 }
 
 .trackling-table > div {
   display: grid;
   grid-template-columns: minmax(190px, 1.35fr) repeat(3, minmax(110px, .75fr));
-  border-top: 1px solid rgba(45, 52, 73, .06);
+  border-top: 1px solid var(--border);
 }
 
 .trackling-table > div:first-child {
@@ -112,7 +104,7 @@
 
 .trackling-table span {
   padding: 14px 16px;
-  border-left: 1px solid rgba(45, 52, 73, .06);
+  border-left: 1px solid var(--border);
   color: var(--text-secondary);
   font-size: var(--text-sm);
   line-height: 1.35;
@@ -142,11 +134,11 @@
   grid-template-columns: minmax(220px, .42fr) minmax(0, .58fr);
   gap: var(--grid-gap);
   align-items: start;
-  padding: 24px;
-  border-top: 1px solid rgba(45, 52, 73, .07);
-  border-right: 1px solid rgba(45, 52, 73, .055);
-  border-bottom: 1px solid rgba(45, 52, 73, .055);
-  border-left: 1px solid rgba(45, 52, 73, .055);
+  padding: var(--card-padding);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  border-left: 1px solid var(--border);
   border-radius: var(--radius-card);
   background: var(--bg);
 }
@@ -186,7 +178,7 @@
   gap: var(--grid-gap);
   align-items: center;
   padding: 24px 0 0;
-  border-top: 1px solid rgba(45, 52, 73, .07);
+  border-top: 1px solid var(--border);
 }
 
 .trackling-feature > div:not(.media-wrap) {
@@ -204,10 +196,11 @@
 .trackling-phone video {
   width: min(280px, 100%);
   border-radius: 30px;
-  box-shadow: 0 22px 55px rgba(31, 37, 53, .1);
+  box-shadow: 0 22px 55px var(--shadow-strong);
 }
 
 @media (max-width: 900px) {
+  .three-col { grid-template-columns: 1fr; }
   .trackling-cover {
     aspect-ratio: 1.15;
   }
@@ -236,11 +229,5 @@
 
   .iteration-pair {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .trackling-hero > img {
-    transform: none !important;
   }
 }
